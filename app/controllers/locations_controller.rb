@@ -1,11 +1,11 @@
 class LocationsController < ApplicationController 
   before_action :authenticate_user!
   def show
-    @locations = current_user.locations.find_by(:id => params[:location_id])
+    @user_locations = current_user.locations.find_by(:id => params[:location_id])
   end
 
   def index
-    @location = @user.locations
+    @locations = @user.locations
   end
 
   def new

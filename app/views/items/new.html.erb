@@ -6,11 +6,15 @@
   <%= f.text_area :description %>
 
   <%= f.check_box :is_out %>
+  
   <% if @item.is_out %> 
      <%= f.check_box :is_out %>
 
-     <%= f.datetime :due_date %>
+   <%= f.datetime :due_date %>
     <%end%>
+
+		<%= f.text_field :tag_list %>
+
 
   <%= f.submit %>
 

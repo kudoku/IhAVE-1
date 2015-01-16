@@ -1,9 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :index]
   before_action :set_user
   before_action :set_location
   
+  def index 
+  end
   def show
   end
 
@@ -52,7 +54,7 @@ class ItemsController < ApplicationController
     def set_item
       @item =  Item.find_by(id: params[:id], user_id: current_user)    
       # unless current_user.locations.include? @location
-      @items =  Item.find_by(user_id: current_user)
+      @items =  current_user.items
     end
 
     def set_location
@@ -60,7 +62,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :description, :is_out, :date_due)
+      params.require(:item).permit(:name, :description, :is_out, :date_due, :tag_list)
     end
 
 end

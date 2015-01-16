@@ -53,11 +53,11 @@ class LocationsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :description, :is_out)
+      params.require(:item).permit(:title, :description, :is_out, :tag_list)
     end
     
     def location_params
-      params.require(:location).permit(:name, :description)
+      params.require(:location).permit(:name, :description, :tag_list)
     end
 
 end

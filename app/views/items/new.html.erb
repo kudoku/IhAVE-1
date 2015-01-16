@@ -1,2 +1,29 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<%= bootstrap_form_for [@user, @item] do |f| %>
+
+
+  <%= f.text_field :name %>
+
+  <%= f.text_area :description %>
+
+  <%= f.check_box :is_out %>
+  <% if is_out %> 
+     <%= f.check_box :due_date %>
+
+     <%= f.datetime :due_date %>
+    <%end%>
+
+  <%= f.submit %>
+
+<% end %>
+
+create_table "items", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "is_out"
+    t.date     "due_date"
+    t.integer  "location_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+

@@ -7,10 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-info" %>
-	<%= link_to 'Log In', new_user_session_path %>
-
+		
+	<section id="container" >
+		<%= render 'layouts/header' %>
+	</section>
+	<%= render 'layouts/sidebar' %>
+	
+<!--main content start-->
+<section id="main-content">
+  <section class="wrapper">
 <%= yield %>
+	</section>
+</section>
 
 </body>
 </html>

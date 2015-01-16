@@ -4,7 +4,14 @@
           <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
     <!--logo start-->
-    <a href="index.html" class="logo"><b>DASHGUM FREE</b></a>
+    
+    	<!--Not sure how to dry this up-->
+	    <% if signed_in? %>
+		    <%= link_to 'iHAVE', locations_path, class: 'logo' %>
+	    <% else %>
+	    	<%= link_to 'iHAVE', root_path, class: 'logo' %>
+	    <% end %>
+	    
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->

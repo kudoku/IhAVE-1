@@ -6,8 +6,8 @@
   <%= f.text_area :description %>
 
   <%= f.check_box :is_out %>
-  <% if is_out %> 
-     <%= f.check_box :due_date %>
+  <% if @item.is_out %> 
+     <%= f.check_box :is_out %>
 
      <%= f.datetime :due_date %>
     <%end%>
@@ -16,14 +16,4 @@
 
 <% end %>
 
-create_table "items", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.boolean  "is_out"
-    t.date     "due_date"
-    t.integer  "location_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
+	

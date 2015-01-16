@@ -9,14 +9,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = @user.items.build
-    @item.user_id = @user.id
+    
   end
 
   def create
-    @item = @location.item.build(item_params)
-    if @task.save
+    @item = @location.items.build(item_params)
+    @item.user_id = @user.id
+    if @item.save
       flash[:success] = "Item #{@item.name} added."
-      redirect_to user_task_path(@user, @item)
+      redirect_to location_items_path(@location)
     else
       render 'new'
     end

@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     @item = @location.item.build(item_params)
     if @task.save
       flash[:success] = "Item #{@item.name} added."
-      redirect_to user_task_path(@user, @task)
+      redirect_to user_task_path(@user, @item)
     else
       render 'new'
     end

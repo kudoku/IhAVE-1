@@ -1,7 +1,10 @@
 class LocationsController < ApplicationController 
   before_action :authenticate_user!
+  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
+  before_action :set_item
+
   def show
-    @user_locations = current_user.locations.find_by(:id => params[:location_id])
   end
 
   def index
@@ -9,12 +12,29 @@ class LocationsController < ApplicationController
   end
 
   def new
+    @location = Location.new
+  end
+
+  def create
+    @location = @user.locations.build(location_params)
+    @location.save
+    redirect_to @location
   end
 
   def edit
   end
 
+  def update
+    if @location.update_attributes(location_params)
+      redirect_to @location
+    else
+      render :edit
+    end
+  end
+
   def destroy
+    @location.destroy
+    redirect_to locations_url
   end
 
   private
@@ -29,7 +49,7 @@ class LocationsController < ApplicationController
     end
 
     def set_location
-     @locations = current_user.locations.find_by(:id => params[:location_id])
+     @location = current_user.locations.find_by(id: params[:id])
     end
 
     def item_params
@@ -37,7 +57,7 @@ class LocationsController < ApplicationController
     end
     
     def location_params
-      params.require(:loacation).permit(:title, :description)
+      params.require(:location).permit(:name, :description)
     end
 
 end

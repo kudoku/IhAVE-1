@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe ItemsController, :type => :controller do
+	let(:location) { create(:location) }
+  let(:user) { create :user } 
+  before { sign_in user }
 
   describe "GET #index" do
 

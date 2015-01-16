@@ -1,10 +1,15 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle_is_completed]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_user
   before_action :set_location
+  
+  def show
+  end
+
   def new
     @item = @user.items.build
+    @item.user_id = @user.id
   end
 
   def create
@@ -19,28 +24,23 @@ class ItemsController < ApplicationController
 
   def update
     if @task.update_attributes(item_params)
-      redirect_to user_tasks_path
+      redirect_to location_item_path(@location)
     else
       flash[:danger] = "Item creation faild"
       render 'edit'
     end
-
-  def update
-    
   end
 
   def destroy
     @task.delete
-    redirect_to user_tasks_path
+    redirect_to 
     end
 
 
 
 
   private 
-  def show
-    @items =  Item.find_by(user_id: current_user)
-  end
+  
 
   private
 
@@ -50,6 +50,8 @@ class ItemsController < ApplicationController
 
     def set_item
       @item =  Item.find_by(id: params[:id], user_id: current_user)    
+      # unless current_user.locations.include? @location
+      @items =  Item.find_by(user_id: current_user)
     end
 
     def set_location

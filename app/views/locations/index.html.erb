@@ -14,3 +14,8 @@
 	<p>Name: <%= location.name %> <%= link_to 'Edit', edit_location_path(location) %> <%= link_to 'Delete', location_path(location), method: :delete %></p>
 	<p>Description: <%= location.description %></p>
 <% end %>
+
+
+<div class="container">
+	<%= render 'shared/imageTile' %>
+</div>

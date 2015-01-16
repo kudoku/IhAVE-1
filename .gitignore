@@ -14,5 +14,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/.resultset.json
-/index.html
+/coverage

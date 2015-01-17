@@ -1,19 +1,20 @@
 <h1>Items#index</h1>
 <p>Find me in app/views/items/index.html.erb</p>
 
-<% @items.each do |item| %>
+<%if @items %>
+	<% @items.each do |item| %>
 
-  <div class="tasks">
-    <ul>
-      <li><%= item.name %></li>
-      <li><%= item.tag_list %></li>
+  	<div class="items">
+    	<ul>
+      	<li><%= item.name %></li>
+      	<li><%= item.tag_list %></li>
 
 
-      <%= link_to "Show", location_item_path(@location, item), class: "btn btn-success btn-xs" %>
-      <%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %>
-    </ul>
-
-  </div>
+      	<%= link_to "Show", location_item_path(@location, item), class: "btn btn-success btn-xs" %>
+      	<%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %>
+    	</ul>
+    	<%end%>
+    </div>
 <% end %>
 
 

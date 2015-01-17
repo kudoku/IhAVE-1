@@ -11,6 +11,13 @@
 
 <% @locations.each do |location| %>
 	<p>location id: <%= location.id %></p>
-	<p>Name: <%= location.name %> <%= link_to 'Edit', edit_location_path(location) %> <%= link_to 'Delete', location_path(location), method: :delete %></p>
+	
+	<p>Location:<%= link_to location.name, location_items_path(location) %></p>
+	<%= link_to 'New Item', new_location_item_path(location) %>
+	
+
+	
 	<p>Description: <%= location.description %></p>
+
 <% end %>
+

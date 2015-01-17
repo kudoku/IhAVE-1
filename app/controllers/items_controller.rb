@@ -7,48 +7,41 @@ class ItemsController < ApplicationController
   
   
   
-  def index 
-  end
-
-  def show
-  end
-
-  def new
-    @item = @user.items.build
-    
-  end
-
-  def create
-    @item = @location.items.build(item_params)
-    @item.user_id = @user.id
-    if @item.save
-      flash[:success] = "Item #{@item.name} added."
-      redirect_to location_items_path(@location)
-    else
-      render 'new'
-    end
-  end
-
-  def update
-    if @task.update_attributes(item_params)
-      redirect_to location_item_path(@location)
-    else
-      flash[:danger] = "Item creation faild"
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @task.delete
-    redirect_to 
+    def index 
     end
 
+    def show
+    end
 
+    def new
+      @item = @user.items.build
+    end
 
+    def create
+      @item = @location.items.build(item_params)
+      @item.user_id = @user.id
+      if @item.save
+        flash[:success] = "Item #{@item.name} added."
+        redirect_to location_items_path(@location)
+      else
+        render 'new'
+      end
+    end
 
-  private 
-  
+    def update
+      if @task.update_attributes(item_params)
+        redirect_to location_item_path(@location)
+      else
+        flash[:danger] = "Item creation faild"
+        render 'edit'
+      end
+    end
 
+    def destroy
+      @item.delete
+      redirect_to location_path
+    end
+ 
   private
 
     def set_user
@@ -70,5 +63,4 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :description, :is_out, :date_due, :tag_list, :avatar)
     end
-
 end

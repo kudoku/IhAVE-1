@@ -8,9 +8,6 @@ class ItemsController < ApplicationController
   
   
   def index 
-    unless current_user.locations.include? @location
-      redirect_to "http://foaas.com/linus/#{current_user.email}/IhAVE.com" 
-    end
   end
 
   def show
@@ -71,7 +68,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :description, :is_out, :date_due, :tag_list)
+      params.require(:item).permit(:name, :description, :is_out, :date_due, :tag_list, :avatar)
     end
 
 end

@@ -5,6 +5,9 @@ class LocationsController < ApplicationController
   before_action :set_item
 
   def show
+    unless current_user.locations.include? @location
+      redirect_to "http://foaas.com/linus/#{current_user.email}/IhAVE.com" 
+    end
   end
 
   def index
@@ -53,7 +56,7 @@ class LocationsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :description, :is_out, :tag_list)
+      params.require(:item).permit(:title, :description, :is_out, :tag_list, :avatar)
     end
     
     def location_params

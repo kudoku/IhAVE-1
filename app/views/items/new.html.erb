@@ -1,6 +1,8 @@
+
 <%= bootstrap_form_for [@location, @item] do |f| %>
 
-
+<%= f.file_field :avatar %>
+  
   <%= f.text_field :name %>
 
   <%= f.text_area :description %>

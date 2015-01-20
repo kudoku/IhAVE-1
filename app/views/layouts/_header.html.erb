@@ -16,11 +16,11 @@
     <div class="top-menu">
     	<ul class="nav pull-right top-menu">
 			<% if !current_user %>
-        <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signUp" data-id="sign-up">Sign Up</button></li>
-        <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signIn" data-id="sign-in">Sign In</button></li>
+                <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signUp" data-id="sign-up">Sign Up</button></li>
+                <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signIn" data-id="sign-in">Sign In</button></li>
 			<% else %>
 				<li><%= link_to 'Logout', destroy_user_session_path, class: "btn btn-info logout", method: :delete %></li>
-			<%end%>
+			<% end %>
             
     	</ul>
     </div>

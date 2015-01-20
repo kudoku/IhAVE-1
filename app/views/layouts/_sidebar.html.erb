@@ -4,23 +4,34 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <% if current_user %>
-        	  <p class="centered"><a href="<%= locations_url %>"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+        	  <p class="centered"><a href="<%= locations_url %>">
+                <img src="<%= current_user.avatar.url %>" class="img-circle" width="60"></a>
+            </p>
         	  <h5 class="centered">
                 <%= current_user.username %>
+                <% if !current_user.avatar.url %>
+                 <%= form_for current_user, :url => user_session_path, :html => { :multipart => true } do |form| %>
+                            <%= form.file_field :avatar %>
+                     <% end %>
+                   
+                <% end %>
+
+
             </h5>
       	  	<% end %>
 
             <li class="mt">
                 <a class="active" href="index.html">
                     <i class="fa fa-dashboard"></i>
-                    <span>Dashboard</span>
+                    <span> <%= link_to 'My Locations', locations_path %> </span>  
+          
                 </a>
             </li>
 
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-desktop"></i>
-                    <span>UI Elements</span>
+                    <span> my locations<%= link_to 'My Locations', locations_path %> </span>
                 </a>
                 <ul class="sub">
                     <li><a  href="general.html">General</a></li>
@@ -57,7 +68,7 @@
                     <span>Forms</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="form_component.html">Form Components</a></li>
+                    <li><%= link_to 'My Locations', locations_path %></li>
                 </ul>
             </li>
             <li class="sub-menu">
@@ -71,9 +82,10 @@
                 </ul>
             </li>
             <li class="sub-menu">
+                <%= link_to 'About the team', static_pages_about_path %>
                 <a href="javascript:;" >
                     <i class=" fa fa-bar-chart-o"></i>
-                    <span>Charts</span>
+                    <span>About the team</span>
                 </a>
                 <ul class="sub">
                     <li><a  href="morris.html">Morris</a></li>

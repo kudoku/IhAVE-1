@@ -9,6 +9,7 @@
 	
 </div>
 
+
 <div class="container">
 	<div class="row image-tiles">
 		<% @locations.each do |location| %>
@@ -26,4 +27,16 @@
 	</div>
 </div>
 
+<% @locations.each do |location| %>
+	<p>location id: <%= location.id %></p>
+	
+	<p>Location:<%= link_to location.name, location_items_path(location) %></p>
+	<%= link_to 'New Item', new_location_item_path(location) %>
+
+
+	
+	<p>Description: <%= location.description %></p>
+
+
+<% end %>
 

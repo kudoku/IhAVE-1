@@ -34,6 +34,7 @@ body {
 	text-align: center;
 	border: solid 1px;
 	padding: 10px;
+	position: relative;
 	background: #424a5d;
 	-webkit-transition-property: opacity;
 	-moz-transition-property: opacity;
@@ -54,7 +55,20 @@ body {
 	opacity: 0.9;
 }
 
+.show-image-tile {
+	opacity: 0;
+}
+
 .image-tiles {
+
+}
+
+.image {
+	height: 300px;
+	width: 300px;
+	border: solid 1px;
+	margin: 0 auto;
+	// position: absolute;
 
 }
 

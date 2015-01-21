@@ -7,6 +7,7 @@
 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUp">
 		  Organize your life
 		</button>
+		<%= link_to "Sign in with Google+", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-primary btn-lg" %>
 
 		<!-- Modal -->
 		<div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

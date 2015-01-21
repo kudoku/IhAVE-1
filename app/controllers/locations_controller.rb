@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
   def create
     @location = @user.locations.build(location_params)
     @location.save
-    redirect_to @location
+    redirect_to locations_path
   end
 
   def edit

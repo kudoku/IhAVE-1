@@ -41,7 +41,7 @@ group :development, :test do
 end
 
 gem 'dotenv-rails', :groups => [:development, :test]
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
 
 gem 'simplecov', :require => false, :group => :test
 

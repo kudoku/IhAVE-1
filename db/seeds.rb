@@ -6,11 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = User.create([[email: 'test@test.com', password: 'password', password_confirmation: 'password'],
-                    [email: 'test@gmail.com', password: 'password', password_confirmation: 'password']])
+users = User.create([[email: 'test@test.com', password: 'password', password_confirmation: 'password', 
+                      username: 'TESTaBEST', bio:'lorem ipsum'],
+                     [email: 'test@gmail.com', password: 'password', password_confirmation: 'password',
+                      username: 'cats', bio:'lorem ipsum']])
                     
 
 
 locations = Location.create([[name: 'dpl', description: 'haxors', user_id: 1],
                             [name: 'home', description: 'asdf', user_id: 1],
                             [name: 'home', description: 'asdf', user_id: 2]])
+
+items = Item.create([[name: 'macbooks', description: 'so expensive', is_out: false, location_id: 1, user_id: 1],
+                     [name: 'macbooks', description: 'so expensive', is_out: false, location_id: 1, user_id: 2]])

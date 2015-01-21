@@ -5,6 +5,9 @@ class LocationsController < ApplicationController
   before_action :set_item
 
   def show
+    unless current_user.locations.include? @location
+      redirect_to "http://foaas.com/linus/#{current_user.email}/IhAVE.com" 
+    end
   end
 
   def index
@@ -18,7 +21,7 @@ class LocationsController < ApplicationController
   def create
     @location = @user.locations.build(location_params)
     @location.save
-    redirect_to @location
+    redirect_to locations_path
   end
 
   def edit
@@ -53,11 +56,11 @@ class LocationsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :description, :is_out)
+      params.require(:item).permit(:title, :description, :is_out, :tag_list, :avatar)
     end
     
     def location_params
-      params.require(:location).permit(:name, :description)
+      params.require(:location).permit(:name, :description, :tag_list)
     end
 
 end

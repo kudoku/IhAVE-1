@@ -40,10 +40,10 @@ body {
 	-moz-transition-property: opacity;
 	-o-transition-property: opacity;
 	transition-property: opacity;
-	-webkit-transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-o-transition-duration: 1s;
-	transition-duration: 1s;
+	-webkit-transition-duration: 1.2s;
+	-moz-transition-duration: 1.2s;
+	-o-transition-duration: 1.2s;
+	transition-duration: 1.2s;
 	-webkit-transition-timing-function: linear;
 	-moz-transition-timing-function: linear;
 	-o-transition-timing-function: linear;
@@ -51,12 +51,14 @@ body {
 
 }
 
-.image-tile:hover {
+.image-tile:hover  {
 	opacity: 0.9;
 }
 
+
+
 .show-image-tile {
-	opacity: 0;
+	opacity: 1;
 }
 
 .image-tiles {
@@ -77,6 +79,12 @@ body {
 	text-align: center;
 }
 
+
+// form styling
+.form-actions {
+	padding: 10px;
+	text-align: center;
+}
 
 // bootstrap overrides
 .modal-header {

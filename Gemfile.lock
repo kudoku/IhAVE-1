@@ -47,6 +47,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    cancancan (1.10.1)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     climate_control (0.0.3)
@@ -203,6 +204,7 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rolify (3.5.2)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -282,6 +284,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-will_paginate
   bootstrap_form
+  cancancan (~> 1.10)
   coffee-rails (~> 4.0.0)
   devise
   dotenv-rails
@@ -299,6 +302,7 @@ DEPENDENCIES
   pry-byebug
   rails (= 4.1.8)
   rails_12factor (= 0.0.2)
+  rolify
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

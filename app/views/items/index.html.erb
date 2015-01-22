@@ -12,7 +12,7 @@
       <%if @items %>
 	      <% @items.each do |item| %>
           <div class="col-xs-12 col-md-6 col-lg-4 display">
-            <img src="http://beerhold.it/350/350/g" alt="Beerhold.it" class="img-circle">
+            <%= image_tag item.avatar.url %>
             <p><strong> Item: <%= item.name %></strong></p>
             <p><%= item.description %></p>
             <%= item.tag_list %>
@@ -20,23 +20,6 @@
             
           </div>
          <%end%>
-
-
-<%if @items %>
-	<% @items.each do |item| %>
-
-  	<div class="items">
-    	<ul>
-        <%= image_tag item.avatar.url %>
-      	<li><%= item.name %></li>
-      	<li><%= item.tag_list %></li>
-
-          <p><%= link_to 'New Item', new_location_item_path(location), class: 'btn btn-primary' %></p>
-      	<%= link_to "Show", location_item_path(@location, item), class: "btn btn-success btn-xs" %>
-      	<%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-xs" %>
-    	</ul>
-    	<%end%>
-    </div>
   </div>
    
      

@@ -1,23 +1,26 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user
+  before_action :set_user, except: [:index]
   before_action :set_location
   before_action :set_item, only: [:show, :edit, :update, :destroy, :index]
   before_action :set_items, only: [:index]
   
   
   
-    def index 
+    def index
+      @user = User.find(@location.user_id)
     end
 
     def show
+
     end
+
 
     def new
       @item = @user.items.build
     end
 
-    def create
+  def create
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
       if @item.save

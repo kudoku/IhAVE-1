@@ -17,3 +17,5 @@
 /coverage
 /public/system/users/avatars
 .rspec
+.env
+

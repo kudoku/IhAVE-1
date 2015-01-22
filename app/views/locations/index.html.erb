@@ -1,13 +1,9 @@
 <h1>Here be ye dragons</h1>
 
-
-
 <p>Hi user: <%= @user.id %></p>
+
 <div class="center-text">
-	
-		<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>
-	
-	<%= paginate @locations %>
+	<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>
 </div>
 
 
@@ -28,22 +24,8 @@
 				</div>
 			</div>
 		</section>
-			
-
 		<% end %>
+		<%= paginate @locations %>
 	</div>
 </div>
-
-<% @locations.each do |location| %>
-	<p>location id: <%= location.id %></p>
-	
-	<p>Location:<%= link_to location.name, location_items_path(location) %></p>
-	<%= link_to 'New Item', new_location_item_path(location) %>
-
-
-	
-	<p>Description: <%= location.description %></p>
-
-
-<% end %>
 

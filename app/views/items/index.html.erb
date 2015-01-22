@@ -10,7 +10,7 @@
       	<li><%= item.name %></li>
       	<li><%= item.tag_list %></li>
 
-          <p><%= link_to 'New Item', new_location_item_path(location), class: 'btn btn-primary' %></p>
+          <p><%= link_to 'New Item', new_location_item_path(@location), class: 'btn btn-primary' %></p>
       	<%= link_to "Show", location_item_path(@location, item), class: "btn btn-success btn-xs" %>
       	<%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-xs" %>
     	</ul>

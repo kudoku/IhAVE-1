@@ -12,10 +12,11 @@ users = User.create([[email: 'test@test.com', password: 'password', password_con
                       username: 'cats', bio:'lorem ipsum']])
                     
 
-
-locations = Location.create([[name: 'dpl', description: 'haxors', user_id: 1],
-                            [name: 'home', description: 'asdf', user_id: 1],
-                            [name: 'home', description: 'asdf', user_id: 2]])
+10.times do
+  locations = Location.create([[name: 'dpl', description: 'haxors', user_id: 1],
+                              [name: 'home', description: 'asdf', user_id: 1],
+                              [name: 'home', description: 'asdf', user_id: 2]])
+end
 
 items = Item.create([[name: 'macbooks', description: 'so expensive', is_out: false, location_id: 1, user_id: 1],
                      [name: 'macbooks', description: 'so expensive', is_out: false, location_id: 1, user_id: 2]])

@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-
+  #Get the picture from a given url.
+  def avatar_from_url(url)
+    self.avatar = open(url)
+  end
 
   # google auth
   def self.from_omniauth(auth)
@@ -18,7 +21,12 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name   # assuming the user model has a name
-      # user.image = auth.info.image # assuming the user model has an image
+      # user.avatar_file_name = URI.parse(auth.info.image) # assuming the user model has an image
+      puts "\n********************************************************"
+      puts "#{auth.info}"
+      puts "\n********************************************************"
+      user.avatar_from_url(auth.info.image) # assuming the user model has an image
+      # raise error
     end
   end
 
@@ -28,6 +36,10 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def picture_from_url(url)
+    URI.parse(url)
   end
 
 end

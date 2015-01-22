@@ -119,6 +119,9 @@ GEM
       railties (>= 3.2.16)
     json (1.8.2)
     jwt (1.2.0)
+    kaminari (0.16.2)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.9.3)
     listen (2.8.5)
       celluloid (>= 0.15.2)
@@ -289,6 +292,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  kaminari
   omniauth-google-oauth2
   paperclip (~> 4.2)
   pg

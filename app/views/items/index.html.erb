@@ -6,6 +6,7 @@
   <div class="container-fluid">
     <div class ="row image-tiles">
       <%if @items %>
+
 	      <% @items.each do |item| %>
           <div class="col-xs-12 col-md-6 col-lg-4 display">
             <img src="http://beerhold.it/350/350/g" alt="Beerhold.it" class="img-circle">
@@ -13,10 +14,10 @@
             <p><%= item.description %></p>
             <%= item.tag_list %>
             <p class="text-center"><%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %></p>
-            
-          </div>
-         <%end%>
 
+          </div>
+
+         <%end%>
     </div>
   </div>
    

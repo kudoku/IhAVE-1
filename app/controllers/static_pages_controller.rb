@@ -2,7 +2,6 @@ class StaticPagesController < ApplicationController
   before_action :logged_in_redirect
 
   def home
-
   end
 
   def about

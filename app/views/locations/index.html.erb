@@ -7,11 +7,13 @@
 	
 		<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>
 	
+	<%= paginate @locations %>
 </div>
 
 
 <div class="container">
 	<div class="row image-tiles">
+		
 		<% @locations.each do |location| %>
 		<section class="parent">
 			<div class="col-xs-6 .col-sm-4 image-tile">

@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = @user.locations
+    @locations = @user.locations.page(params[:page])
   end
 
   def new

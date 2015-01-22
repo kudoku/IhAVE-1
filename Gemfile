@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # pagination
 gem 'kaminari'
 
+
 # g+omniauth
 gem 'omniauth-google-oauth2'
 
@@ -47,8 +48,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'will_paginate'
-  gem 'bootstrap-will_paginate'
+  # gem 'bootstrap-will_paginate'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

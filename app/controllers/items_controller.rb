@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 
     def destroy
       @item.delete
-      redirect_to location_path
+      redirect_to location_items_path(@location)
     end
  
   private

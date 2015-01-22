@@ -26,12 +26,42 @@
 	box-sizing: border-box;
 }
 
+body {
+	text-align: center;
+	background-color: #696969;
+}
+
 .image-tile {
 	text-align: center;
+	border: solid 1px;
+	padding: 10px;
+	background: #424a5d;
+	-webkit-transition-property: opacity;
+	-moz-transition-property: opacity;
+	-o-transition-property: opacity;
+	transition-property: opacity;
+	-webkit-transition-duration: 1s;
+	-moz-transition-duration: 1s;
+	-o-transition-duration: 1s;
+	transition-duration: 1s;
+	-webkit-transition-timing-function: linear;
+	-moz-transition-timing-function: linear;
+	-o-transition-timing-function: linear;
+	transition-timing-function: linear;
+
+}
+
+.image-tile:hover {
+	opacity: 0.9;
 }
 
 .image-tiles {
 
+}
+
+
+.center-text {
+	text-align: center;
 }
 
 

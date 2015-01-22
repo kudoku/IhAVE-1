@@ -9,6 +9,13 @@ RSpec.describe LocationsController, :type => :controller do
 
   describe "GET #show" do
 
+    it "assigns requested location to @location" do
+      location = create(:location)
+      get :show, id: location
+      expect(assigns(:location)).to eq location
+    end
+
+
     it "returns http success" do
       get :show, id: location.id
       expect(response).to have_http_status(:success)

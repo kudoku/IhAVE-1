@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/environment.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/application.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/application.rb": [
         1,
         null,
         1,
@@ -33,13 +33,13 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/boot.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/environments/test.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/environments/test.rb": [
         1,
         null,
         null,
@@ -80,7 +80,7 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/assets.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -90,7 +90,7 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/backtrace_silencers.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -99,12 +99,12 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/cookies_serializer.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/devise.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/devise.rb": [
         null,
         null,
         1,
@@ -365,13 +365,13 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/filter_parameter_logging.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/inflections.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -389,18 +389,18 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/mime_types.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/session_store.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/initializers/wrap_parameters.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -416,13 +416,13 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/models/location.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/app/models/location.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/config/routes.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/config/routes.rb": [
         1,
         null,
         1,
@@ -489,7 +489,7 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/models/user.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/app/models/user.rb": [
         1,
         null,
         null,
@@ -500,42 +500,8 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/helpers/application_helper.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/app/helpers/application_helper.rb": [
         1,
-        null
-      ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/helpers/items_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/helpers/locations_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/helpers/static_pages_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/models/item.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/controllers/items_controller.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
         1,
         0,
         null,
@@ -546,60 +512,55 @@
         null,
         1,
         0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/controllers/locations_controller.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/app/helpers/items_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/app/helpers/locations_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/app/helpers/static_pages_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/app/models/item.rb": [
         1,
         1,
         1,
         1,
         1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/app/controllers/items_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
         null,
         1,
         null,
@@ -608,20 +569,11 @@
         0,
         null,
         null,
-        1,
-        0,
-        null,
         null,
         1,
         0,
         0,
         0,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
         0,
         0,
         null,
@@ -633,6 +585,21 @@
         0,
         0,
         null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
         null,
         1,
         null,
@@ -640,13 +607,12 @@
         1,
         null,
         null,
-        null,
         1,
         1,
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         1,
@@ -659,16 +625,188 @@
         null,
         null
       ],
-      "/Users/carolhammon/Sites/capstone/IhAVE/app/controllers/static_pages_controller.rb": [
+      "/Users/kudo/projects/capstone/IhAVE-1/app/controllers/locations_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/app/controllers/registrations_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/app/controllers/static_pages_controller.rb": [
         1,
         1,
         null,
         null,
+        1,
+        null,
+        null
+      ],
+      "/Users/kudo/projects/capstone/IhAVE-1/db/schema.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1421434080
+    "timestamp": 1421777859
   }
 }

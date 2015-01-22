@@ -38,8 +38,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def picture_from_url(url)
-    URI.parse(url)
-  end
-
 end

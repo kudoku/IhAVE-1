@@ -1,21 +1,30 @@
-<h1><%= @location.name.upcase %> Inventory</h1>
 
+<section class="content">
+<h1> <%= @location.name.upcase %> Items:<%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary"  %>
+     <%= link_to "Back", locations_path, class:"btn btn-primary" %>
+</h1>
+  
 
-<%if @items %>
-	<% @items.each do |item| %>
+  
+  <div class="container-fluid">
+    <div class ="row image-tiles">
+      <%if @items %>
+	      <% @items.each do |item| %>
+          <div class="col-xs-12 col-md-6 col-lg-4 display">
+            <%= image_tag item.avatar.url %>
+            <p> <strong> Item: <%= item.name %> </strong> </p>
+            <p><%= item.description %></p>
+            <%= item.tag_list %>
+            <p class="text-center"><%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %></p>
+            
+          </div>
+         <%end%>
+  </div>
+   
+     
 
-  	<div class="items">
-    	<ul>
-        <%= image_tag item.avatar.url %>
-      	<li><%= item.name %></li>
-      	<li><%= item.tag_list %></li>
-
-          <p><%= link_to 'New Item', new_location_item_path(@location), class: 'btn btn-primary' %></p>
-      	<%= link_to "Show", location_item_path(@location, item), class: "btn btn-success btn-xs" %>
-      	<%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-xs" %>
-    	</ul>
-    	<%end%>
-    </div>
+   
+  
 <% end %>
 
-
+</section>

@@ -1,8 +1,9 @@
 <h1>Locations#show</h1>
 <p>Find me in app/views/locations/show.html.erb</p>
-
+<% if @location %>
 <%= @location.name %>
 <%= @location.description %>
+    <% end %>
 
 
 <p><%= link_to 'Back', locations_path %></p>

@@ -5,13 +5,18 @@ class LocationsController < ApplicationController
   before_action :set_item
 
   def show
-    unless current_user.locations.include? @location
-      redirect_to "http://foaas.com/linus/#{current_user.email}/IhAVE.com" 
-    end
+    # unless current_user.locations.include? @location
+    #   redirect_to "http://foaas.com/linus/#{current_user.email}/IhAVE.com"
+    # end
   end
 
   def index
-    @locations = @user.locations
+    @locations = @user.locations.order('name ASC').page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js 
+    end
   end
 
   def new

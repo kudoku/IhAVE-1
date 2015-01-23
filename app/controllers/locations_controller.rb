@@ -34,7 +34,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update_attributes(location_params)
-      redirect_to @location
+      redirect_to locations_path #it would redirect to locations_show, instead of locations_path
     else
       render :edit
     end

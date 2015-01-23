@@ -9,22 +9,16 @@
   <div class="container-fluid">
     <div class ="row image-tiles">
       <%if @items %>
-	      <% @items.each do |item| %>
+        <% @items.each do |item| %>
           <div class="col-xs-12 col-md-6 col-lg-4 display">
             <%= image_tag item.avatar.url %>
             <p> <strong> Item: <%= item.name %> </strong> </p>
             <p><%= item.description %></p>
             <%= item.tag_list %>
             <p class="text-center"><%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %></p>
-            
           </div>
+    </div>
          <%end%>
   </div>
-   
-     
-
-   
-  
-<% end %>
-
+        <% end %>
 </section>

@@ -18,5 +18,8 @@
 /public/system/users/avatars
 .rspec
 .env
+<<<<<<< HEAD
+=======
 .idea
+>>>>>>> master
 

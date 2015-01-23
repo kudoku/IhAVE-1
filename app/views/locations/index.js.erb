@@ -1,0 +1,7 @@
+$('.image-tiles').append('<%= j render @locations %>');
+<% if @locations.next_page %>
+  $('.pagination').replaceWith('<%= j paginate @locations %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

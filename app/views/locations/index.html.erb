@@ -1,47 +1,20 @@
 <h1>Here be ye dragons</h1>
 
-
-
 <p>Hi user: <%= @user.id %></p>
+
 <div class="center-text">
-	
-		<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>
-	
+	<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>
 </div>
 
 
 <div class="container">
 	<div class="row image-tiles">
 		<% @locations.each do |location| %>
-		<section class="parent">
-			<div class="col-xs-6 .col-sm-4 image-tile">
-				<h3><%= link_to location.name, location_items_path(location) %></h3>
-				<div class = "show-image-tile">
-					<p><%= link_to 'Edit', edit_location_path(location), class: 'btn btn-primary' %> <%= link_to 'Delete', location_path(location), method: :delete, class: 'btn btn-primary' %></p>
-					<p><%= location.description %></p>				
-				</div>
-				<p><%= link_to 'New Item', new_location_item_path(location), class: 'btn btn-primary' %></p>
-				<div class = "image">
-					<img src="http://placekitten.com/g/300/300">
-				</div>
-			</div>
-		</section>
-			
-
+			<%= render partial: 'location', locals: {location: location} %>
 		<% end %>
+		<div id="infinite-scrolling">
+			<%= paginate @locations %>
+		</div>
 	</div>
 </div>
-
-<% @locations.each do |location| %>
-	<p>location id: <%= location.id %></p>
-	
-	<p>Location:<%= link_to location.name, location_items_path(location) %></p>
-	<%= link_to 'New Item', new_location_item_path(location) %>
-
-
-	
-	<p>Description: <%= location.description %></p>
-
-
-<% end %>
 

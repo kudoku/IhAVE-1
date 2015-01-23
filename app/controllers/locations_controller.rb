@@ -11,7 +11,12 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = @user.locations
+    @locations = @user.locations.order('name ASC').page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js 
+    end
   end
 
   def new

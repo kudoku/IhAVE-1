@@ -1,29 +1,44 @@
-<!--header start-->
-<header class="header black-bg">
-      <div class="sidebar-toggle-box">
-          <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-      </div>
-    <!--logo start-->
+<!-- Nav -->
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <% if current_user %>
     
-	    <% if signed_in? %>
-		    <%= link_to 'iHAVE', locations_path, class: 'logo' %>
-	    <% else %>
-	    	<%= link_to 'iHAVE', root_path, class: 'logo' %>
-	    <% end %>
-	    
-    <!--logo end-->
+<!-- Menu toggle button -->
+        
+          <button id="dLabel" class="btn btn-primary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="align"> 
+            <i class="fa fa-bars"></i>
+          </button>
+        
 
-    <div class="top-menu">
-    	<ul class="nav pull-right top-menu">
-			<% if !current_user %>
-                <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signUp" data-id="sign-up">Sign Up</button></li>
-                <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signIn" data-id="sign-in">Sign In</button></li>
-			<% else %>
-				<li><%= link_to 'Logout', destroy_user_session_path, class: "btn btn-info logout", method: :delete %></li>
-			<% end %>
-            
-    	</ul>
+ <!-- Menu toggle items -->
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li><% current_user.locations.each do |location| %></li>
+            <li><%= link_to location.name, location_items_path(location) %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+<!-- Logo -->
+      <a class="navbar-brand"> 
+        <% if signed_in? %>
+          <%= link_to 'iHAVE', locations_path, class: 'logo' %>
+        <% else %>
+          <%= link_to 'iHAVE', root_path, class: 'logo' %>
+        <% end %>
+      </a>
+
+<!-- Log out -->
+    <div class="pull-right" style="float:right"> 
+      <ul>
+        <% if !current_user %> <!-- WTF is this? -->
+          <li><button type="button" class="btn btn-primary logout" data-toggle="modal" data-target="#signUp" data-id="sign-up"><%= link_to 'Logout', destroy_user_session_path, class: "btn btn-info logout", method: :delete %></button></li>
+          <li><button type="button" class="btn btn-primary logout" data-toggle="modal" data-target="#signIn" data-id="sign-in">Sign In</button></li>
+        <% else %>
+          <li><%= link_to 'Logout', destroy_user_session_path, class: "btn btn-primary logout", method: :delete %></li>
+        <% end %>      
+      </ul>
     </div>
-    
-</header>
-<!--header end-->
+  </div>
+</nav>

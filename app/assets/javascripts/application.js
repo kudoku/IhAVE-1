@@ -18,13 +18,4 @@
 //= require_tree .
 
 
-$('.dropdown-toggle').dropdown()
-
-// infinite scroll, still need to implement media query mobile check
-$(document).ready ->
-  $("#links .page").infinitescroll
-    navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
-    nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
-    itemSelector: "#links tr.link" # selector for all items you'll retrieve
-
 

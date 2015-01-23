@@ -2,7 +2,7 @@
 
 
 
-<p>Hi user: <%= @user.id %></p>
+<p>Hi user: <%= current_user.email %></p>
 <div class="center-text">
 	
 		<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>
@@ -32,7 +32,7 @@
 	</div>
 </div>
 
-<% @locations.each do |location| %>
+<!--<% @locations.each do |location| %>
 	<p>location id: <%= location.id %></p>
 	
 	<p>Location:<%= link_to location.name, location_items_path(location) %></p>
@@ -43,5 +43,5 @@
 	<p>Description: <%= location.description %></p>
 
 
-<% end %>
+<% end %>  -->
 

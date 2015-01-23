@@ -26,13 +26,7 @@
 
     /*sidebar*/
 
-    #sidebar {
-        height: auto;
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        /*z-index: 1001;
-    }
+
 
 
     /* body container */
@@ -41,7 +35,7 @@
         position: none !important;
     }
 
-    #sidebar > ul > li > a > span {
+/*    #sidebar > ul > li > a > span {
         line-height: 35px;
     }
 
@@ -56,7 +50,7 @@
     }
     #sidebar > ul > li > a i{
         /*display: none !important;*/
-    }
+    /*}
 
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
         margin-right: 10px;
@@ -79,12 +73,12 @@
     }
 
 
-    /* sidebar */
+    /* sidebar 
     #sidebar {
         margin: 0px !important;
     }
 
-    /* sidebar collabler */
+    /* sidebar collabler 
     #sidebar .btn-navbar.collapsed .arrow {
         display: none;
     }
@@ -99,7 +93,7 @@
         border-left: 15px solid transparent;
         border-right: 15px solid transparent;
     }
-
+*//*/*/
 
     /*---------*/
 

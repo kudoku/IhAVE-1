@@ -11,7 +11,7 @@
       <%if @items %>
         <% @items.each do |item| %>
           <div class="col-xs-12 col-md-6 col-lg-4 display">
-            <%= image_tag item.avatar.url %>
+            <%= image_tag item.avatar.url(:medium) %>
             <p> <strong> Item: <%= item.name %> </strong> </p>
             <p><%= item.description %></p>
             <%= item.tag_list %>

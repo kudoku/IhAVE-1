@@ -7,12 +7,12 @@ RSpec.describe LocationsController, :type => :controller do
   let(:user) { create :user } 
   before { sign_in user }
 
-  # describe "GET #show" do
+  describe "gets #show" do
 
     it "assigns requested location to @location" do
       location = create(:location)
       get :show, id: location
-      expect(assigns(:location)).to eq location
+      expect(assigns(:location)).should == :location
     end
 
 
@@ -22,7 +22,7 @@ RSpec.describe LocationsController, :type => :controller do
       expect(response).to have_http_status(:success)
     end
     
-  # end
+  end
 
 
   describe "Patch #update" do
@@ -50,5 +50,6 @@ RSpec.describe LocationsController, :type => :controller do
     end
 
   end 
+
 
 end

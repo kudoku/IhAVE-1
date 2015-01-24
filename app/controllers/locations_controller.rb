@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :set_user
-  before_action :set_item
+  before_action :set_item, ounly: [:show]
 
   def show
     # unless current_user.locations.include? @location
@@ -24,9 +24,14 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = @user.locations.build(location_params)
-    @location.save
-    redirect_to locations_path
+      @location = current_user.locations.build(location_params)
+      @location.user_id = @user.id
+      if @location.save
+        flash[:success] = "Location #{@location.name} added."
+        redirect_to locations_path(@location)
+      else
+        render 'new'
+      end
   end
 
   def edit
@@ -53,7 +58,7 @@ class LocationsController < ApplicationController
 
 
     def set_item
-      @item =  Item.find_by(id: params[:id], user_id: current_user)    
+      @item =  current_user.items.find_by(id: params[:id])
     end
 
     def set_location

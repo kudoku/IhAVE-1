@@ -8,6 +8,7 @@ gem 'bcrypt',               '3.1.7'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'devise'
+
 gem 'acts-as-taggable-on', '~> 3.4'
 gem "paperclip", "~> 4.2"
 # Use SCSS for stylesheets

@@ -19,7 +19,7 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
+@import "mixins";
 
 * {
 	box-sizing: border-box;
@@ -53,8 +53,16 @@ body {
 	left: 0;
 	right: 0;
 	top: 15px;
+	margin: 20px;
+	font-size: 24px;
 }
+#navbar{
+	padding: 30px;
 
+}
+#main-wrapper {
+	margin-top: 110px;
+}
 
 .image-tile {
 	text-align: center;
@@ -157,4 +165,42 @@ body {
 	}
 }
 
+.navbar {
+	height: 110px;
+}
 
+.modal-dialog {
+	
+}
+.large-text {
+  font-size: 60px;
+}
+.background-picture {
+	@include full-background("background.jpg");
+	padding: 50px;
+}
+
+.how_to_use {
+	font-size: 22px;
+	padding: 30px
+}
+
+
+.tagline {
+	padding: 15px;
+}
+
+.glyph {
+	float: left;
+}
+
+.team {
+	padding: 35px;
+  font-size: 22px
+}
+
+.aboutteam{
+	font-size: 26px;
+	padding: 35px;
+	border-top-style: inset;
+}

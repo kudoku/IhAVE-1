@@ -12,7 +12,15 @@
   <% if @item.is_out %> 
     <%= render 'loan' %>   
 
-   
+    <%= f.bootstrap_fields_for :records do |records_form| %>
+
+      <%= records_form.label :date_due %>
+      <%= records_form.text_field :date_due %>
+
+      <%= records_form.label :borrower_name %>
+      <%= records_form.text_field :borrower_name %>
+
+    <% end %>
   <%end%>
 
 		<%= f.text_field :tag_list %>

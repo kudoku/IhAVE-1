@@ -18,13 +18,22 @@
     <% end %> 
   </div>
 
-  <ul id="myTags">
-    <!-- Existing list items will be pre-added to the tags -->
+  <div class="form-group">
+    <!-- <label class="control-label" for="item_tag_list">Tag list</label> -->
+    <%= f.text_field :tag_list, class: "tagit ui-widget ui-widget-content ui-corner-all" %>
+
+    <!-- <input id="myTags" class="tagit ui-widget ui-widget-content ui-corner-all"> -->
+      
+    
+  </div>
+
+<!--   <ul id="myTags">
+    Existing list items will be pre-added to the tags
     <li>Tag1</li>
     <li>Tag2</li>
-  </ul>
+  </ul> -->
 
-	<%= f.text_field :tag_list %>
+
 
 
   <%= f.submit %>

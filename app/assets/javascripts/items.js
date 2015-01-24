@@ -15,5 +15,6 @@ $(function() {
 		dateFormat: 'yy-mm-dd'
 	});
 
-	$("#myTags").tagit();
+	$("#item_tag_list").tagit();
+	
 });

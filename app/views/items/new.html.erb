@@ -10,10 +10,10 @@
   <%= f.check_box :is_out %>
   
   <% if @item.is_out %> 
-     <%= f.check_box :is_out %>
+    <%= render 'loan' %>   
 
-   <%= f.datetime :due_date %>
-    <%end%>
+   
+  <%end%>
 
 		<%= f.text_field :tag_list %>
 

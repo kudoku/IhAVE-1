@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122203449) do
+ActiveRecord::Schema.define(version: 20150124173002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 20150122203449) do
 
   add_index "publics", ["name", "resource_type", "resource_id"], name: "index_publics_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "publics", ["name"], name: "index_publics_on_name", using: :btree
+
+  create_table "records", force: true do |t|
+    t.datetime "due_date"
+    t.datetime "date_returned"
+    t.string   "borrower_name"
+    t.integer  "times_lent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

@@ -15,4 +15,5 @@ $(function() {
 		dateFormat: 'yy-mm-dd'
 	});
 
+	$("#myTags").tagit();
 });

@@ -1,7 +1,7 @@
 <!-- Nav -->
 <nav class="navbar navbar-inverse navbar-fixed-top" >
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-left">
       <% if current_user %>
     
 <!-- Menu toggle button -->
@@ -17,11 +17,10 @@
             <li><%= link_to location.name, location_items_path(location) %></li>
             <% end %>
           </ul>
-        </div>
       <% end %>
 
 <!-- Logo -->
-      <a class="navbar-brand"> 
+      <a class=""> 
         <% if signed_in? %>
           <%= link_to 'iHAVE', locations_path, class: 'logo' %>
         <% else %>
@@ -29,15 +28,16 @@
         <% end %>
       </a>
 
+    </div>
 <!-- Log out -->
-    <div class="pull-right" style="float:right"> 
-      <ul>
-        <% if !current_user %> <!-- WTF is this? -->
-          <li><button type="button" class="btn btn-primary logout" data-toggle="modal" data-target="#signUp" data-id="sign-up"><%= link_to 'Logout', destroy_user_session_path, class: "btn btn-info logout", method: :delete %></button></li>
-          <li><button type="button" class="btn btn-primary logout" data-toggle="modal" data-target="#signIn" data-id="sign-in">Sign In</button></li>
-        <% else %>
-          <li><%= link_to 'Logout', destroy_user_session_path, class: "btn btn-primary logout", method: :delete %></li>
-        <% end %>      
+    <div class="top-menu">
+      <ul class="nav navbar-right top-menu">
+      <% if !current_user %>
+        <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signUp" data-id="sign-up">Sign Up</button></li>
+        <li><button type="button" class="btn btn-info logout" data-toggle="modal" data-target="#signIn" data-id="sign-in">Sign In</button></li>
+      <% else %>
+        <li><%= link_to 'Logout', destroy_user_session_path, class: "btn btn-info logout", method: :delete %></li>
+      <% end %>  
       </ul>
     </div>
   </div>

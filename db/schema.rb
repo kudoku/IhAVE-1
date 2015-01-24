@@ -64,9 +64,12 @@ ActiveRecord::Schema.define(version: 20150124173839) do
     t.datetime "date_returned"
     t.string   "borrower_name"
     t.integer  "times_lent"
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "records", ["item_id"], name: "index_records_on_item_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

@@ -7,23 +7,18 @@
 
   <%= f.text_area :description %>
 
-  <%= f.check_box :is_out %>
+  <%= f.check_box :is_out, class: "checkbox" %>
   
-  <% if @item.is_out %> 
-    <%= render 'loan' %>   
+  <div class="record-form">
+    <%= f.fields_for :records do |records_form| %>
 
-    <%= f.bootstrap_fields_for :records do |records_form| %>
-
-      <%= records_form.label :date_due %>
       <%= records_form.text_field :date_due %>
 
-      <%= records_form.label :borrower_name %>
       <%= records_form.text_field :borrower_name %>
+    <% end %> 
+  </div>
 
-    <% end %>
-  <%end%>
-
-		<%= f.text_field :tag_list %>
+	<%= f.text_field :tag_list %>
 
 
   <%= f.submit %>

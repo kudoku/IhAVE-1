@@ -1,5 +1,5 @@
 
-<section class="content">
+
 <h1> <%= @location.name.upcase %> Items:<%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary"  %>
      <%= link_to "Back", locations_path, class:"btn btn-primary" %>
 </h1>
@@ -10,15 +10,17 @@
     <div class ="row image-tiles">
       <%if @items %>
         <% @items.each do |item| %>
-          <div class="col-xs-12 col-md-6 col-lg-4 display">
+          <div class="col-sm-12 col-md-6 col-lg-4 display">
             <%= image_tag item.avatar.url %>
             <p> <strong> Item: <%= item.name %> </strong> </p>
             <p><%= item.description %></p>
             <%= item.tag_list %>
             <p class="text-center"><%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %></p>
-          </div>
+          
     </div>
          <%end%>
+
+         <% end %>
+         </div>
   </div>
-        <% end %>
-</section>
+        

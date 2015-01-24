@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   def create
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
+
       if @item.save
         flash[:success] = "Item #{@item.name} added."
         redirect_to location_items_path(@location)

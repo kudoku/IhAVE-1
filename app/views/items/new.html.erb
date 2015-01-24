@@ -12,9 +12,9 @@
   <div class="record-form">
     <%= f.fields_for :records do |records_form| %>
 
-      <%= records_form.text_field :date_due %>
-
       <%= records_form.text_field :borrower_name %>
+
+      <%= records_form.text_field :date_due, class: "date" %>
     <% end %> 
   </div>
 

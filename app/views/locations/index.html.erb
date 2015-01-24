@@ -17,9 +17,9 @@
 		<% @locations.each do |location| %>
 			<%= render partial: 'location', locals: {location: location} %>
 		<% end %>
-		<div id="infinite-scrolling">
-			<%= paginate @locations %>
-		</div>
+	</div>
+	<div id="infinite-scrolling">
+		<%= paginate @locations %>
 	</div>
 </div>
 

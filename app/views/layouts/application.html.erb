@@ -2,25 +2,21 @@
 <html>
 <head>
   <title>IhAVE</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 </head>
 <body>
-		
-	<section id="container" >
-		<%= render 'layouts/header' %>
-	</section>
-	<%= render 'layouts/sidebar' %>
-	
-<!--main content start-->
-<section id="main-content">
-  <section class="wrapper">
+	<!-- Fixed navbar -->
+   <%= render('layouts/header') %>
 
-<%= yield %>
-	</section>
-</section>
+    <!-- Begin page content -->
+    <div class="container">
+      <%= yield %>
+    </div>
 
+    <%= render('layouts/footer') %>
+    <%= javascript_include_tag 'application' %>
 </body>
 </html>

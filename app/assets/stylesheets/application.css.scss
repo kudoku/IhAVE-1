@@ -11,7 +11,6 @@
  * file per style scope.
  *
  *= require jquery-ui
- *= require_tree .
  *= require_self
  */
 
@@ -30,6 +29,32 @@ body {
 	text-align: center;
 	background-color: #696969;
 }
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.navbar-center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 15px;
+}
+
 
 .image-tile {
 	text-align: center;
@@ -99,3 +124,37 @@ body {
 	background: #224380;
 	border-bottom: #224380; 
 }
+.landing-content {
+	// max-height: 600px;
+	// position: relative;
+}
+
+.modal-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.center{
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	top: 25%;
+	position: absolute;
+	text-align: center;
+}
+.overflow {
+	overflow: hidden;
+}
+
+
+.display {
+	padding: 2.25%;
+
+	.img-circle{
+		max-width: 30%;
+
+	}
+}
+
+

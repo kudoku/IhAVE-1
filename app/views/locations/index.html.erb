@@ -1,11 +1,9 @@
-<h1>Here be ye dragons</h1>
+<div class="main-button">
+	<p>Hi <%= current_user.username %></p>
+	<%= image_tag @user.avatar.url(:thumb) %>
+</div>
 
-
-
-
-<p>Hi user: <%= current_user.email %></p>
-
-
+<h1>Lets get started</h1>
 
 <div class="center-text">
 	<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>

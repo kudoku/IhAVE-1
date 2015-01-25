@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     @locations = @user.locations.order('name ASC').page(params[:page])
 
     respond_to do |format|
-      format.html
+      format.html 
       format.js 
     end
   end
@@ -28,7 +28,7 @@ class LocationsController < ApplicationController
       @location.user_id = @user.id
       if @location.save
         flash[:success] = "Location #{@location.name} added."
-        redirect_to locations_path(@location)
+        redirect_to locations_path
       else
         render 'new'
       end

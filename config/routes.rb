@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/about'
 
+
   resources :locations do 
+    get 'search'  =>  'items#search_submit', as: 'item_search'
     resources :items  
   end
 

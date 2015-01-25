@@ -45,6 +45,13 @@ class LocationsController < ApplicationController
     redirect_to locations_url
   end
 
+  def search_submit
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
     def set_user 

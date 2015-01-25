@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :set_user
-  before_action :set_item
+  before_action :set_item, except: :index
 
   def show
     # unless current_user.locations.include? @location

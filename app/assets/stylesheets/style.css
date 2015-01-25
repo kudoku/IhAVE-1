@@ -2241,6 +2241,10 @@ label {
 .site-min-height {
     min-height: 900px;
 }
+.navbar {
+    background-color: black;
+    padding: 35px;
+}
 
 
 

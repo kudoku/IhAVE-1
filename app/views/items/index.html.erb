@@ -1,24 +1,33 @@
 
 <section class="content">
-<h1> <%= @location.name.upcase %> Items:<%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary"  %>
-     <%= link_to "Back", locations_path, class:"btn btn-primary" %>
-</h1>
+<h1> <%= @location.name.upcase %> Items</h1>
+<span>
+  <%= link_to "Back", locations_path, class:"btn btn-primary" %>
+  <%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary"  %>
+</span>
   
 
   
-  <div class="container-fluid">
-    <div class ="row image-tiles">
+  <div class="container-fluid image-tiles">
+    <div class ="row">
       <%if @items %>
         <% @items.each do |item| %>
-          <div class="col-xs-12 col-md-6 col-lg-4 display">
+          <div class="col-xs-12 col-md-6 col-lg-4 image-tile-item image-tile">
             <%= image_tag item.avatar.url %>
-            <p> <strong> Item: <%= item.name %> </strong> </p>
+            <p> <strong> <%= item.name %> </strong> </p>
             <p><%= item.description %></p>
-            <%= item.tag_list %>
+            <p>Tags: <%= item.tag_list %></p>
             <p class="text-center"><%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %></p>
+            <% if item.is_out %>
+              <p>Lent Out To: <% item.records.each do |record| %>
+                <%= record.borrower_name %></p>
+              <p>Due Date: <%= record.date_due %></p>
+              <% end %>
+            <% end %>
+            <p></p>
           </div>
+        <%end%>
     </div>
-         <%end%>
   </div>
-        <% end %>
+      <% end %>
 </section>

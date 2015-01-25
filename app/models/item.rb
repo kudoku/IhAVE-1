@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+  include PgSearch
+
   belongs_to :location
   belongs_to :user
   has_many :records
@@ -10,5 +12,7 @@ class Item < ActiveRecord::Base
 
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :skills, :interests
+
+  pg_search_scope :quick_search, against: [:tag_list, :name]
   
 end

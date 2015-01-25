@@ -42,19 +42,22 @@ body {
 	-moz-transition-property: opacity;
 	-o-transition-property: opacity;
 	transition-property: opacity;
-	-webkit-transition-duration: 1.2s;
-	-moz-transition-duration: 1.2s;
-	-o-transition-duration: 1.2s;
-	transition-duration: 1.2s;
+	-webkit-transition-duration: 0.8s;
+	-moz-transition-duration: 0.8s;
+	-o-transition-duration: 0.8s;
+	transition-duration: 0.8s;
 	-webkit-transition-timing-function: linear;
 	-moz-transition-timing-function: linear;
 	-o-transition-timing-function: linear;
 	transition-timing-function: linear;
+}
 
+.image-tile-item {
+	min-height: 300px;
 }
 
 .image-tile:hover  {
-	opacity: 0.9;
+	opacity: 0.8;
 }
 
 
@@ -64,7 +67,7 @@ body {
 }
 
 .image-tiles {
-
+	padding: 40px;
 }
 
 .image {
@@ -74,6 +77,10 @@ body {
 	margin: 0 auto;
 	// position: absolute;
 
+}
+
+.left-text {
+	text-align: left;
 }
 
 

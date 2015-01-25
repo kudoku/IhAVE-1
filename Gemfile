@@ -42,6 +42,8 @@ gem 'jquery-infinite-pages'
 
 # g+omniauth
 gem 'omniauth-google-oauth2'
+# pg search
+gem 'pg_search'
 
 group :development, :test do
   gem 'spring-commands-rspec'

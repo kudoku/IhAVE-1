@@ -10,10 +10,9 @@ RSpec.describe ItemsController, :type => :controller do
   describe "post#create" do
 
       context 'item is not valid' do
+       subject {post :create, location_id: location.id, item: { name: '' }}
         it 'renders the new page' do
-          expect {
-            post :create, location_id: location.id, item: { name: '' }
-          }.to_not change(Item, :count)
+          expect { subject }.to_not change(Item, :count)
           expect(response).to render_template(:new)
         end
       end
@@ -31,7 +30,27 @@ RSpec.describe ItemsController, :type => :controller do
 
   describe "patch#update" do
 
+    context 'Item update is valid' do
+      subject {}
+      it 'redirects to the location show page' do
+        params = {id: item.id, location_id: location.id, item: { name: "name", description: 'hi I am a test' } }
+
+        expect(
+          put :update, params
+        ).to have_http_status(302)
+      end
+
     end
+      context 'Item update is invalid' do
+        subject {patch :update, id: item.id, location_id: location.id, item: { name: nil, description: 'hi I am a test' }}
+        it 'renders the edit page' do
+          expect(subject).to render_template(:edit)
+        end
+
+    end
+
+
+  end
 
 
   describe "GET #index" do

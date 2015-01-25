@@ -36,11 +36,12 @@ class ItemsController < ApplicationController
     end
 
     def update
-      if @task.update_attributes(item_params)
-        redirect_to location_item_path(@location)
+      if @item.update_attributes(item_params)
+
+        redirect_to location_item_path(@location, @item)
       else
         flash[:danger] = "Item creation faild"
-        render 'edit'
+        render :edit
       end
     end
 
@@ -64,7 +65,7 @@ class ItemsController < ApplicationController
     end
 
     def set_item
-      @item =  Item.find_by(id: params[:id], user_id: current_user)  
+      @item =  Item.find_by(id: params[:id], user_id: current_user)
     end
 
     def item_params

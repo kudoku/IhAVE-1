@@ -27,6 +27,7 @@
     /*sidebar*/
 
 
+
     #sidebar {
         height: auto;
         overflow: hidden;
@@ -35,7 +36,6 @@
 
     /*z-index: 1001;
 }
->>>>>>> master
 
 
 /* body container */
@@ -105,11 +105,16 @@
         border-left: 15px solid transparent;
         border-right: 15px solid transparent;
     }
+<<<<<<< HEAD
+*//*/*/
+
+=======
 
 *//*/*/
 
 }
 
+>>>>>>> 5493027d6889dc30472e1c368e9148cab7973851
 
     /*---------*/
 

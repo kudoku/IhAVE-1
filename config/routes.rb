@@ -6,7 +6,7 @@ Rails.application.routes.draw do
                                       omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'static_pages#home'
-  get 'static_pages/about'
+  get 'static_pages/about', as: :about
 
 
   resources :locations do 

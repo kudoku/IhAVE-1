@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user1 = User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password', 
+user1 = User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password',
                       username: 'TESTaBEST', bio:'lorem ipsum')
-                    
+
 
 10.times do
   locations = Location.create([[name: 'dpl', description: 'haxors', user_id: user1.id],

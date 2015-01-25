@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150124173839) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.float    "price"
   end
 
   add_index "items", ["location_id"], name: "index_items_on_location_id", using: :btree

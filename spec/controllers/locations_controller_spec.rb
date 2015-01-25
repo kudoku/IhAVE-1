@@ -2,53 +2,32 @@ require 'rails_helper'
 
 RSpec.describe LocationsController, :type => :controller do
 
-  # location = FactoryGirl.new :location
-  let(:location) { create(:location) }
-  let(:user) { create :user } 
+  let(:user) { create :user }
+  let(:location) { create(:location, user: user) }
+  let(:item) { create :item, user: user}
   before { sign_in user }
 
-  # describe "GET #show" do
+    describe "post#create" do
 
-    it "assigns requested location to @location" do
-      location = create(:location)
-      get :show, id: location
-      expect(assigns(:location)).to eq location
-    end
+      context 'location is not valid' do
+        subject {post :create, location: { name: '', description: 'hi I am a test' } }
 
-
-    it "returns http success" do
-      location = create(:location)
-      get :show, id: location.id
-      expect(response).to have_http_status(:success)
-    end
-    
-  # end
-
-
-  describe "Patch #update" do
-    before :each do
-      @location = create(:location,
-                          name: 'dpl', 
-                          description: 'the best')
-    end
-
-    context "valid attributes" do
-      it "locates the requested @location" do
-        patch :update, id: @location, location: attributes_for(:location)
-        expect(assigns(:location)).to eq(@location)
+        it 'renders the new page' do
+          expect { subject }.to_not change(Location, :count)
+          expect(response).to render_template(:new)
+        end
       end
 
-      it "updates @location attributes" do
-        patch :update, id: @location,
-          location: attributes_for(:location,
-                                  name: 'home',
-                                  description: 'home sweet home')
-        @location.reload
-        expect(@location.name).to eq('home')
-        expect(@location.description).to eq('home sweet home')
+      context 'item is valid ' do
+        subject {post :create, location: { name: 'name', description: 'hi I am a test' } }
+
+        it 'renders the  location' do
+          expect{ subject }.to change(Location, :count).by(1)
+          expect(response).to have_http_status(302)
+        end
       end
-    end
 
   end 
+
 
 end

@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :location, class: Location do
   	name "name"
   	description "MyString"
+    user
   end
 end

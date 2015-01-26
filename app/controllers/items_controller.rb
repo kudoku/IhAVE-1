@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
 
         redirect_to location_item_path(@location, @item)
       else
-        flash[:danger] = "Item creation faild"
+        flash[:danger] = "Item creation failed"
         render :edit
       end
     end
@@ -48,6 +48,16 @@ class ItemsController < ApplicationController
     def destroy
       @item.delete
       redirect_to location_items_path(@location)
+    end
+
+    def search_submit
+      # binding.pry
+      @results = Item.search(params[:q])
+      # binding.pry
+      respond_to do |format|
+        format.html {redirect_to location_items_path(@location), :result => @results}
+        format.js
+      end
     end
  
   private

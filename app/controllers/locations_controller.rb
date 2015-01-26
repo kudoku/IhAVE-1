@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     @locations = @user.locations.order('name ASC').page(params[:page])
 
     respond_to do |format|
-      format.html
+      format.html 
       format.js 
     end
   end
@@ -28,7 +28,7 @@ class LocationsController < ApplicationController
       @location.user_id = @user.id
       if @location.save
         flash[:success] = "Location #{@location.name} added."
-        redirect_to locations_path(@location)
+        redirect_to locations_path
       else
         render 'new'
       end
@@ -39,6 +39,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update_attributes(location_params)
+      flash[:notice] = "Location #{@location.name} updated."
       redirect_to locations_path #it would redirect to locations_show, instead of locations_path
     else
       render :edit
@@ -47,7 +48,15 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
+    flash[:alert] = "Location #{@location.name} deleted."
     redirect_to locations_url
+  end
+
+  def search_submit
+    
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

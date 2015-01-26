@@ -1,9 +1,22 @@
+<h1><%= @location.name.upcase %> Items</h1>
 
-
-<h1> <%= @location.name.upcase %> Items:<%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary"  %>
-     <%= link_to "Back", locations_path, class:"btn btn-primary" %>
-</h1>
+<div class="image-tiles">
+  <%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary"  %>
+  <%= link_to "Back", locations_path, class:"btn btn-primary" %>
+</div>
   
+<div class="field">
+  <%= form_tag(location_item_search_path(@location), method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag :q, nil, placeholder: 'Search item name/tags' %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+<% if @results %>
+  <%= @results %>
+<% end %>
+
 
   
   <div class="container-fluid">
@@ -11,7 +24,7 @@
       <%if @items %>
         <% @items.each do |item| %>
           <div class="col-xs-12 col-md-6 col-lg-4 display">
-            <%= image_tag item.avatar.url %>
+            <%= image_tag item.avatar.url(:medium) %>
             <p> <strong> Item: <%= item.name %> </strong> </p>
             <p><%= item.description %></p>
             <%= item.tag_list %>

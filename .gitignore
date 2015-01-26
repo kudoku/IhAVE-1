@@ -15,8 +15,7 @@
 /log/*.log
 /tmp
 /coverage
-/public/system/users/avatars
-.rspec
+/public/system/
 .env
 .idea
 

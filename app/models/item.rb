@@ -13,6 +13,10 @@ class Item < ActiveRecord::Base
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :skills, :interests
 
-  pg_search_scope :quick_search, against: [:tag_list, :name]
+  pg_search_scope :search, against: [:name]
+
+  def item_search(search_input)
+    Item.search(search_input)
+  end 
   
 end

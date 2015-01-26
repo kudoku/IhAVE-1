@@ -13,6 +13,7 @@
  *= require jquery-ui
  *= require tag-it
  *= require_self
+ *= require_tree
  */
 
 @import "bootstrap-sprockets";
@@ -97,6 +98,9 @@ body {
 
 .show-image-tile {
 	opacity: 1;
+}
+.main-button {
+	padding: 35px;
 }
 
 .image-tiles {

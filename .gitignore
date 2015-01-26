@@ -19,5 +19,6 @@
 .rspec
 .env
 .idea
+.DS_Store
 
 

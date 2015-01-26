@@ -16,7 +16,7 @@
 /tmp
 /coverage
 /public/system/users/avatars
-.rspec
+
 .env
 .idea
 

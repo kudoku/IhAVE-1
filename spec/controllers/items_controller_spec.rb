@@ -79,8 +79,13 @@ RSpec.describe ItemsController, :type => :controller do
 
   describe "item#destroy"do
     it "redirects to the locations show" do
-      get :destroy, {id: item.id, location_id: location.id}
+      delete :destroy, {id: item.id, location_id: location.id}
       expect(response).to have_http_status(:redirect)
+    end
+    xit "changes the item count by -1" do
+      expect do
+        delete :destroy, {id: item.id, location_id: location.id}
+      end.to change(Item, :count).by(-1)
     end
   end
 end

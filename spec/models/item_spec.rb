@@ -5,12 +5,10 @@ RSpec.describe Item, :type => :model do
   let(:user) { create :user }
   let(:item) {create :item}
   it 'is not valid without a name' do
-      item = Item.new
-      item.should_not be_valid
+    expect(Item.new).not_to be_valid
   end
 
-  it 'belongs to a location' do
-    item = Item.new
-    item.should_not be_valid
+  xit 'belongs to a location' do
+
   end
-  end
+end

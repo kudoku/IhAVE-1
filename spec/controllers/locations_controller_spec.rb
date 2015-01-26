@@ -38,7 +38,7 @@ RSpec.describe LocationsController, :type => :controller do
 
   describe "get#new" do
     it "displays the new page"do
-     subject { get :new }
+     get :new
       expect(response).to render_template(:new)
     end
   end

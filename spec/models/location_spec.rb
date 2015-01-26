@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Location, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+ context "location has validations" do
+   it "must have a name" do
+     expect(Location.new )
+   end
+ end
 end

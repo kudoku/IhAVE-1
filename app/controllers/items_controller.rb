@@ -17,10 +17,8 @@ class ItemsController < ApplicationController
 
 
     def new
-
       @item = @user.items.build
       @record = @item.records.build
-
     end
 
   def create

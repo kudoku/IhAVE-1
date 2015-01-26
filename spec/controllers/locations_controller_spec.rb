@@ -13,6 +13,7 @@ RSpec.describe LocationsController, :type => :controller do
         subject {post :create, location: { name: '', description: 'hi I am a test' } }
 
         it 'renders the new page' do
+          current_user = user
           expect { subject }.to_not change(Location, :count)
           expect(response).to render_template(:new)
         end
@@ -26,8 +27,25 @@ RSpec.describe LocationsController, :type => :controller do
           expect(response).to have_http_status(302)
         end
       end
+    end
 
-  end 
+  describe "get#index" do
+    it "displays the index page"do
+      get :index
+      expect(subject).to render_template(:index)
+    end
+  end
+
+  describe "get#new" do
+    it "displays the new page"do
+     subject { get :new }
+      expect(response).to render_template(:new)
+    end
+  end
 
 
-end
+
+  end
+
+
+

@@ -69,4 +69,18 @@ RSpec.describe ItemsController, :type => :controller do
     end
   end
 
+  describe "item#new"do
+
+    it "displays the new page" do
+      get :new, {location_id: location.id}
+      expect(response).to render_template(:new)
+    end
+  end
+
+  describe "item#destroy"do
+    it "redirects to the locations show" do
+      get :destroy, {id: item.id, location_id: location.id}
+      expect(response).to have_http_status(:redirect)
+    end
+  end
 end

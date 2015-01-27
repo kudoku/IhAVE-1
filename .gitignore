@@ -18,5 +18,6 @@
 /public/system/
 .env
 .idea
+.DS_Store
 
 

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  rolify :role_cname => 'Public'
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :locations, dependent: :destroy

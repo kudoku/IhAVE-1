@@ -39,7 +39,7 @@ gem 'kaminari'
 # infinite scroll
 gem 'jquery-infinite-pages'
 
-gem 'puma'
+
 
 
 # g+omniauth
@@ -70,4 +70,5 @@ gem 'simplecov', :require => false, :group => :test
 
 group :production do
   gem 'rails_12factor', '0.0.2'
+  gem 'puma'
 end

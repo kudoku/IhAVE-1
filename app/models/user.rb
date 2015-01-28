@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  rolify :role_cname => 'Public'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :locations, dependent: :destroy
@@ -10,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/user-avatar-1.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates :username, presence: true, length: { in: 6..15 }, uniqueness: true
+
   #Get the picture from a given url.
   def avatar_from_url(url)
     self.avatar = open(url)
@@ -22,11 +23,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name   # assuming the user model has a name
       # user.avatar_file_name = URI.parse(auth.info.image) # assuming the user model has an image
-      puts "\n********************************************************"
-      puts "#{auth.info}"
-      puts "\n********************************************************"
       user.avatar_from_url(auth.info.image) # assuming the user model has an image
-      # raise error
     end
   end
 

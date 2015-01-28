@@ -1,6 +1,6 @@
 <h1><%= @location.name.upcase %> Items</h1>
 
-<div class="image-tiles">
+<div class="main-button-content">
   <%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary"  %>
   <%= link_to "Back", locations_path, class:"btn btn-primary" %>
 </div>
@@ -18,13 +18,15 @@
 <% end %>
 
 
-  
-  <div class="container-fluid">
+
+  <div class="container-fluid item-block">
     <div class ="row image-tiles">
       <%if @items %>
         <% @items.each do |item| %>
           <div class="col-xs-12 col-md-6 col-lg-4 display">
-            <%= image_tag item.avatar.url(:medium) %>
+            <div class = "item-img">
+                <%= image_tag item.avatar.url(:medium) %>
+            </div>
             <p> <strong> Item: <%= item.name %> </strong> </p>
             <p><%= item.description %></p>
             <%= item.tag_list %>

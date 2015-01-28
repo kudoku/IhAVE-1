@@ -9,8 +9,10 @@ gem 'bcrypt',               '3.1.7'
 gem 'pg'
 gem 'devise'
 
+
 gem 'acts-as-taggable-on', '~> 3.4'
-gem "paperclip", "~> 4.2"
+gem "paperclip", "~> 4.2" 
+gem 'aws-sdk'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'faker'
@@ -24,8 +26,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'cancancan', '~> 1.10'
-gem "rolify"
+
+
 gem 'bootstrap_form'
 gem 'font-awesome-sass'
 # # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -48,11 +50,9 @@ gem 'omniauth-google-oauth2'
 gem 'pg_search'
 
 group :development, :test do
-  gem 'spork'
   gem 'spork-rails'
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
-  gem 'guard-rspec'
   gem 'factory_girl_rails'
   gem 'dotenv-rails'
   gem 'pry-byebug'

@@ -16,7 +16,9 @@
 /tmp
 /coverage
 /public/system/
+/public/assets/*
 .env
 .idea
+.DS_Store
 
 

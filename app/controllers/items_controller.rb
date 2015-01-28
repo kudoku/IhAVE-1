@@ -7,21 +7,21 @@ class ItemsController < ApplicationController
   
   
   
-    def index
-      @user = User.find(@location.user_id)
-    end
+  def index
+    @user = User.find(@location.user_id)
+  end
 
-    def show
+  def show
 
-    end
+  end
 
 
-    def new
+  def new
 
-      @item = @user.items.build
-      @record = @item.records.build
+    @item = @user.items.build
+    @record = @item.records.build
 
-    end
+  end
 
   def create
       @item = @location.items.build(item_params)

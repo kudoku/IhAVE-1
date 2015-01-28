@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   validates :name, :description, :is_out, presence: true
 
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
-  acts_as_taggable_on :skills, :interests
+  # acts_as_taggable_on :skills, :interests
 
   pg_search_scope :search, against: [:name]
 

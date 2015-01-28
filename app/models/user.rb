@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   # google auth
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where("email: ? OR provider: ? AND uid: ?").first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name   # assuming the user model has a name

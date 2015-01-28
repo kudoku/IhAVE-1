@@ -1,0 +1,13 @@
+
+
+	<% if !@results.empty? %>
+		alert('results found');
+		console.log("<p>Search results:</br>" +
+			"<%= @results.map { |result| result.name }.join('<br/>') %>");
+		$('.search-results').empty().append("<p>Search results: </br>" + "<%= @results.map { |result| result.name }.join('') %>");
+
+	<% else %>
+
+		alert('nothing to display');
+		$('.search-results').empty().append("<p>Search results:</br> No results found. Try searching again.</p>" );		
+	<% end %>

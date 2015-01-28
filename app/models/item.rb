@@ -8,12 +8,13 @@ class Item < ActiveRecord::Base
   
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/user-avatar-placeholder.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates :name, :description, :is_out, presence: true
+  validates :name, :description, presence: true
 
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests
 
-  pg_search_scope :search, against: [:name]
+  pg_search_scope :search, against: [:name],
+                  :if => lambda { |item| item.user_id = current_user  }
 
   paginates_per 6
 

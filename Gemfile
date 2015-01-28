@@ -9,6 +9,7 @@ gem 'bcrypt',               '3.1.7'
 gem 'pg'
 gem 'devise'
 
+
 gem 'acts-as-taggable-on', '~> 3.4'
 gem "paperclip", "~> 4.2"
 # Use SCSS for stylesheets
@@ -48,6 +49,7 @@ gem 'omniauth-google-oauth2'
 gem 'pg_search'
 
 group :development, :test do
+  gem 'spork'
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'

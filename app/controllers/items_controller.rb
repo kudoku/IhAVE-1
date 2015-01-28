@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
 
     def search_submit
       # binding.pry
-      @results = Item.search(params[:q])
+      @results = current_user.items.search_items(params[:q])
       # binding.pry
       respond_to do |format|
         format.html {redirect_to location_items_path(@location), :result => @results}

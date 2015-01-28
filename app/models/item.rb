@@ -13,13 +13,18 @@ class Item < ActiveRecord::Base
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests
 
-  pg_search_scope :search, against: [:name],
-                  :if => lambda { |item| item.user_id = current_user  }
+  pg_search_scope :search_items, against: [:name]
+                  # :if => :search_valid?
+                  # :if => lambda { |item| item.user_id = current_user.id  }
 
   paginates_per 6
 
   def item_search(search_input)
     Item.search(search_input)
   end 
+
+  def search_valid?
+    user_id == current_user.id
+  end
   
 end

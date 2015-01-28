@@ -15,13 +15,11 @@ class ItemsController < ApplicationController
 
   end
 
-
   def new
-
     @item = @user.items.build
     @record = @item.records.build
-
   end
+
 
   def create
       @item = @location.items.build(item_params)

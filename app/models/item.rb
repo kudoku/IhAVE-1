@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
   has_many :records, dependent: :destroy
   accepts_nested_attributes_for :records, reject_if: ->(hash_of_attributes) { hash_of_attributes['borrower_name'].blank? }
   
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/user-avatar-placeholder.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :name, :description, :is_out, presence: true
 

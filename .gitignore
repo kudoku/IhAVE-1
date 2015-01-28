@@ -16,7 +16,7 @@
 /tmp
 /coverage
 /public/system/
-.rspec
+/public/assets/*
 .env
 .idea
 .DS_Store

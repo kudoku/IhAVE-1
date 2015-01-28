@@ -24,8 +24,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'cancancan', '~> 1.10'
-gem "rolify"
+
+
 gem 'bootstrap_form'
 gem 'font-awesome-sass'
 # # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

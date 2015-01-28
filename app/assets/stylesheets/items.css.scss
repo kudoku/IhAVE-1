@@ -20,3 +20,13 @@
 .record-form {
 	display: none;
 }
+
+.item-block {
+  position: absolute;
+  z-index: 1;
+}
+
+.item-img {
+  position: absolute;
+  z-index: 2;
+}

@@ -82,10 +82,12 @@ RSpec.describe ItemsController, :type => :controller do
       delete :destroy, {id: item.id, location_id: location.id}
       expect(response).to have_http_status(:redirect)
     end
-    xit "changes the item count by -1" do
-      expect do
-        delete :destroy, {id: item.id, location_id: location.id}
-      end.to change(Item, :count).by(-1)
+
+    it "changes the item count by -1" do
+      item
+      count = Item.count
+      delete :destroy, {id: item.id, location_id: location.id}
+      expect(Item.count).to eql(count-1)
     end
   end
 end

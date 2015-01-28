@@ -48,6 +48,8 @@ gem 'omniauth-google-oauth2'
 gem 'pg_search'
 
 group :development, :test do
+  gem 'spork'
+  gem 'spork-rails'
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'

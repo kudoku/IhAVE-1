@@ -1,11 +1,30 @@
 <div>
 	hi, im a fucking partial and should be rendered </br>
 	<ul>
-		<% @results.each_with_index do |result, index| %>
-			<li><%= link_to "#{result.name}", location_item_path(result.location_id, result.id) %></li>
-			<li><%= result.name %></li>
-			<li><%= result.location_id %></li>
-			<li><%= result.id %></li>
+		<% @results.each_with_index do |item, index| %>
+			<li><%= link_to "#{item.name}", location_item_path(item.location_id, item.id) %></li>
+			<li><%= item.name %></li>
+			<li><%= item.location_id %></li>
+			<li><%= item.id %></li>
 		<% end %>
 	</ul>
+</div>
+
+<div class="container-fluid item-block">
+  <div class ="row image-tiles">
+
+    <% @results.each_with_index do |item, index| %>
+      <div class="col-xs-12 col-md-6 col-lg-4 display">
+        <div class = "item-img">
+            <%= image_tag item.avatar.url(:medium) %>
+        </div>
+        <p> <strong> Item: <%= link_to "#{item.name}", location_item_path(item.location_id, item.id) %> </strong> </p>
+        <p>Location: <%= item.location.name %></p>
+        <p>Description: <%= item.description %></p>
+        <p>Tag list: <%= item.tag_list %></p>
+        <p class="text-center"><%= link_to "Delete", location_item_path(item.location_id, item.id), method: :delete, class: "btn btn-danger btn-s" %></p>
+		  </div>
+		<%end%>
+
+	</div>
 </div>

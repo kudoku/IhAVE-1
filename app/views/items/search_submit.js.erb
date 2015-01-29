@@ -1,13 +1,17 @@
+<% if !@results.empty? %>
+	alert('results found');
+	console.log("<p>Search results:</br>" +
+		"<%= @results.map { |result| result.name }.join('<br/>') %>");
+	$('.search-results').empty().append("<p>Search results: </p>" + "<%= j render 'search_results' %>"); 
 
+	// $('.search-results').empty().append("<p>Search results: </br>"); 
+	// <% @results.each do |result| %>
+	// 	$('.search-results').append(<%= link_to "#{result}", location_item_path(result.location_id, result.id) %>);
+	// <% end %>
+	// $('.search-results').empty().append("<p>Search results: </br>" + "<%= @results.map { |result| result.name }.join(', ') %>");
 
-	<% if !@results.empty? %>
-		alert('results found');
-		console.log("<p>Search results:</br>" +
-			"<%= @results.map { |result| result.name }.join('<br/>') %>");
-		$('.search-results').empty().append("<p>Search results: </br>" + "<%= @results.map { |result| result.name }.join('') %>");
+<% else %>
 
-	<% else %>
-
-		alert('nothing to display');
-		$('.search-results').empty().append("<p>Search results:</br> No results found. Try searching again.</p>" );		
-	<% end %>
+	alert('nothing to display');
+	$('.search-results').empty().append("<p>Search results:</br> No results found. Try searching again.</p>" );		
+<% end %>

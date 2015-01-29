@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
     end
 
     def destroy
-      @item.delete
+      @item.destroy
       redirect_to location_items_path(@location)
     end
 

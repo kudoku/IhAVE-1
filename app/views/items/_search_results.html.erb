@@ -1,0 +1,11 @@
+<div>
+	hi, im a fucking partial and should be rendered </br>
+	<ul>
+		<% @results.each_with_index do |result, index| %>
+			<li><%= link_to "#{result.name}", location_item_path(result.location_id, result.id) %></li>
+			<li><%= result.name %></li>
+			<li><%= result.location_id %></li>
+			<li><%= result.id %></li>
+		<% end %>
+	</ul>
+</div>

@@ -1,23 +1,21 @@
-<div class="main-button-content">
-	<p>Hi <%= current_user.username %></p>
-	<%= image_tag @user.avatar.url(:thumb) %>
-
-</div>
-<%= image_tag @user.avatar.url(:thumb) %>
-
-<h1>Lets get started</h1>
-
-<div class="center-text">
-	<%= link_to 'New Location', new_location_path, class: 'btn btn-primary', remote: true %>
-</div>
-
-
 <div class="container">
-	<div class="row image-tiles">
-		<% @locations.each do |location| %>
-			<%= render partial: 'location', locals: {location: location} %>
-		<% end %>
-	</div>
+  <div class="row image-tiles">
+    <div class="main-button-content">
+      <p>Hi <%= current_user.username %></p>
+      <%= image_tag @user.avatar.url(:thumb) %>
+    </div>
+
+    <h1>Lets get started</h1>
+
+    <div class="center-text">
+      <%= link_to 'New Location', new_location_path, class: 'btn btn-primary', remote: true %>
+    </div>
+
+    <% @locations.each do |location| %>
+		<%= render partial: 'location', locals: {location: location} %>
+	<% end %>
+    <i class="fa fa-plus fa-5x" ></i>
+  </div>
 	<div id="infinite-scrolling">
 		<%= paginate @locations %>
 	</div>

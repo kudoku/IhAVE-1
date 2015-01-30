@@ -3,8 +3,13 @@
       <%= image_tag @item.avatar.url(:medium) %>
     </div>
     <div class = item-info>
-      <p> <strong> Item: <%= @item.name %> </strong> </p>
-      <p><%= @item.description %></p>
+
+      <h3>Description:<%=  @item.description %></h4>
+      <h3>Price:<%=@item.price %></h3>
       <%= @item.tag_list %>
-      <p class="text-center"><%= link_to "Delete", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %></p>
+      <h3>Quantity:&nbsp  <%=@item.quantity %></h3>
+      <p class="text-center">
+        <%= link_to "Delete", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %>
+        <%= link_to "Edit", edit_location_item_path(@location, @item),class: "btn btn-primary btn-s" %>
+      </p>
     </div>

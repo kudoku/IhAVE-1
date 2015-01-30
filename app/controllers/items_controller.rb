@@ -24,11 +24,14 @@ class ItemsController < ApplicationController
   def create
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
-
       if @item.save
+        respond_to do |format|
+          format.html { redirect_to location_items_path(@location) }
+          format.js
+          end
         flash[:success] = "Item #{@item.name} added."
-        redirect_to location_items_path(@location)
-      else
+          else
+          flash[:error] = @item.errors.full_messages
         render 'new'
       end
     end
@@ -49,9 +52,7 @@ class ItemsController < ApplicationController
     end
 
     def search_submit
-      # binding.pry
       @results = Item.search(params[:q])
-      # binding.pry
       respond_to do |format|
         format.html {redirect_to location_items_path(@location), :result => @results}
         format.js

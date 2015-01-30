@@ -1,1 +1,9 @@
 global_search_results
+
+
+
+<% if !@results.empty? %>
+	<%= render "items/search_results" %>
+<% else %>
+	<h2>Nothing found.</h2>
+<% end %>

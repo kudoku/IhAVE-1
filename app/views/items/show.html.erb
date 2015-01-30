@@ -1,23 +1,6 @@
 
 
-<div class="container-fluid ">
-            <div class="col-xs-12 col-md-3 col-lg-6 display item-block">
-              <div class = "item-img">
-                <%= image_tag @item.avatar.url(:medium) %>
-              </div>
-              <div class = item-info>
-                <p> <strong> Item: <%= @item.name %> </strong> </p>
-                <p><%= @item.description %></p>
-                <%= @item.tag_list %>
-                <p class="text-center"><%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %></p>
-              </div>
-
-            </div>
+<%= render partial: 'show_model', locals: {using_modal: false} %>
 
 
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
-
-<p>Name: <%= @item.name %></p> 
-<p>Tag List: <%= @item.tag_list %></p> 
 

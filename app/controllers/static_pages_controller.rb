@@ -1,14 +1,12 @@
 class StaticPagesController < ApplicationController
-  before_action :logged_in_redirect
+  before_action :logged_in_redirect, except: [:global_search_results]
 
   def home
   end
 
-  def about
-  end
 
   def global_search_results
-    
+
   end
 
   def logged_in_redirect

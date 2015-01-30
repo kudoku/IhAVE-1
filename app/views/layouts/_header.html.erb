@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
-            <%= form_tag() do %>
+            <%= form_tag(global_search_path) do %>
               <%= label_tag(:q) %>
               <%= text_field_tag :q, nil, placeholder: 'Search item name/tags' %>
               <%= submit_tag("Search") %>

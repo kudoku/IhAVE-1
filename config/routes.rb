@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'static_pages/about', as: :about
-
-
+  
+  
   resources :locations do 
-    get 'search'  =>  'items#search_submit', as: 'item_search'
     resources :items  
+    get 'search'  =>  'items#search_submit', as: 'item_search'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

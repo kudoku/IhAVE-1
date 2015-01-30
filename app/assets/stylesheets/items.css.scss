@@ -23,10 +23,22 @@
 
 .item-block {
   position: absolute;
-  z-index: 1;
+
 }
 
 .item-img {
-  position: absolute;
-  z-index: 2;
+  border-radius: 100%;
+
 }
+.img-info{
+  z-index: 1;
+}
+
+
+.item-img:hover {
+
+  z-index: 1;
+
+  }
+
+

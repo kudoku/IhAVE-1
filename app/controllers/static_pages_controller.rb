@@ -7,6 +7,10 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def global_search_results
+    
+  end
+
   def logged_in_redirect
     if current_user
       redirect_to locations_url

@@ -19,7 +19,7 @@
             <%= image_tag item.avatar.url(:medium) %>
         </div>
         <p> <strong> Item: <%= link_to "#{item.name}", location_item_path(item.location_id, item.id) %> </strong> </p>
-        <p>Location: <%= item.location.name %></p>
+        <p>Location: <%= link_to "#{item.location.name}", location_items_path(item.location_id) %></p>
         <p>Description: <%= item.description %></p>
         <p>Tag list: <%= item.tag_list %></p>
         <p class="text-center"><%= link_to "Delete", location_item_path(item.location_id, item.id), method: :delete, class: "btn btn-danger btn-s" %></p>

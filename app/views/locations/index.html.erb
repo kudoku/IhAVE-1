@@ -8,7 +8,7 @@
 <h1>Lets get started</h1>
 
 <div class="center-text">
-	<%= link_to 'New Location', new_location_path, class: 'btn btn-primary' %>
+	<%= link_to 'New Location', new_location_path, class: 'btn btn-primary', remote: true %>
 </div>
 
 
@@ -22,5 +22,6 @@
 		<%= paginate @locations %>
 	</div>
 </div>
-
+<div id='modal-div'>
+</div>
 

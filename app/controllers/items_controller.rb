@@ -7,19 +7,19 @@ class ItemsController < ApplicationController
   
   
   
-    def index
-      @user = User.find(@location.user_id)
-    end
+  def index
+    @user = User.find(@location.user_id)
+  end
 
-    def show
+  def show
 
-    end
+  end
 
+  def new
+    @item = @user.items.build
+    @record = @item.records.build
+  end
 
-    def new
-      @item = @user.items.build
-      @record = @item.records.build
-    end
 
   def create
       @item = @location.items.build(item_params)
@@ -47,12 +47,13 @@ class ItemsController < ApplicationController
     end
 
     def destroy
-      @item.delete
+      @item.destroy
       redirect_to location_items_path(@location)
     end
 
     def search_submit
       @results = Item.search(params[:q])
+      @results = current_user.items.search_items(params[:q])
       respond_to do |format|
         format.html {redirect_to location_items_path(@location), :result => @results}
         format.js

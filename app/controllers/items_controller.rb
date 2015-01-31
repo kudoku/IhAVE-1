@@ -8,6 +8,11 @@ class ItemsController < ApplicationController
   
   
   def index
+    if params[:tag]
+      @items = @item.tagged_with(params[:tag])
+    else
+     @item = @item
+    end
     @user = User.find(@location.user_id)
   end
 

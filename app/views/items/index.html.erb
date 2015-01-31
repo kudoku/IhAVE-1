@@ -26,21 +26,8 @@
       <% @items.each do |item| %>
           <div class="col-xs-12 col-md-4 col-lg-3 display item-block">
             <%= link_to (image_tag item.avatar.url(:medium)), location_item_path(@location, item), remote: true %>
+      <%end%>
 
-<div class="container-fluid ">
-  <div class ="row image-tiles">
-    <% @items.each do |item| %>
-        <div class="col-xs-12 col-md-3 col-lg-4 display item-block">
-          <div class = "item-img">
-              <%= image_tag item.avatar.url(:medium) %>
-          </div>
-              <h2><%=item.name%></h2>
-          <p class="text-center"><%= link_to "Delete", location_item_path(@location, item), method: :delete, class: "btn btn-danger btn-s" %></p>
-          <%= link_to item.name, location_item_path(@location, item), class: 'btn btn-primary', remote: true %>
-        </div>
-        <%end%>
-  </div>
-</div>
 
 
 
@@ -49,4 +36,3 @@
 
 <div id='show-modal-div'>
 </div>
-

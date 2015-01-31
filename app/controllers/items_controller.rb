@@ -39,29 +39,30 @@ class ItemsController < ApplicationController
       end
     end
 
-    def update
-      if @item.update_attributes(item_params)
+  def update
+    if @item.update_attributes(item_params)
 
-        redirect_to location_item_path(@location, @item)
-      else
-        flash[:danger] = "Item creation failed"
-        render :edit
-      end
+      redirect_to location_item_path(@location, @item)
+    else
+      flash[:danger] = "Item creation failed"
+      render :edit
     end
+  end
 
-    def destroy
-      @item.destroy
-      redirect_to location_items_path(@location)
-    end
+  def destroy
+    @item.destroy
+    redirect_to location_items_path(@location)
+  end
 
-    def search_submit
-      @results = Item.search(params[:q])
-      @results = current_user.items.search_items(params[:q])
-      respond_to do |format|
-        format.html {redirect_to location_items_path(@location), :result => @results}
-        format.js
-      end
+  def search_submit
+    # @results = Item.search_items(params[:q])
+    @results = current_user.locations.find(params[:location_id]).items.search_items(params[:q]) 
+    # binding.pry 
+    respond_to do |format|
+      format.html {redirect_to location_items_path(@location), :result => @results}
+      format.js
     end
+  end
  
   private
 

@@ -7,9 +7,17 @@
 
     <h1>Lets get started</h1>
 
+
     <div class="center-text">
       <%= link_to 'New Location', new_location_path, class: 'btn btn-primary', remote: true %>
     </div>
+
+<div class="search-results">
+  <% if @results %>
+    <%= @results %>
+  <% end %>
+</div>
+
 
     <% @locations.each do |location| %>
 		<%= render partial: 'location', locals: {location: location} %>

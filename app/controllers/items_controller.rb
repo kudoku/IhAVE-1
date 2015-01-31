@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # @item_history = @item.records
     respond_to do |format|
       format.html 
       format.js
@@ -27,6 +28,7 @@ class ItemsController < ApplicationController
   def create
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
+      # binding.pry
       if @item.save
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }
@@ -83,6 +85,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :description, :is_out, :date_due, :tag_list, :avatar, records_attributes: [:date_due, :borrower_name])
+      params.require(:item).permit(:name, :description, :is_out, :date_due, :tag_list, :avatar, records_attributes: [:date_due], borrower_attributes: [:name])
     end
 end

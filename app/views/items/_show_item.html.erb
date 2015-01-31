@@ -8,3 +8,15 @@
       <%= @item.tag_list %>
       <p class="text-center"><%= link_to "Delete", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %></p>
     </div>
+
+    <p>RECORDS: 
+    <% @item.records.each do |record| %>
+	    DUE DATE: <%= record.due_date %>
+
+	    <% record.borrower do |borrower| %>
+		    NAME: <%= borrower.name %>
+	    <% end %>
+    <% end %></p>
+
+
+

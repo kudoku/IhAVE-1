@@ -1,0 +1,10 @@
+
+    <div class = "item-img">
+      <%= image_tag @item.avatar.url(:medium) %>
+    </div>
+    <div class = item-info>
+      <p> <strong> Item: <%= @item.name %> </strong> </p>
+      <p><%= @item.description %></p>
+      <%= @item.tag_list %>
+      <p class="text-center"><%= link_to "Delete", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %></p>
+    </div>

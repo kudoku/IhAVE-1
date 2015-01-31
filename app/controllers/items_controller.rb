@@ -12,7 +12,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-
+    respond_to do |format|
+      format.html 
+      format.js
+      end
   end
 
   def new
@@ -24,39 +27,42 @@ class ItemsController < ApplicationController
   def create
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
-
       if @item.save
+        respond_to do |format|
+          format.html { redirect_to location_items_path(@location) }
+          format.js
+          end
         flash[:success] = "Item #{@item.name} added."
-        redirect_to location_items_path(@location)
-      else
+          else
+          flash[:error] = @item.errors.full_messages
         render 'new'
       end
     end
 
-    def update
-      if @item.update_attributes(item_params)
+  def update
+    if @item.update_attributes(item_params)
 
-        redirect_to location_item_path(@location, @item)
-      else
-        flash[:danger] = "Item creation failed"
-        render :edit
-      end
+      redirect_to location_item_path(@location, @item)
+    else
+      flash[:danger] = "Item creation failed"
+      render :edit
     end
+  end
 
-    def destroy
-      @item.destroy
-      redirect_to location_items_path(@location)
-    end
+  def destroy
+    @item.destroy
+    redirect_to location_items_path(@location)
+  end
 
-    def search_submit
-      # binding.pry
-      @results = current_user.items.search_items(params[:q])
-      # binding.pry
-      respond_to do |format|
-        format.html {redirect_to location_items_path(@location), :result => @results}
-        format.js
-      end
+  def search_submit
+    # @results = Item.search_items(params[:q])
+    @results = current_user.locations.find(params[:location_id]).items.search_items(params[:q]) 
+    # binding.pry 
+    respond_to do |format|
+      format.html {redirect_to location_items_path(@location), :result => @results}
+      format.js
     end
+  end
  
   private
 

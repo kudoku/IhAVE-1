@@ -29,7 +29,8 @@ class ItemsController < ApplicationController
       @item.user_id = @user.id
       if @item.save
         if ApplicationHelper.date_set?(@item)
-          ReminderMailer.reminder_email(@user, @item).deliver
+          # ReminderMailer.reminder_email(@user, @item).deliver
+          ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email(@user, @item)
         end
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }

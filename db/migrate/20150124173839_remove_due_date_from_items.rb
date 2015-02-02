@@ -1,5 +1,5 @@
 class RemoveDueDateFromItems < ActiveRecord::Migration
-  def down
+  def up
     remove_column :items, :due_date
   end
 end

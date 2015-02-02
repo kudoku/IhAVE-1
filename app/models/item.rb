@@ -26,5 +26,8 @@ class Item < ActiveRecord::Base
   def search_valid?
     user_id == current_user.id
   end
+
+
+
   
 end

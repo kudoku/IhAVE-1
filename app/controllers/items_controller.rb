@@ -28,6 +28,9 @@ class ItemsController < ApplicationController
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
       if @item.save
+        if ApplicationHelper.date_set?(@item)
+          ReminderMailer.reminder_email(@user, @item).deliver
+        end
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }
           format.js

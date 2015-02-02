@@ -24,4 +24,8 @@ module ApplicationHelper
     end
     nil
   end
+
+  def self.date_set?(item)
+    item.is_out? && item.records.last.date_due > Date.today
+  end
 end

@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row image-tiles">
     <div class="main-button-content">
-      <p>Hi <%= current_user.username %></p>
-      <%= image_tag @user.avatar.url(:thumb) %>
+      <h2>Hi <%= current_user.username %></h2>
     </div>
 
-    <h1>Lets get started</h1>
+    <% if current_user.locations %>
+        <% else %>
+            <h1>Lets get started</h1>
+    <%end%>
 
 
-    <div class="center-text">
-      <%= link_to 'New Location', new_location_path, class: 'btn btn-primary', remote: true %>
-    </div>
 
 <div class="search-results">
   <% if @results %>
@@ -19,10 +18,12 @@
 </div>
 
 
+
     <% @locations.each do |location| %>
 		<%= render partial: 'location', locals: {location: location} %>
 	<% end %>
-    <i class="fa fa-plus fa-5x" ></i>
+    <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
+
   </div>
 	<div id="infinite-scrolling">
 		<%= paginate @locations %>

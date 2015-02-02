@@ -71,7 +71,7 @@ class LocationsController < ApplicationController
     end
 
     def set_location
-     @location = current_user.locations.find_by(id: params[:id])
+     @location = User.locations.find_by(id: params[:id])
     end
 
     def item_params
@@ -79,7 +79,7 @@ class LocationsController < ApplicationController
     end
     
     def location_params
-      params.require(:location).permit(:name, :description, :tag_list)
+      params.require(:location).permit(:name, :description, :tag_list, :avatar)
     end
 
 end

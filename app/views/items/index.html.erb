@@ -1,11 +1,9 @@
 <h1><%= @location.name.upcase %> Items</h1>
 
 <div class="main-button-content">
-  <%= link_to "Add New item", new_location_item_path(@location,@item), class:"btn btn-primary", remote: true  %>
   <%= link_to "Back", locations_path, class:"btn btn-primary" %>
 </div>
-  
-<%= link_to 'New Item', new_location_item_path(@location), class: 'btn btn-primary', remote: true %>
+
 
 <div class="field">
   <%= form_tag(location_item_search_path(@location), method: "get", remote: true) do %>
@@ -26,8 +24,11 @@
       <% @items.each do |item| %>
           <div class="col-xs-12 col-md-4 col-lg-3 display item-block">
             <%= link_to (image_tag item.avatar.url(:medium)), location_item_path(@location, item), remote: true %>
+            <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: @location.id) }.join(', ') %></p>
+          </div>
       <%end%>
-
+      <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-3x", remote: true %>
+    </div>
 
 
 

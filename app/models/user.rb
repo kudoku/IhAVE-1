@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "user-avatar-placeholder.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :username, presence: true, length: { in: 6..15 }, uniqueness: true
 
   #Get the picture from a given url.

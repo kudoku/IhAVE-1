@@ -5,8 +5,10 @@
     </div>
 
     <% if current_user.locations %>
-        <% else %>
-            <h1>Lets get started</h1>
+
+    <% else %>
+        <h1>Lets get started</h1>
+        <p> click the blue + signe to creae a location</p>
     <%end%>
 
 
@@ -16,18 +18,15 @@
     <%= @results %>
   <% end %>
 </div>
-
-
-
     <% @locations.each do |location| %>
 		<%= render partial: 'location', locals: {location: location} %>
 	<% end %>
-    <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
-
   </div>
 	<div id="infinite-scrolling">
 		<%= paginate @locations %>
 	</div>
+
+        <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
 </div>
 <div id='modal-div'>
 </div>

@@ -3,17 +3,19 @@ class ItemsController < ApplicationController
   before_action :set_user, except: [:index]
   before_action :set_location
   before_action :set_item, only: [:show, :edit, :update, :destroy, :index]
-  before_action :set_items, only: [:index]
+  before_action :set_items
   
   
   
   def index
     if params[:tag]
-      @items = @item.tagged_with(params[:tag])
+      @items = current_user.items.tagged_with(params[:tag])
+
     else
-     @item = @item
+     @items = @items
+
     end
-    @user = User.find(@location.user_id)
+    @user = current_user
   end
 
   def show

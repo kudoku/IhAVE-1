@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:index]
-  before_action :set_location
+  before_action :set_location, except: [:return_item, :lend_item]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :index]
   before_action :set_items, only: [:index]
   
@@ -21,6 +21,13 @@ class ItemsController < ApplicationController
   def new
     @item = @user.items.build
     @record = @item.records.build
+  end
+
+  def edit
+    respond_to do |format|
+      format.js 
+    end
+
   end
 
 
@@ -46,7 +53,7 @@ class ItemsController < ApplicationController
   def update
     if @item.update_attributes(item_params)
 
-      redirect_to location_item_path(@location, @item)
+      redirect_to location_items_path(@location)
     else
       flash[:danger] = "Item creation failed"
       render :edit
@@ -59,13 +66,26 @@ class ItemsController < ApplicationController
   end
 
   def search_submit
-    # @results = Item.search_items(params[:q])
     @results = current_user.locations.find(params[:location_id]).items.search_items(params[:q]) 
-    # binding.pry 
     respond_to do |format|
       format.html {redirect_to location_items_path(@location), :result => @results}
       format.js
     end
+  end
+
+  def return_item
+    @item = Item.find(params[:item_id])
+    @location = Location.find(@item.location_id)
+    
+    @item.update_attribute(:is_out, false)
+    respond_to do |format|
+      format.js {  }
+    end
+  end
+
+  def lend_item
+    @item = Item.find(params[:item_id])
+
   end
  
   private

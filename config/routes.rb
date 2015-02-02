@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'static_pages/about', as: :about
   post 'global_search' => 'static_pages#global_search_results', as: 'global_search'
+  post 'return_item/:item_id' => 'items#return_item', as: 'return_item'
+  post 'lend_item/:item_id' => 'items#lend_item', as: 'lend_item'
 
   resources :locations do 
     resources :items  

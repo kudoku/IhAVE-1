@@ -3,7 +3,14 @@ $('#showItem').modal('show');
 console.log('this worked');
 
 $('#lend-button').bind("click", function() {
-	alert(this);
+	alert('lending');
 	$(this).replaceWith("<%= j render partial: 'is_out_form' %>");
-	console.log(this);
+	$('.date').datepicker({
+		dateFormat: 'yy-mm-dd'
+	});
+	
+});
+
+$('.date').datepicker({
+	dateFormat: 'yy-mm-dd'
 });

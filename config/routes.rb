@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   
 
+  get 'records/new'
+
   devise_for :users, :controllers => { registrations: 'registrations', 
                                       omniauth_callbacks: 'users/omniauth_callbacks' }
   get 'tags/:tag', to: 'items#index', as: :tag
@@ -10,11 +12,14 @@ Rails.application.routes.draw do
   get 'static_pages/about', as: :about
   post 'global_search' => 'static_pages#global_search_results', as: 'global_search'
   post 'return_item/:item_id' => 'items#return_item', as: 'return_item'
-  post 'lend_item/:item_id' => 'items#lend_item', as: 'lend_item'
+  get 'lend_item/:item_id' => 'items#lend_item', as: 'lend_item'
+
 
   resources :locations do 
-    resources :items  
     get 'search'  =>  'items#search_submit', as: 'item_search'
+    resources :items do
+      resources :records, only: [:new, :create, :index]
+    end 
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

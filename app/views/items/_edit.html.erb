@@ -1,0 +1,22 @@
+
+<%= bootstrap_form_for [@location, @item] do |f| %>
+
+    <%= f.file_field :avatar %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= f.text_field :price %>
+    <%= f.number_field :quantity %>
+
+    <div class="form-group">
+      
+      <%= f.text_field :tag_list, class: "tagit ui-widget ui-widget-content ui-corner-all" %>
+
+    </div>
+
+    <%= f.submit %>
+    <% if using_modal %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <% end %>
+
+<% end %>
+

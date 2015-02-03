@@ -16,5 +16,6 @@
         <% else %>
           <%= link_to "Lend out this item", '#', class: "btn btn-primary btn-s", id: "lend-button" %>
         <% end %>
+        <%= link_to "History", location_item_records_path(@location, @item), class: "btn btn-primary btn-sm" %>
       </p>
     </div>

@@ -1,0 +1,7 @@
+<h1>Records#index</h1>
+<p>Find me in app/views/records/new.html.erb</p>
+
+<% @records.each do |record| %>
+	<%= record.borrower_name %>
+	<%= record.date_due %>
+<% end %>

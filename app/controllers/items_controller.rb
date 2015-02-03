@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:index]
-  before_action :set_location, except: [:return_item, :lend_item]
+  before_action :set_location, except: [:return_item]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :index]
-  before_action :set_items, except: [:return_item, :lend_item]
-  
-  
+  before_action :set_items, except: [:return_item]
   
   def index
     if params[:tag]
@@ -19,6 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @record = @item.records.build
     respond_to do |format|
       format.html 
       format.js
@@ -50,7 +49,7 @@ class ItemsController < ApplicationController
           format.html { redirect_to location_items_path(@location) }
           format.js
           end
-        flash[:success] = "Item #{@item.name} added."
+          flash[:success] = "Item #{@item.name} added."
           else
           flash[:error] = @item.errors.full_messages
         render 'new'
@@ -90,8 +89,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def lend_item
+  def show_records
     @item = Item.find(params[:item_id])
+    @record = @item.records.build
+    # @location = Location.find(@item.location_id)
+    # binding.pry
+
 
   end
  

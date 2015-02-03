@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true, length: { in: 6..15 }, uniqueness: true
 
   #Get the picture from a given url.
-  def avatar_from_url(url)
-    self.avatar = open(url)
-  end
+  # def avatar_from_url(url)
+  #   self.avatar = open(url)
+  # end
 
   # google auth
   def self.from_omniauth(auth)
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name   # assuming the user model has a name
       # user.avatar_file_name = URI.parse(auth.info.image) # assuming the user model has an image
-      user.avatar_from_url(auth.info.image) # assuming the user model has an image
+      # user.avatar_from_url(auth.info.image) # assuming the user model has an image
     end
   end
 

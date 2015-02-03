@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
     @user_items = current_user.items
     @locations  = @user.locations.order('name ASC').page(params[:page])
     @cheked_out = @user_items.all.where(is_out: 'true')
-    # @overdue   = @cheked_out.all.where("due_date > ?", Date.today)
+    @overdue   = @cheked_out.all.where("due_date > ?", Date.today)
     respond_to do |format|
       format.html 
       format.js 

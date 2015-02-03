@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   def new
     @item = @user.items.build
     @record = @item.records.build
+    @item.due_date = @item.records.last.date_due
   end
 
   def edit
@@ -40,6 +41,7 @@ class ItemsController < ApplicationController
   def create
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
+      
       if @item.save
         if ApplicationHelper.date_set?(@item)
           # ReminderMailer.reminder_email(@user, @item).deliver

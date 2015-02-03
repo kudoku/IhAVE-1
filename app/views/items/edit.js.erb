@@ -1,4 +1,30 @@
-alert('hi');
-console.log('hi');
+alert('edit');
+console.log('edit');
 
 $(".modal-body").empty().append("<%= j render partial: 'new_form', locals: {using_modal: true} %>");
+
+$(function() {
+	if($('#item_is_out').prop('checked')) {
+		
+		$('.record-form').show();
+	}
+		
+	$('#item_is_out').change(function() {
+		
+		if($('#item_is_out').prop('checked')) {
+			
+			$('.record-form').show();
+		}
+		else {
+			
+			$('.record-form').hide();
+		}
+	});
+
+	$('.date').datepicker({
+		dateFormat: 'yy-mm-dd'
+	});
+
+	$("#item_tag_list").tagit();
+	
+});

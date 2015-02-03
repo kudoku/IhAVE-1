@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_user, except: [:index]
   before_action :set_location, except: [:return_item, :lend_item]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :index]
-  before_action :set_items
+  before_action :set_items, except: [:return_item, :lend_item]
   
   
   

@@ -1,3 +1,9 @@
 $('#show-modal-div').html('<%= j render "show_model" %>');
 $('#showItem').modal('show');
 console.log('this worked');
+
+$('#lend-button').bind("click", function() {
+	alert(this);
+	$(this).replaceWith("<%= j render partial: 'is_out_form' %>");
+	console.log(this);
+});

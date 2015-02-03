@@ -1,5 +1,6 @@
 
-<%= bootstrap_form_for [@location, @item] do |f| %>
+<div class="">
+<%= bootstrap_form_for [@location, @item], layout: :horizontal do |f| %>
 
     <%= f.file_field :avatar %>
     <%= f.text_field :name %>
@@ -30,4 +31,5 @@
     <% end %>
 
 <% end %>
+</div>
 

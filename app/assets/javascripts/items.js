@@ -18,3 +18,4 @@ $(function() {
 	$("#item_tag_list").tagit();
 	
 });
+

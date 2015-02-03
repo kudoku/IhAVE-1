@@ -90,6 +90,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :description, :is_out, :date_due, :tag_list, :avatar, records_attributes: [:date_due, :borrower_name])
+      params.require(:item).permit(:name, :description, :is_out, :due_date, :tag_list, :avatar, records_attributes: [:date_due, :borrower_name])
     end
 end

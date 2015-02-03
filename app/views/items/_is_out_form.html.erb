@@ -1,0 +1,8 @@
+<%= bootstrap_form_for [@location, @item, @record] do |f| %>
+
+	<%= f.text_field :borrower_name %>
+	<%= f.text_field :date_due, class: "date" %>
+
+  <%= f.submit %>
+
+<% end %>

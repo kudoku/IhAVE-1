@@ -48,6 +48,10 @@ gem 'puma'
 gem 'omniauth-google-oauth2'
 # pg search
 gem 'pg_search'
+# delayed job for email notifications
+gem 'delayed_job_active_record'
+
+gem "letter_opener", :group => :development
 
 group :development, :test do
   gem 'spork-rails'

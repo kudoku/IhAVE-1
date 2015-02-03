@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:index]
-  before_action :set_location
+  before_action :set_location, except: [:return_item]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :index]
-  before_action :set_items
-  
-  
+  before_action :set_items, except: [:return_item]
   
   def index
     if params[:tag]
@@ -19,6 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @record = @item.records.build
     respond_to do |format|
       format.html 
       format.js
@@ -30,16 +29,27 @@ class ItemsController < ApplicationController
     @record = @item.records.build
   end
 
+  def edit
+    respond_to do |format|
+      format.js 
+    end
+
+  end
+
 
   def create
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
       if @item.save
+        if ApplicationHelper.date_set?(@item)
+          # ReminderMailer.reminder_email(@user, @item).deliver
+          ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email(@user, @item)
+        end
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }
           format.js
           end
-        flash[:success] = "Item #{@item.name} added."
+          flash[:success] = "Item #{@item.name} added."
           else
           flash[:error] = @item.errors.full_messages
         render 'new'
@@ -49,7 +59,7 @@ class ItemsController < ApplicationController
   def update
     if @item.update_attributes(item_params)
 
-      redirect_to location_item_path(@location, @item)
+      redirect_to location_items_path(@location)
     else
       flash[:danger] = "Item creation failed"
       render :edit
@@ -62,13 +72,30 @@ class ItemsController < ApplicationController
   end
 
   def search_submit
-    # @results = Item.search_items(params[:q])
     @results = current_user.locations.find(params[:location_id]).items.search_items(params[:q]) 
-    # binding.pry 
     respond_to do |format|
       format.html {redirect_to location_items_path(@location), :result => @results}
       format.js
     end
+  end
+
+  def return_item
+    @item = Item.find(params[:item_id])
+    @location = Location.find(@item.location_id)
+    
+    @item.update_attribute(:is_out, false)
+    respond_to do |format|
+      format.js {  }
+    end
+  end
+
+  def show_records
+    @item = Item.find(params[:item_id])
+    @record = @item.records.build
+    # @location = Location.find(@item.location_id)
+    # binding.pry
+
+
   end
  
   private
@@ -90,6 +117,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :description, :is_out, :due_date, :tag_list, :avatar, records_attributes: [:date_due, :borrower_name])
+      params.require(:item).permit(:name, :description, :quantity, :price, :is_out, :date_due, :tag_list, :avatar, records_attributes: [:date_due, :borrower_name])
     end
 end

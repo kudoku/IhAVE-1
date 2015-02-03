@@ -1,0 +1,10 @@
+alert('edit');
+console.log('edit');
+
+$(".modal-body").empty().append("<%= j render partial: 'edit', locals: {using_modal: true} %>");
+
+$(function() {
+
+	$("#item_tag_list").tagit();
+	
+});

@@ -4,12 +4,12 @@ Template Version: 1.0
 Author: Carlos Alvarez
 Website: http://blacktie.co
 Premium: http://www.gridgum.com
-*/
 
-/* Import fonts */
+
+ Import fonts
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 
-/* BASIC THEME CONFIGURATION */
+ BASIC THEME CONFIGURATION
 body {
     color: #797979;
 	background: #f2f2f2;
@@ -42,7 +42,7 @@ a, a:hover, a:focus {
     height: 100%;
 }
 
-/* Bootstrap Modifications */
+ Bootstrap Modifications
 .modal-header {
 	background: #68dff0;
 }
@@ -67,11 +67,11 @@ a, a:hover, a:focus {
 	background-color: #ffffff;
 	outline: none !important;
 	text-decoration: none;
-}	
+}
 
 
 
-/*Theme Backgrounds*/
+Theme Backgrounds
 
 .bg-theme {
 	background-color: #68dff0;
@@ -88,7 +88,7 @@ a, a:hover, a:focus {
 .bg-theme04 {
   background-color: #ed5565;
 }
-/*Theme Buttons*/
+Theme Buttons
 
 .btn-theme {
   color: #fff;
@@ -169,7 +169,7 @@ hr {
 
 
 
-/*Helpers*/
+Helpers
 
 .centered {
 	text-align: center;
@@ -203,7 +203,7 @@ hr {
 	margin: 0 !important;
 }
 
-/*Exclusive Theme Colors Configuration*/
+Exclusive Theme Colors Configuration
 
 .label-theme {
 	background-color: #68dff0;
@@ -226,7 +226,7 @@ ul.top-menu > li > .logout {
 }
 
 
-/*sidebar navigation*/
+sidebar navigation
 
 #sidebar {
     width: 210px;
@@ -252,7 +252,7 @@ ul.top-menu > li > .logout {
     padding-bottom: 10px;
 }
 
-/*LEFT NAVIGATION ICON*/
+LEFT NAVIGATION ICON
 .dcjq-icon {
     height:17px;
     width:17px;
@@ -271,7 +271,7 @@ ul.top-menu > li > .logout {
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
 }
-/*---*/
+---
 
 .nav-collapse.collapse {
     display: inline;
@@ -335,7 +335,7 @@ ul.sidebar-menu li ul.sub li.active a {
 }
 
 ul.sidebar-menu li{
-    /*line-height: 20px !important;*/
+    line-height: 20px !important;
     margin-bottom: 5px;
     margin-left:10px;
     margin-right:10px;
@@ -395,10 +395,10 @@ ul.sidebar-menu li a.active i {
     font-size: 11px;
 }
 
-/* MAIN CONTENT CONFIGURATION */
-/*#main-content {
+ MAIN CONTENT CONFIGURATION
+#main-content {
     margin-left: 210px;
-}*/
+}
 
 .header, .footer {
     min-height: 60px;
@@ -449,7 +449,7 @@ a.logo span {
 }
 
 
-/*notification*/
+notification
 #top_menu .nav > li, ul.top-menu > li {
     float: left;
 }
@@ -507,7 +507,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    /* Safari and Chrome */
+     Safari and Chrome
     .dropdown-menu.extended  {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
     }
@@ -703,7 +703,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     top: -10px;
 }
 
-/*----*/
+----
 
 .notify-arrow {
     border-style: solid;
@@ -734,7 +734,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 
 
-/*--sidebar toggle---*/
+--sidebar toggle---
 
 .sidebar-toggle-box {
     float: left;
@@ -762,7 +762,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 
-/* Dash Side */
+ Dash Side
 
 .ds {
 	background: #ffffff;
@@ -828,7 +828,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	color: #68dff0;
 }
 
-/* LINE ICONS CONFIGURATION */
+ LINE ICONS CONFIGURATION
 
 .mtbox {
 	margin-top: 80px;
@@ -870,7 +870,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-/* MAIN CHART CONFIGURATION */
+ MAIN CHART CONFIGURATION
 .main-chart {
 	padding-top: 20px;
 }
@@ -881,7 +881,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .border-head h3 {
     margin-top: 20px;
     margin-bottom: 20px;
-	margin-left: 15px;	
+	margin-left: 15px;
     padding-bottom: 5px;
     font-weight: normal;
     font-size: 18px;
@@ -967,7 +967,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 
-/*Donut Chart Main Page Conf*/
+Donut Chart Main Page Conf
 .donut-main {
 	display: block;
 	text-align: center;
@@ -978,11 +978,11 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	font-size: 16px;
 }
 
-/* *************************************************************************************
+ *************************************************************************************
 PANELS CONFIGURATIONS
-*************************************************************************************** */
+***************************************************************************************
 
-/*Panel Size*/
+Panel Size
 
 .pn {
 	height: 250px;
@@ -991,10 +991,10 @@ PANELS CONFIGURATIONS
 
 .pn:hover {
 	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
-	
+
 }
 
-/*Grey Panel*/
+Grey Panel
 
 .grey-panel {
 	text-align: center;
@@ -1012,7 +1012,7 @@ PANELS CONFIGURATIONS
 .grey-panel p {
 	margin-left: 5px;
 }
-/* Specific Conf for Donut Charts*/
+ Specific Conf for Donut Charts
 .donut-chart p {
 	margin-top: 5px;
 	font-weight: 700;
@@ -1024,7 +1024,7 @@ PANELS CONFIGURATIONS
 	font-size: 38px;
 }
 
-/* Dark Blue*/
+ Dark Blue
 
 .darkblue-panel {
 	text-align: center;
@@ -1047,12 +1047,12 @@ PANELS CONFIGURATIONS
 	color: white;
 }
 .darkblue-panel footer h5 {
-	margin-left:10px; 
+	margin-left:10px;
 	margin-right: 10px;
 	font-weight: 700;
 }
 
-/*Green Panel*/
+Green Panel
 .green-panel {
 	text-align: center;
 	background: #68dff0;
@@ -1075,7 +1075,7 @@ PANELS CONFIGURATIONS
 	color: white;
 }
 
-/*White Panel */
+White Panel
 .white-panel {
 	text-align: center;
 	background: #ffffff;
@@ -1104,11 +1104,11 @@ PANELS CONFIGURATIONS
 	font-size: 14px;
 }
 
-/*STOCK CARD Panel*/
+STOCK CARD Panel
 .card {
   background: white;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1em; 
+  margin-bottom: 1em;
   height: 250px;
 }
 .stock .stock-chart {
@@ -1116,11 +1116,11 @@ PANELS CONFIGURATIONS
 }
 .stock .stock-chart #chart {
     height: 10.7em;
-    background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat; 
-}    
+    background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat;
+}
 .stock .current-price {
   background: #1d2122;
-  padding: 10px; 
+  padding: 10px;
 }
 .stock .current-price .info abbr {
     display: block;
@@ -1130,14 +1130,14 @@ PANELS CONFIGURATIONS
     margin-top: 0.18em;
 }
 .stock .current-price .changes {
-    text-align: right; 
+    text-align: right;
 }
 .stock .changes .up {
 	color: #4fd98b
 }
 .stock .current-price .changes .value {
       font-size: 1.8em;
-      font-weight: 700; 
+      font-weight: 700;
 }
 .stock .summary {
     color: #2f2f2f;
@@ -1151,7 +1151,7 @@ PANELS CONFIGURATIONS
 	font-size: 14px;
 }
 
-/*Content Panel*/
+Content Panel
 .content-panel {
 	background: #ffffff;
 	box-shadow: 0px 3px 2px #aab2bd;
@@ -1162,9 +1162,9 @@ PANELS CONFIGURATIONS
 	margin-left: 10px;
 }
 
-/*WEATHER PANELS*/
+WEATHER PANELS
 
-/* Weather 1 */
+ Weather 1
 .weather {
 	background: url(../img/weather.jpg) no-repeat center top;
 	text-align: center;
@@ -1184,7 +1184,7 @@ PANELS CONFIGURATIONS
 	letter-spacing: 1px;
 }
 
-/* Weather 2 */
+ Weather 2
 .weather-2 {
 	background: #e9f0f4;
 }
@@ -1214,7 +1214,7 @@ PANELS CONFIGURATIONS
 	margin-top: 2px;
 }
 
-/* Weather 3 */
+ Weather 3
 .weather-3 {
 	background: #ffcf00;
 }
@@ -1252,7 +1252,7 @@ PANELS CONFIGURATIONS
 }
 
 
-/*Twitter Panel*/
+Twitter Panel
 .twitter-panel {
 	background: #4fc1e9;
 	text-align: center;
@@ -1271,7 +1271,7 @@ PANELS CONFIGURATIONS
 }
 
 
-/* Instagram Panel*/
+ Instagram Panel
 .instagram-panel {
 	background: url(../img/instagram.jpg) no-repeat center top;
 	text-align: center;
@@ -1286,7 +1286,7 @@ PANELS CONFIGURATIONS
 	color: white;
 }
 
-/* Product Panel */
+ Product Panel
 .product-panel {
 	background: #dadad2;
 	text-align: center;
@@ -1294,7 +1294,7 @@ PANELS CONFIGURATIONS
 	height: 100%;
 }
 
-/* Product Panel 2*/
+ Product Panel 2
 .product-panel-2 {
 	background: #dadad2;
 	text-align: center;
@@ -1315,7 +1315,7 @@ PANELS CONFIGURATIONS
 	border-radius: 100%;
 }
 
-/* Soptify Panel */
+ Soptify Panel
 #spotify {
 	background: url(../img/lorde.jpg) no-repeat center top;
 	margin-top: -15px;
@@ -1359,7 +1359,7 @@ PANELS CONFIGURATIONS
 	margin-top: 5px;
 }
 
-/* BLOG PANEL */
+ BLOG PANEL
 #blog-bg {
 	background: url(../img/blog-bg.jpg) no-repeat center top;
 	margin-top: -15px;
@@ -1408,7 +1408,7 @@ PANELS CONFIGURATIONS
 	font-size: 12px;
 }
 
-/* Calendar Configuration */
+ Calendar Configuration
 #calendar {
 	color: white;
 	padding: 0px !important;
@@ -1417,7 +1417,7 @@ PANELS CONFIGURATIONS
 	background: #43b1a9;
 }
 
-/* TODO PANEL */
+ TODO PANEL
 .steps{
   display: block;
 }
@@ -1483,8 +1483,8 @@ PANELS CONFIGURATIONS
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGFJREFUeNpinHLMhgEHKADia0xQThIQs6JJ9gPxZhYQAcS6QHwDiI8hSYJAC0gBPxDLAvFcIJ6JJJkDxFNBVtgBcQ8Qa6BLghgwN4A4a9ElQYAFSj8C4mwg3o8sCQIAAQYA78QTYqnPZuEAAAAASUVORK5CYII=') no-repeat center center;
 }
 
-/* PROFILE PANELS */
-/* Profile 01*/
+ PROFILE PANELS
+ Profile 01
 #profile-01 {
 	background: url(../img/profile-01.jpg) no-repeat center top;
 	margin-top: -15px;
@@ -1532,7 +1532,7 @@ PANELS CONFIGURATIONS
 	font-size: 15px;
 }
 
-/* Profile 02*/
+ Profile 02
 #profile-02 {
 	background: url(../img/profile-02.jpg) no-repeat center top;
 	margin-top: -15px;
@@ -1571,7 +1571,7 @@ PANELS CONFIGURATIONS
 }
 
 
-/*spark line*/
+spark line
 .chart {
     display: inline-block;
     text-align: center;
@@ -1635,7 +1635,7 @@ PANELS CONFIGURATIONS
     display: inline-block;
 }
 
-/* showcase background */
+ showcase background
 .showback {
 	background: #ffffff;
 	padding: 15px;
@@ -1645,7 +1645,7 @@ PANELS CONFIGURATIONS
 
 
 
-/* Calendar Events - Calendar.html*/
+ Calendar Events - Calendar.html
 .external-event {
 	cursor: move;
 	display: inline-block !important;
@@ -1668,7 +1668,7 @@ PANELS CONFIGURATIONS
 	background: #FFFFFF;
 }
 
-/* Gallery Configuration */
+ Gallery Configuration
 .photo-wrapper {
   display: block;
   position: relative;
@@ -1689,7 +1689,7 @@ PANELS CONFIGURATIONS
   -moz-transition: opacity 0.4s;
   -o-transition: opacity 0.4s;
   transition: opacity 0.4s;
-  
+
 }
 
 .project:hover .photo-wrapper {
@@ -1718,7 +1718,7 @@ PANELS CONFIGURATIONS
 
 
 
-/* EZ Checklist */
+ EZ Checklist
 .ez-checkbox {
 	margin-right: 5px;
 }
@@ -1733,7 +1733,7 @@ background: #fffbcc !important;
 }
 
 
-/* FORMS CONFIGURATION */
+ FORMS CONFIGURATION
 .form-panel {
 	background: #ffffff;
 	margin: 10px;
@@ -1779,7 +1779,7 @@ label {
 	height: 34px;
 }
 
-/* TOGGLE CONFIGURATION */
+ TOGGLE CONFIGURATION
 .has-switch {
     border-radius: 30px;
     -webkit-border-radius: 30px;
@@ -1923,7 +1923,7 @@ label {
 
 
 
-/*LOGIN CONFIGURATION PAGE*/
+LOGIN CONFIGURATION PAGE
 .form-login {
 	max-width: 330px;
 	margin: 100px auto 0;
@@ -1957,7 +1957,7 @@ label {
 }
 
 
-/*LOCK SCREEN CONF*/
+LOCK SCREEN CONF
 #showtime {
 	width: 100%;
 	color: #fff;
@@ -2026,7 +2026,7 @@ label {
 }
 
 
-/*badge*/
+badge
 .badge.bg-primary {
     background: #8075c4;
 }
@@ -2052,7 +2052,7 @@ label {
 }
 
 
-/*easy pie chart*/
+easy pie chart
 .easy-pie-chart {
     display: inline-block;
     padding: 30px 0;
@@ -2098,7 +2098,7 @@ label {
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    /* Safari and Chrome */
+     Safari and Chrome
     .panel-footer.revenue-foot {
         margin-bottom: -4px;
     };
@@ -2155,12 +2155,12 @@ label {
 }
 
 
-/*flot chart*/
+flot chart
 .flot-chart .chart, .flot-chart .pie, .flot-chart .bars {
     height: 300px;
 }
 
-/*todolist*/
+todolist
 #sortable {
     list-style-type: none;
     margin: 0 0 20px 0;
@@ -2214,7 +2214,7 @@ label {
     border-left: 3px solid #BEC3C7;
 }
 
-/*footer*/
+footer
 .site-footer {
     background: #68dff0;
     color: #fff;
@@ -2247,3 +2247,4 @@ label {
 
 
 
+*/

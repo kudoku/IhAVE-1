@@ -58,7 +58,6 @@
                 <%= link_to (image_tag item.avatar.url(:medium)), location_item_path(item.location_id, item), remote: true %>
                 <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location_id) }.join(', ') %></p>
               </div>
-
           <%end%>
         </div>
       </div>
@@ -73,8 +72,7 @@
                 <%= link_to (image_tag item.avatar.url(:medium)), location_item_path(item.location_id, item), remote: true %>
                 <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location_id) }.join(', ') %></p>
               </div>
-
-          <%end%>
+          <% end %>
         </div>
       </div>
     </div>

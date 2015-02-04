@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   def new
     @item = @user.items.build
     @record = @item.records.build
+    @item.due_date = @item.records.last.date_due
   end
 
   def edit
@@ -38,9 +39,14 @@ class ItemsController < ApplicationController
 
 
   def create
+      record = 
       @item = @location.items.build(item_params)
       @item.user_id = @user.id
+      
       if @item.save
+        if @item.records.last.date_due
+          @item.due_date = @item.records.last.date_due
+        end
         if ApplicationHelper.date_set?(@item)
           # ReminderMailer.reminder_email(@user, @item).deliver
           ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email(@user, @item)
@@ -48,10 +54,10 @@ class ItemsController < ApplicationController
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }
           format.js
-          end
-          flash[:success] = "Item #{@item.name} added."
-          else
-          flash[:error] = @item.errors.full_messages
+        end
+        flash[:success] = "Item #{@item.name} added."
+      else
+        flash[:error] = @item.errors.full_messages
         render 'new'
       end
     end
@@ -68,6 +74,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
+    flash[:notice] = "Item #{@item.name} deleted."
     redirect_to location_items_path(@location)
   end
 
@@ -118,5 +125,8 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:name, :description, :quantity, :price, :is_out, :date_due, :tag_list, :avatar, records_attributes: [:date_due, :borrower_name])
+    end
+
+    def record_params
     end
 end

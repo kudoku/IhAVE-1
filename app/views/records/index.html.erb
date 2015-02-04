@@ -7,14 +7,22 @@
 </div>
 
 
-<div class="records">
-	<% @records.each do |record| %>
-		<%= record.borrower_name %>
-		<%= record.date_due %>
-		<%= record.date_returned %>
-		<%= record.times_lent %>
-	<% end %>
-	
-</div>
+
+  <div class="container-fluid ">
+    <div class ="row image-tiles">
+			<% @records.each do |record| %>
+				<div class="col-xs-12 col-md-4 col-lg-3 display item-block">
+					<%= record.borrower_name %>
+					<%= record.date_due %>
+					<%= record.date_returned %>
+					<%= record.times_lent %>
+				</div>
+			<% end %>
+    </div>
+  </div>
+
+
+
+
 
 

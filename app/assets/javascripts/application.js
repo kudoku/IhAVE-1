@@ -16,6 +16,7 @@
 //= require jquery-ui
 //= require jquery.infinite-pages
 //= require tag-it
+//= require isotope.min.js
 //= require_tree .
 
 

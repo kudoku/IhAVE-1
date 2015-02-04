@@ -9,7 +9,7 @@
       <%= @item.tag_list %>
       <h3>Quantity:&nbsp  <%=@item.quantity %></h3>
       <p class="text-center">
-        <%= link_to "Delete", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %>
+        <%= link_to " Delete", location_item_path(@location, @item), method: :delete, class: "fa fa-trash-o fa-lg btn btn-danger btn-s" %>
         <%= link_to "Edit", edit_location_item_path(@location, @item), method: "get", remote: true, class: "btn btn-primary btn-s" %>
         <% if @item.is_out? %>
           <%= link_to "Return this item", return_item_path(@item.id), method: "post", remote: true, class: "btn btn-primary btn-s", id: "return-button" %>

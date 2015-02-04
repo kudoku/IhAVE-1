@@ -11,7 +11,7 @@ gem 'devise'
 gem 'newrelic_rpm'
 
 gem 'acts-as-taggable-on', '~> 3.4'
-gem "paperclip", "~> 4.2" 
+gem "paperclip", "~> 4.2"
 gem 'aws-sdk'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -65,6 +65,7 @@ group :development, :test do
   # gem 'bootstrap-will_paginate'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'meta_request'
 end
 
 

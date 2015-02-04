@@ -4,4 +4,5 @@ class Record < ActiveRecord::Base
   validates :borrower_name, presence: true
   validates :date_due, presence: true
 
+
 end

@@ -73,7 +73,11 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    flash[:notice] = "Item #{@item.name} deleted."
+    unless @item.is_borrowed
+      flash[:notice] = "Item #{@item.name} deleted."
+    else
+      flash[:notice] = "Item #{@item.name} has been returned to #{@item.borrowed_from}"
+    end
     redirect_to location_items_path(@location)
   end
 

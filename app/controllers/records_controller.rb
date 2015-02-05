@@ -2,6 +2,11 @@ class RecordsController < ApplicationController
   
   def index
     @records = Item.find(params[:item_id]).records
+    if @records.last.item.is_out
+      @display_borrower_name = @records.last.item.user.username
+    else
+      @display_borrower_name = nil
+    end
   end
 
   def create
@@ -9,6 +14,7 @@ class RecordsController < ApplicationController
     @item = Item.find(params[:item_id])
     @record = @item.records.build(record_params)
     @item.update_attribute(:is_out, true)
+    
     @item.due_date = @item.records.last.date_due
 
     

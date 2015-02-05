@@ -42,10 +42,10 @@ class ItemsController < ApplicationController
       @item = @location.items.build(item_params)
       # binding.pry
       @item.user_id = @user.id
+      
 
       if @item.save        
         if ApplicationHelper.date_set?(@item)
-          # ReminderMailer.reminder_email(@user, @item).deliver
           ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email(@user, @item)
         end
         respond_to do |format|
@@ -88,6 +88,7 @@ class ItemsController < ApplicationController
     @location = Location.find(@item.location_id)
     
     @item.update_attribute(:is_out, false)
+    @item.records.last.update_attribute(:date_returned, Date.today)
     respond_to do |format|
       format.js {  }
     end

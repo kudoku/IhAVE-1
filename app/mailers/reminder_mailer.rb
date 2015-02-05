@@ -15,6 +15,6 @@ class ReminderMailer < ActionMailer::Base
 
     @item = item
 
-    mail(to: @item.user.email, subject: "Friendly Reminder to Return #{@item.name} to #{@item.records.last.borrower_name}")
+    mail(to: @item.user.email, subject: "Friendly Reminder to Return #{@item.name} to #{@item.borrowed_from}")
   end
 end

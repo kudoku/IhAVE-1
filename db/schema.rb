@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205170808) do
+ActiveRecord::Schema.define(version: 20150205175053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,8 @@ ActiveRecord::Schema.define(version: 20150205170808) do
     t.datetime "avatar_updated_at"
     t.float    "price"
     t.integer  "quantity"
-    t.string   "times_lent"
+    t.boolean  "is_borrowed"
+    t.string   "borrowed_from"
   end
 
   add_index "items", ["location_id"], name: "index_items_on_location_id", using: :btree

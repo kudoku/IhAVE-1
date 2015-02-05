@@ -1,25 +1,27 @@
 
-<div id="container">
-  <div class="item">...</div>
-  <div class="item w2">...</div>
-  <div class="item">...</div>
-  ...
-</div>
-
-
-
-  <div class="container-fluid ">
-    <div class ="row image-tiles">
-			<% @records.each do |record| %>
-				<div class="col-xs-12 col-md-4 col-lg-3 display item-block">
-					<%= record.borrower_name %>
-					<%= record.date_due %>
-					<%= record.date_returned %>
-					<%= record.times_lent %>
-				</div>
-			<% end %>
-    </div>
+<div class="container-fluid ">
+<h2>Total times lent out: <%= @records.count %></h2> 
+   <h2><% if @display_borrower_name %>
+   		Currently loaned out to: <%= @display_borrower_name %>
+		<% end %></h2>
+  <div id ="masonry_container">
+  
+		<% @records.each_with_index do |record, index| %>
+			<div class="col-xs-12 col-md-4 col-lg-3 display item">
+				<p>Record #: <%= index+1 %></p>
+				<p>Borrower Name: <%= record.borrower_name %></p>
+				<p>Date due: <%= record.date_due %></p>
+				<p>Item return date: 
+					<% if record.item.is_out && @records.count == index+1 %>
+						Is currently loaned out to: <%= record.item.user.username %>
+					<% else %>
+						<%= record.date_returned %>
+					<% end %></p>
+				
+			</div>
+		<% end %>
   </div>
+</div>
 
 
 

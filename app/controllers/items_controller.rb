@@ -8,10 +8,6 @@ class ItemsController < ApplicationController
   def index
     if params[:tag]
       @items = current_user.items.tagged_with(params[:tag])
-
-    else
-     @items = @items
-
     end
     @user = current_user
   end
@@ -56,7 +52,7 @@ class ItemsController < ApplicationController
         end
         flash[:success] = "Item #{@item.name} added."
       else
-        flash[:error] = @item.errors.full_messages
+        flash[:error] = "#{@item.errors.full_messages}"
         render 'new'
       end
     end

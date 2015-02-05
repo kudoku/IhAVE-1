@@ -13,6 +13,10 @@ class RecordsController < ApplicationController
 
     
     if @record.save
+      if ApplicationHelper.date_set?(@item)
+          # ReminderMailer.reminder_email(@user, @item).deliver
+          ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email(@user, @item)
+        end
       flash[:success] = "Item #{@item.name} has been lent out."
       redirect_to location_items_path(@location)
     else

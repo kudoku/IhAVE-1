@@ -19,6 +19,11 @@ class RecordsController < ApplicationController
 
     
     if @record.save
+        if ApplicationHelper.date_set?(@item) && @record.borrower_email
+          # binding.pry
+          ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email_borrower(@record)
+          ReminderMailer.reminder_email_borrower(@record).deliver
+        end
       flash[:success] = "Item #{@item.name} has been lent out."
       redirect_to location_items_path(@location)
     else
@@ -29,6 +34,6 @@ class RecordsController < ApplicationController
   private
 
     def record_params
-      params.require(:record).permit(:date_due, :borrower_name)
+      params.require(:record).permit(:date_due, :borrower_name, :borrower_email)
     end
 end

@@ -1,0 +1,4 @@
+<%= @item.user.username %>,
+===============================================
+ 
+The <%= @item.name %> that you borrowed from <%= @item.records.last.borrower_name %>, is due back on <%= @item.records.last.date_due %>.

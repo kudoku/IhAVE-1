@@ -45,9 +45,7 @@ class ItemsController < ApplicationController
       
 
       if @item.save        
-        if ApplicationHelper.date_set?(@item)
-          ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email(@user, @item)
-        end
+        if @item.
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }
           format.js

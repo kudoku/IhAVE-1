@@ -14,14 +14,18 @@
         <% end %>
         <%= link_to "Edit", edit_location_item_path(@location, @item), method: "get", remote: true, class: "btn btn-primary btn-s" %>
         <% if @item.is_borrowed %>
-          <%= link_to "Return Item?", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %>
+          <%= link_to "Item returned to lender?", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %>
         <% else %>
           <% if @item.is_out? %>
-            <%= link_to "Return this item", return_item_path(@item.id), method: "post", remote: true, class: "btn btn-primary btn-s", id: "return-button" %>
+            <%= link_to "Received from borrower?", return_item_path(@item.id), method: "post", remote: true, class: "btn btn-primary btn-s", id: "return-button" %>
           <% else %>
             <%= link_to "Lend out this item", '#', class: "btn btn-primary btn-s", id: "lend-button" %>
           <% end %>
         <% end %>
-        <%= link_to "History", location_item_records_path(@location, @item), class: "btn btn-primary btn-sm" %>
+
+        <% if @item.records.last.id != nil %>
+          <%= link_to "History", location_item_records_path(@location, @item), class: "btn btn-primary btn-sm" %>
+          
+        <% end %>
       </p>
     </div>

@@ -13,7 +13,7 @@
 				<p>Date due: <%= record.date_due %></p>
 				<p>Item return date: 
 					<% if record.item.is_out && @records.count == index+1 %>
-						Is currently loaned out to: <%= record.item.user.username %>
+						Is currently loaned out to <%= @display_borrower_name %>
 					<% else %>
 						<%= record.date_returned %>
 					<% end %></p>

@@ -7,7 +7,7 @@
   <div id ="masonry_container">
   
 		<% @records.each_with_index do |record, index| %>
-			<div class="col-xs-12 col-md-4 col-lg-3 display item">
+			<div class="col-xs-12 col-md-4 col-lg-3 display item-block item">
 				<p>Record #: <%= index+1 %></p>
 				<p>Borrower Name: <%= record.borrower_name %></p>
 				<p>Date due: <%= record.date_due %></p>

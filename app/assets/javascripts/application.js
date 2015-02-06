@@ -25,6 +25,18 @@ $('#myTab a').click(function (e) {
     $(this).tab('show')
 })
 
+var $masonry_container = $('#masonry_container');
+// init
+$masonry_container.isotope({
+  // options
+  itemSelector: '.item-block',
+  masonry: {
+    columnWidth: 100
+  },
+
+  layoutMode: 'masonry'
+});
+
 
 
 //$('#myTab a[href="#locations"]').tab('show') // Select tab by name

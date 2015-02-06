@@ -2,15 +2,15 @@ $('#show-modal-div').html('<%= j render "show_model" %>');
 $('#showItem').modal('show');
 console.log('this worked');
 
-$('#lend-button').bind("click", function() {
-	alert('lending');
-	$(this).replaceWith("<%= j render partial: 'is_out_form' %>");
-	$('.date').datepicker({
-		dateFormat: 'yy-mm-dd'
+function bindLendButton(){
+	$('#lend-button').bind("click", function() {
+		// $('#lend-button').click(function() {
+		alert('lending');
+		$(this).replaceWith("<%= j render partial: 'is_out_form' %>");
+		$('.date').datepicker({
+			dateFormat: 'yy-mm-dd'
+		});
 	});
-	
-});
+}
 
-$('.date').datepicker({
-	dateFormat: 'yy-mm-dd'
-});
+bindLendButton();

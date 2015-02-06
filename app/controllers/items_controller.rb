@@ -44,9 +44,9 @@ class ItemsController < ApplicationController
         if @item.is_borrowed && @item.due_date
           
           ReminderMailer.delay(run_at: @item.due_date - 2.days).reminder_email_user(@item)
-          ReminderMailer.reminder_email_user(@item).deliver
+          
         end
-        binding.pry
+        # binding.pry
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }
           format.js

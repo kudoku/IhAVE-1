@@ -31,7 +31,9 @@ $masonry_container.isotope({
   // options
   itemSelector: '.item-block',
   masonry: {
-    columnWidth: 100
+    columnWidth: 100,
+    gutter: 5,
+    isFitWidth: true
   },
 
   layoutMode: 'masonry'

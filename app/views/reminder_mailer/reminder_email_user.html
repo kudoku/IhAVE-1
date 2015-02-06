@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @item.user.username %></h1>
+    <p>
+      The <%= @item.name %> that you borrowed from <%= @item.borrowed_from %>, is due back on <%= @item.due_date %>.<br>
+    </p>
+
+  </body>
+</html>
+

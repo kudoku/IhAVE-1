@@ -13,7 +13,19 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require jquery-ui
+
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/mouse
+//= require jquery-ui/position
+
+//= require jquery-ui/effect-blind
+//= require jquery-ui/effect-highlight
+
+//= require jquery-ui/datepicker
+//= require jquery-ui/autocomplete
+
+
 //= require jquery.infinite-pages
 //= require tag-it
 //= require isotope.min.js
@@ -24,6 +36,20 @@ $('#myTab a').click(function (e) {
     e.preventDefault()
     $(this).tab('show')
 })
+
+var $masonry_container = $('#masonry_container');
+// init
+$masonry_container.isotope({
+  // options
+  itemSelector: '.item-block',
+  masonry: {
+    columnWidth: 100,
+    gutter: 5,
+    isFitWidth: true
+  },
+
+  layoutMode: 'masonry'
+});
 
 
 

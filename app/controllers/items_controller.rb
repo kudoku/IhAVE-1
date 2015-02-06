@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def new
     @item = @user.items.build
     @record = @item.records.build
-    @item.due_date = @item.records.last.date_due
+    # @item.due_date = @item.records.last.date_due
   end
 
   def edit
@@ -35,15 +35,18 @@ class ItemsController < ApplicationController
 
 
   def create
-      @item = @location.items.build(item_params)
-      # binding.pry
+      @item = @location.items.new(item_params)
+      
       @item.user_id = @user.id
+      
 
       if @item.save        
-        if ApplicationHelper.date_set?(@item)
-          # ReminderMailer.reminder_email(@user, @item).deliver
-          ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email(@user, @item)
+        if @item.is_borrowed && @item.due_date
+          
+          ReminderMailer.delay(run_at: @item.due_date - 2.days).reminder_email_user(@item)
+          
         end
+        # binding.pry
         respond_to do |format|
           format.html { redirect_to location_items_path(@location) }
           format.js
@@ -67,7 +70,11 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    flash[:notice] = "Item #{@item.name} deleted."
+    unless @item.is_borrowed
+      flash[:notice] = "Item #{@item.name} deleted."
+    else
+      flash[:notice] = "Item #{@item.name} has been returned to #{@item.borrowed_from}"
+    end
     redirect_to location_items_path(@location)
   end
 
@@ -80,12 +87,14 @@ class ItemsController < ApplicationController
   end
 
   def return_item
-    @item = Item.find(params[:item_id])
-    @location = Location.find(@item.location_id)
+    @item = current_user.items.find(params[:item_id])
+    @location = current_user.locations.find(@item.location_id)
+
     
     @item.update_attribute(:is_out, false)
+    @item.records.last.update_attribute(:date_returned, Date.today)
     respond_to do |format|
-      format.js {  }
+      format.js { @record = @item.records.build }
     end
   end
 
@@ -111,10 +120,10 @@ class ItemsController < ApplicationController
     end
 
     def set_item
-      @item =  Item.find_by(id: params[:id], user_id: current_user)
+      @item =  current_user.items.find_by(id: params[:id])
     end
 
     def item_params
-      params.require(:item).permit(:name, :description, :quantity, :price, :is_out, :date_due, :tag_list, :avatar, records_attributes: [:borrower_name, :date_due])
+      params.require(:item).permit(:name, :description, :quantity, :price, :is_out, :due_date, :borrowed_from, :is_borrowed, :tag_list, :avatar, records_attributes: [:borrower_name, :date_due])
     end
 end

@@ -8,7 +8,6 @@ class StaticPagesController < ApplicationController
 
   def global_search_results
     @results = current_user.items.search_items(params[:q])
-    # binding.pry
   end
 
   def logged_in_redirect

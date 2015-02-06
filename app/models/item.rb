@@ -20,13 +20,13 @@ class Item < ActiveRecord::Base
 
   paginates_per 12
 
-  def item_search(search_input)
-    Item.search(search_input)
-  end 
+  # def item_search(search_input)
+  #   Item.search(search_input)
+  # end 
 
-  def search_valid?
-    user_id == current_user.id
-  end
+  # def search_valid?
+  #   user_id == current_user.id
+  # end
 
 
 

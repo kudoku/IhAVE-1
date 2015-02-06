@@ -24,6 +24,7 @@
       <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-5x", remote: true %>
     </div>
   </div>
+  
   <% @items.each do |item| %>
 
     <%= render partial: 'item', locals: {item: item} %>

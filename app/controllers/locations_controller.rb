@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
   def index
     @user_items = current_user.items
     @locations  = @user.locations.order('name ASC').page(params[:page])
-    @cheked_out = @user_items.all.where(is_out: 'true')
+    @cheked_out = @user_items.all.where(is_out: 'true').page(params[:page])
     @overdue   = @cheked_out.select { |item| item.records.last.date_due < Date.today }
     respond_to do |format|
       format.html 

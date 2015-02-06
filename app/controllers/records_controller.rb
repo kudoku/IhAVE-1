@@ -3,9 +3,9 @@ class RecordsController < ApplicationController
   def index
     @records = Item.find(params[:item_id]).records
     if @records.last.item.is_out
-      @display_borrower_name = @records.last.item.user.username
+      @display_borrower_name = @records.last.borrower_name
     else
-      @display_borrower_name = nil
+      @display_borrower_name = "Noone!"
     end
   end
 

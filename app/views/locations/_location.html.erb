@@ -1,5 +1,9 @@
 <div class ="item-block">
     <h3><%= link_to location.name, location_items_path(location) %></h3>
     <%= link_to (image_tag location.avatar.url(:medium), class: "img img-responsive img-center"), location_items_path(location)%>
+    <div class = "location-info">
+    		<%= link_to "Edit", edit_location_path(location),class: "btn btn-warning" %>
+    		<%= link_to "New", new_location_item_path(location),class: "btn btn-info" %>
+    </div>
 </div>
 

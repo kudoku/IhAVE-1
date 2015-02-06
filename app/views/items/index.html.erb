@@ -1,4 +1,4 @@
-<h1><%= @location.name.upcase %> Items</h1>
+<h1><%= link_to @location.name.upcase, edit_location_path(@location) %> Items</h1>
 
 <div class="field">
   <%= form_tag(location_item_search_path(@location), method: "get", remote: true) do %>
@@ -6,6 +6,7 @@
     <%= text_field_tag :q, nil, placeholder: 'Search item name/tags' %>
     <%= submit_tag("Search") %>
   <% end %>
+
 </div>
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202145637) do
+ActiveRecord::Schema.define(version: 20150205175053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20150202145637) do
     t.datetime "avatar_updated_at"
     t.float    "price"
     t.integer  "quantity"
+    t.boolean  "is_borrowed"
+    t.string   "borrowed_from"
   end
 
   add_index "items", ["location_id"], name: "index_items_on_location_id", using: :btree
@@ -78,13 +80,13 @@ ActiveRecord::Schema.define(version: 20150202145637) do
   add_index "publics", ["name"], name: "index_publics_on_name", using: :btree
 
   create_table "records", force: true do |t|
-    t.datetime "date_due"
-    t.datetime "date_returned"
+    t.date     "date_due"
+    t.date     "date_returned"
     t.string   "borrower_name"
-    t.integer  "times_lent"
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "borrower_email"
   end
 
   add_index "records", ["item_id"], name: "index_records_on_item_id", using: :btree

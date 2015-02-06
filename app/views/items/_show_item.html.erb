@@ -9,13 +9,23 @@
       <%= @item.tag_list %>
       <h3>Quantity:&nbsp  <%=@item.quantity %></h3>
       <p class="text-center">
-        <%= link_to " Delete", location_item_path(@location, @item), method: :delete, class: "fa fa-trash-o fa-lg btn btn-danger btn-s" %>
-        <%= link_to "Edit", edit_location_item_path(@location, @item), method: "get", remote: true, class: "btn btn-primary btn-s" %>
-        <% if @item.is_out? %>
-          <%= link_to "Return this item", return_item_path(@item.id), method: "post", remote: true, class: "btn btn-primary btn-s", id: "return-button" %>
-        <% else %>
-          <%= link_to "Lend out this item", '#', class: "btn btn-primary btn-s", id: "lend-button" %>
+        <% unless @item.is_borrowed %>
+          <%= link_to " Delete", location_item_path(@location, @item), method: :delete, class: "fa fa-trash-o fa-lg btn btn-danger btn-s" %>
         <% end %>
-        <%= link_to "History", location_item_records_path(@location, @item), class: "btn btn-primary btn-sm" %>
+        <%= link_to "Edit", edit_location_item_path(@location, @item), method: "get", remote: true, class: "btn btn-primary btn-s" %>
+        <% if @item.is_borrowed %>
+          <%= link_to "Item returned to lender?", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %>
+        <% else %>
+          <% if @item.is_out? %>
+            <%= link_to "Received from borrower?", return_item_path(@item.id), method: "post", remote: true, class: "btn btn-primary btn-s", id: "return-button" %>
+          <% else %>
+            <%= link_to "Lend out this item", '#', class: "btn btn-primary btn-s", id: "lend-button" %>
+          <% end %>
+        <% end %>
+
+        <% if @item.records.last.id != nil %>
+          <%= link_to "History", location_item_records_path(@location, @item), class: "btn btn-primary btn-sm" %>
+          
+        <% end %>
       </p>
     </div>

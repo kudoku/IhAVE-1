@@ -13,7 +13,19 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require jquery-ui
+
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/mouse
+//= require jquery-ui/position
+
+//= require jquery-ui/effect-blind
+//= require jquery-ui/effect-highlight
+
+//= require jquery-ui/datepicker
+//= require jquery-ui/autocomplete
+
+
 //= require jquery.infinite-pages
 //= require tag-it
 //= require isotope.min.js

@@ -20,12 +20,7 @@ run do
 	wait = Selenium::WebDriver::Wait.new(:timeout => 10) # seconds
   @driver.get 'http://localhost:3000/'
 
-  login_button = wait.until { @driver.find_element(id: "sign-in-button") }
-  expect(login_button.text).to eql('Sign in')
-  login_button.click 
 	google_oauth = wait.until { @driver.find_element(id: "google_oauth") } 
   google_oauth_button = @driver.find_element(id: "google_oauth") 
   google_oauth_button.click
 end
-
- 

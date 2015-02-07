@@ -19,7 +19,7 @@ end
 run do
 	wait = Selenium::WebDriver::Wait.new(:timeout => 10) # seconds
   @driver.get 'http://localhost:3000/'
-
+  driver.switch_to.window("windowName")
 	google_oauth = wait.until { @driver.find_element(id: "google_oauth") } 
   google_oauth_button = @driver.find_element(id: "google_oauth") 
   google_oauth_button.click

@@ -22,8 +22,10 @@ run do
 
   login_button = wait.until { @driver.find_element(id: "sign-in-button") }
   expect(login_button.text).to eql('Sign in')
-  login_button.click 
-	google_oauth = wait.until { @driver.find_element(id: "google_oauth") } 
+  login_button.click
+ 
+  @driver.switch_to.frame @driver.find_element(:id, 'signIn') # frame element
+ 	google_oauth = wait.until { @driver.find_element(id: "google_oauth") } 
   google_oauth_button = @driver.find_element(id: "google_oauth") 
   google_oauth_button.click
 end

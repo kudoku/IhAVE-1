@@ -18,7 +18,7 @@ class Item < ActiveRecord::Base
                   # :if => :search_valid?
                   # :if => lambda { |item| item.user_id = current_user.id  }
 
-  paginates_per 12
+  paginates_per 6
 
   # def item_search(search_input)
   #   Item.search(search_input)

@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def index
     if params[:tag]
       @items = current_user.items.tagged_with(params[:tag])
+      @items = @items.page(params[:page])
     end
     @user = current_user
   end

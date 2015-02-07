@@ -50,7 +50,7 @@ body {
 
 	
 	margin-bottom: 10px;
- 
+
 }
 
    
@@ -60,6 +60,13 @@ body {
 	.location-info{
 		display: inherit;
 	}
+}
+
+.record-block {
+	height: 500px;
+	width: 300px;
+	margin-bottom: 10px;
+	text-align: left;
 }
 
 #masonry_container, #overdue_items, #checked_out_items, #user_items {

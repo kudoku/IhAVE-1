@@ -102,6 +102,21 @@ $(function() {
     });
   });
 
+  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+    // init
+    $masonry_container.isotope({
+      // options
+      itemSelector: '.record-block',
+      masonry: {
+        columnWidth: 100,
+        gutter: 5,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     // $masonry_container.isotope('reLayout');
     // $user_items.isotope('reLayout');
@@ -119,6 +134,16 @@ $(function() {
     if(e.target.hash == '#settings') {
       $overdue_items.isotope('layout');
     }
+  });
+
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+  $('.nav-tabs a').click(function (e) {
+    $(this).tab('show');
+    var scrollmem = $('body').scrollTop();
+    window.location.hash = this.hash;
+    $('html,body').scrollTop(scrollmem);
   });
 
   // $('.jquerytabs').on("click", function() {

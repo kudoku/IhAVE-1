@@ -103,8 +103,6 @@ class ItemsController < ApplicationController
     @record = @item.records.build
     # @location = Location.find(@item.location_id)
     # binding.pry
-
-
   end
  
   private
@@ -128,5 +126,4 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:name, :description, :quantity, :price, :is_out, :due_date, :borrowed_from, :is_borrowed, :tag_list, :avatar, records_attributes: [:borrower_name, :date_due])
     end
-
 end

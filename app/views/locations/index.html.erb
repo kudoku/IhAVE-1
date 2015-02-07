@@ -30,7 +30,7 @@
                 <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
               </div>
             </div>
-            <% @locations.each do |location| %>
+                        <% @locations.each do |location| %>
                 <%= render partial: 'location', locals: {location: location} %>
             <% end %>
           </div>
@@ -49,6 +49,7 @@
         <div id="user_items">
           <% @user_items.each do |item| %>
              <%= render partial: 'items/item', locals: {item: item }%>
+
           <%end%>
         </div>
 
@@ -56,6 +57,7 @@
         <%= paginate @user_items %>
       </div>
     </div>
+
 
     <div role="tabpanel" class="tab-pane" id="messages">
       <h1>Out Items</h1>
@@ -84,22 +86,14 @@
           <%= paginate @overdue %>
         </div>
       </div>
+      <div id="infinite-scrolling">
+        <%= paginate @locations %>
+      </div>
     </div>
 
 
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <div id='show-modal-div'>
 </div>

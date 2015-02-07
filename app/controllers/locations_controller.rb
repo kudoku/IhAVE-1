@@ -11,7 +11,9 @@ class LocationsController < ApplicationController
     @locations  = @user.locations.order('name ASC').page(params[:page])
     @user_items = current_user.items.page(params[:page])
     @cheked_out = @user_items.all.where(is_out: 'true').page(params[:page])
-    @overdue   = @cheked_out.all.where("due_date > ?", Date.today).page(params[:page])
+    overdue   = @cheked_out.select { |item| item.records.last.date_due < Date.today }
+    overdue_ids = overdue.map {|i| i.id}
+    @overdue = Item.where(id: overdue_ids).page(params[:page])
     respond_to do |format|
       format.html 
       format.js 
@@ -64,7 +66,6 @@ class LocationsController < ApplicationController
     def set_user 
        @user = current_user
     end 
-
 
     def set_item
       @item =  current_user.items.find_by(id: params[:id])

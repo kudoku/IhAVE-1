@@ -36,7 +36,7 @@
           </div>
         </div>
         
-        <div id="infinite-scrolling">
+        <div class="infinite-scrolling">
           <%= paginate @locations %>
         </div>
 
@@ -53,7 +53,7 @@
           <%end%>
         </div>
 
-      <div id="infinite-scrolling">
+      <div class="user-items-infinite-scrolling">
         <%= paginate @user_items %>
       </div>
     </div>
@@ -69,7 +69,7 @@
           <%end%>
         </div>
       </div>
-      <div id="infinite-scrolling">
+      <div class="checked-out-infinite-scrolling">
         <%= paginate @cheked_out %>
       </div>
     </div>
@@ -82,7 +82,7 @@
             <%= render partial: 'items/item', locals: {item: item} %>
           <% end %>
         </div>
-        <div id="infinite-scrolling">
+        <div class="overdue-infinite-scrolling">
           <%= paginate @overdue %>
         </div>
       </div>

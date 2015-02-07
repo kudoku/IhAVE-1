@@ -27,6 +27,7 @@
 
 
 //= require jquery.infinite-pages
+//= require jquery.validate.min
 //= require tag-it
 //= require isotope.min.js
 //= require imagesloaded.pkgd.min.js

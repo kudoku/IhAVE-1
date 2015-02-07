@@ -62,13 +62,12 @@ body {
 	}
 }
 
-#masonry_container {
+#masonry_container, #overdue_items, #checked_out_items, #user_items {
 	width: 100%;
-
 	margin: 0 auto;
 	margin-top: 15px;
-
 }
+
 
 .add-more {
   position: relative;

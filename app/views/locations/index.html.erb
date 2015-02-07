@@ -35,7 +35,7 @@
             <% end %>
           </div>
             <div class="infinite-scrolling">
-              <%= paginate @locations, params: {tab: "locations#locations" } %>
+              <%= paginate @locations, params: { anchor: "locations" } %>
             </div>
         </div>
         
@@ -54,7 +54,7 @@
         </div>
 
       <div class="user-items-infinite-scrolling">
-        <%= paginate @user_items, param_name: "items_page", params: {tab: "items#items"} %>
+        <%= paginate @user_items, param_name: "items_page", params: { anchor: "items"} %>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="checked-out-infinite-scrolling">
-        <%= paginate @cheked_out, param_name: "checked_page", params: {tab: "messages#messages"} %>
+        <%= paginate @cheked_out, param_name: "checked_page", params: { anchor: "messages"} %>
       </div>
     </div>
 
@@ -83,7 +83,7 @@
           <% end %>
         </div>
         <div class="overdue-infinite-scrolling">
-          <%= paginate @overdue, param_name: "overdue_page", params: {tab: "settings#settings"} %>
+          <%= paginate @overdue, param_name: "overdue_page", params: { anchor: "settings"} %>
         </div>
       </div>
       <div id="infinite-scrolling">
@@ -95,7 +95,7 @@
   </div>
 </div>
 
-<% @tab_id = params[:tab] ? "#jquerytabs a[href=" + %Q(##{params[:tab]}) + "]" : "#jquerytabs a:first" %>
+
 
 
 <div id='show-modal-div'>

@@ -10,7 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require jquery-ui
+
+
+ *= require jquery-ui/datepicker
+ *= require jquery-ui/autocomplete
+
+
+
  *= require tag-it
  *= require_self
  *= require_tree
@@ -41,6 +47,45 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
+.item-block {
+	// margin-bottom: 10px;
+	width: 300px;
+	height: 480px;
+
+	
+	margin-bottom: 10px;
+ 
+}
+
+   
+.item-block:hover{
+	border-color: blue;
+	border: 10px outset;
+	.location-info{
+		display: inherit;
+	}
+}
+
+#masonry_container {
+	width: 100%;
+
+	margin: 0 auto;
+	margin-top: 15px;
+
+}
+
+.add-more {
+  position: relative;
+  margin:0 auto;
+  top: 50%;
+}
+
+.center {
+	// margin: 0 auto;
+}
+
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -223,9 +268,21 @@ body {
 	color: white;
 }
 
+.edit_form{
+	background-color: lightgray;
+	text-align: left;
+	border-top: solid;
+	border-bottom: solid;
+
+}
+
 .img-center{
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.location-info{
+	display:none;
 }
 
 

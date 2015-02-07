@@ -13,17 +13,123 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require jquery-ui
+
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/mouse
+//= require jquery-ui/position
+
+//= require jquery-ui/effect-blind
+//= require jquery-ui/effect-highlight
+
+//= require jquery-ui/datepicker
+//= require jquery-ui/autocomplete
+
+
 //= require jquery.infinite-pages
 //= require tag-it
 //= require isotope.min.js
+//= require imagesloaded.pkgd.min.js
 //= require_tree .
 
+$(function() {
 
-$('#myTab a').click(function (e) {
-    e.preventDefault()
-    $(this).tab('show')
-})
+  $('#myTab a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+  })
+
+
+
+  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+    // init
+    $masonry_container.isotope({
+      // options
+      itemSelector: '.item-block',
+      masonry: {
+        columnWidth: 100,
+        gutter: 5,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
+  var $user_items = $('#user_items').imagesLoaded( function() {
+    // init
+    $user_items.isotope({
+      // options
+      itemSelector: '.user-item-block',
+      masonry: {
+        columnWidth: 100,
+        gutter: 5,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
+  var $checked_out_items = $('#checked_out_items').imagesLoaded( function() {
+    // init
+    $checked_out_items.isotope({
+      // options
+      itemSelector: '.over-due-item-block',
+      masonry: {
+        columnWidth: 100,
+        gutter: 5,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
+  var $overdue_items = $('#overdue_items').imagesLoaded( function() {
+    // init
+    $overdue_items.isotope({
+      // options
+      itemSelector: '.checked-out-item',
+      masonry: {
+        columnWidth: 100,
+        gutter: 5,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    // $masonry_container.isotope('reLayout');
+    // $user_items.isotope('reLayout');
+    // $checked_out_items.isotope('reLayout');
+    // $overdue_items.isotope('reLayout');
+    if(e.target.hash == '#locations') {
+      $masonry_container.isotope('layout');
+    }    
+    if(e.target.hash == '#items') {
+      $user_items.isotope('layout');
+    }    
+    if(e.target.hash == '#messages') {
+      $checked_out_items.isotope('layout');
+    }    
+    if(e.target.hash == '#settings') {
+      $overdue_items.isotope('layout');
+    }
+  });
+
+  // $('.jquerytabs').on("click", function() {
+  //   $(window).resize().delay( 800 );
+  //   $masonry_container.isotope('reLayout');
+  //   $user_items.isotope('reLayout');
+  //   $checked_out_items.isotope('reLayout');
+  //   $overdue_items.isotope('reLayout');
+  // });
+
+});
+
 
 
 

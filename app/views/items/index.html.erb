@@ -1,4 +1,4 @@
-<h1><%= @location.name.upcase %> Items</h1>
+<h1><%= link_to @location.name.upcase, edit_location_path(@location) %> Items</h1>
 
 <div class="field">
   <%= form_tag(location_item_search_path(@location), method: "get", remote: true) do %>
@@ -6,7 +6,9 @@
     <%= text_field_tag :q, nil, placeholder: 'Search item name/tags' %>
     <%= submit_tag("Search") %>
   <% end %>
+
 </div>
+
 
 <div class="search-results">
   <% if @results %>
@@ -14,18 +16,23 @@
   <% end %>
 </div>
 
-  <div class="container-fluid ">
-    <div class ="row image-tiles">
-      <% @items.each do |item| %>
-          <div class="col-xs-12 col-md-4 col-lg-3 display item-block">
-            <%= link_to (image_tag item.avatar.url(:medium), class: "img img-responsive img-center"), location_item_path(@location, item), remote: true %>
-            <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location_id) }.join(', ') %></p>
-          </div>
-      <%end%>
-     <div class="col-xs-12 col-md-4 col-lg-3 display item-block">
-        <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-3x", remote: true %>
+
+
+<div id="masonry_container">
+  <div class ="item-block">
+    <div class = "add-more">
+      <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-5x", remote: true %>
     </div>
   </div>
+  
+  <% @items.each do |item| %>
+
+    <%= render partial: 'item', locals: {item: item} %>
+
+  <%end%>
+</div>
+
+
 
 
 

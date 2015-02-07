@@ -8,10 +8,10 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @user_items = current_user.items
     @locations  = @user.locations.order('name ASC').page(params[:page])
-    @cheked_out = @user_items.all.where(is_out: 'true')
-    @overdue   = @cheked_out.all.where("due_date > ?", Date.today)
+    @user_items = current_user.items.page(params[:page])
+    @cheked_out = @user_items.all.where(is_out: 'true').page(params[:page])
+    @overdue   = @cheked_out.all.where("due_date > ?", Date.today).page(params[:page])
     respond_to do |format|
       format.html 
       format.js 

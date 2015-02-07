@@ -1,6 +1,6 @@
 <div role="tabpanel">
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs nav-justified" role="tablist">
+  <ul class="nav nav-tabs nav-justified jquerytabs" role="tablist">
     <li role="presentation" class="active"><a href="#locations" aria-controls="home" role="tab" data-toggle="tab">Locations</a></li>
     <li role="presentation"><a href="#items" aria-controls="profile" role="tab" data-toggle="tab">All Items</a></li>
     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Out Items</a></li>
@@ -9,70 +9,84 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="locations">
-      <h1>Hi <%= current_user.username %></h1>
+      <h1>Hi <%=link_to current_user.username,edit_user_registration_path %></h1>
       <div class="container-fluid">
         <div class="row image-tiles">
           <% if current_user.locations %>
           <% else %>
               <h1>Lets get started</h1>
-              <p> click the blue + signe to creae a location</p>
+              <p> click the blue + sign to create a location</p>
           <% end %>
+
           <div class="search-results">
             <% if @results %>
                 <%= @results %>
             <% end %>
           </div>
-          <% @locations.each do |location| %>
-              <%= render partial: 'location', locals: {location: location} %>
-          <% end %>
+
+          <div id="masonry_container">
+            <div class="item-block">
+              <div class="add-more">
+                <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
+              </div>
+            </div>
+            <% @locations.each do |location| %>
+                <%= render partial: 'location', locals: {location: location} %>
+            <% end %>
+          </div>
         </div>
+        
         <div id="infinite-scrolling">
           <%= paginate @locations %>
         </div>
 
-        <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
       </div>
     </div>
+
     <div role="tabpanel" class="tab-pane" id="items">
       <h1>All Items</h1>
-      <div class="container-fluid ">
-        <div class ="row image-tiles">
+
+        <div id="user_items">
           <% @user_items.each do |item| %>
-              <div class="col-xs-12 col-md-6 col-lg-3 display item-block">
-                <%= link_to (image_tag item.avatar.url(:medium), class: "img img-responsive img-center"), location_item_path(location_id: item.location_id,id: item.id), remote: true %>
-                <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location_id) }.join(', ') %></p>
-              </div>
+             <%= render partial: 'items/item', locals: {item: item }%>
+          <%end%>
+        </div>
+
+      <div id="infinite-scrolling">
+        <%= paginate @user_items %>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="messages">
+      <h1>Out Items</h1>
+      <div class="container-fluid ">
+        <div id="checked_out_items">
+          <% @cheked_out.each do |item| %>
+          <%= render partial: 'items/item', locals: {item: item} %>
 
           <%end%>
         </div>
       </div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="messages">
-      <h1>Out Items</h1>
-      <div class="container-fluid ">
-        <div class ="row image-tiles">
-          <% @cheked_out.each do |item| %>
-              <div class="col-xs-12 col-md-4 col-lg-3 display item-block">
-                <%= link_to (image_tag item.avatar.url(:medium), class: "img img-responsive img-center"), location_item_path(item.location_id, item), remote: true %>
-                <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location_id) }.join(', ') %></p>
-              </div>
-          <%end%>
-        </div>
+      <div id="infinite-scrolling">
+        <%= paginate @cheked_out %>
       </div>
     </div>
+
     <div role="tabpanel" class="tab-pane" id="settings">
       <h1>Overdue Items</h1>
       <div class="container-fluid ">
-        <div class ="row image-tiles">
+        <div id="overdue_items">
           <% @overdue.each do |item| %>
-              <div class="col-xs-12 col-md-4 col-lg-3 display item-block">
-                <%= link_to (image_tag item.avatar.url(:medium), class: "img img-responsive img-center"), location_item_path(item.location_id, item), remote: true %>
-                <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location_id) }.join(', ') %></p>
-              </div>
+            <%= render partial: 'items/item', locals: {item: item} %>
           <% end %>
+        </div>
+        <div id="infinite-scrolling">
+          <%= paginate @overdue %>
         </div>
       </div>
     </div>
+
+
   </div>
 </div>
 

@@ -117,7 +117,7 @@ class ItemsController < ApplicationController
     end
 
     def set_items
-      @items =  @location.items
+      @items =  @location.items.page(params[:page])
     end
 
     def set_item

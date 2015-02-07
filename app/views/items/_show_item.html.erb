@@ -23,7 +23,7 @@
           <% end %>
         <% end %>
 
-        <% if @item.records.any? %>
+        <% if @item.records.count > 0 %>
           <%= link_to "History", location_item_records_path(@location, @item), class: "btn btn-primary btn-s" %>
         <% end %>
       </p>

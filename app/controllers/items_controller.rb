@@ -8,12 +8,23 @@ class ItemsController < ApplicationController
   def index
     if params[:tag]
       @items = current_user.items.tagged_with(params[:tag])
+      @items = @items.page(params[:page])
     end
     @user = current_user
   end
 
   def show
     @record = @item.records.build
+
+    if params[:btn] == "1"
+      @edit = params[:btn]
+      @lend = nil
+    elsif params[:btn] == "lend"
+      @lend = params[:btn]
+      @edit = nil
+    end
+
+
     respond_to do |format|
       format.html 
       format.js

@@ -59,6 +59,15 @@ body {
 	}
 }
 
+
+.record-block {
+	height: 500px;
+	width: 300px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+
 .location-block {
 
 	width: 300px;
@@ -86,6 +95,7 @@ body {
 }
 
    
+
 
 
 #masonry_container, #overdue_items, #checked_out_items, #user_items {

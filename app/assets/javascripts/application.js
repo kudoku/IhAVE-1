@@ -49,14 +49,29 @@ $(function() {
 
 
 
-  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+  var $masonry_container = $('#loc-masonry_container').imagesLoaded( function() {
+    // init
+    $masonry_container.isotope({
+      // options
+      itemSelector: '.location-block',
+      masonry: {
+        columnWidth: 100,
+        gutter: 10,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
+    var $masonry_container = $('#masonry_container').imagesLoaded( function() {
     // init
     $masonry_container.isotope({
       // options
       itemSelector: '.item-block',
       masonry: {
-        columnWidth: 100,
-        gutter: 5,
+        columnWidth: 25,
+        gutter: 10,
         isFitWidth: true
       },
 
@@ -70,8 +85,8 @@ $(function() {
       // options
       itemSelector: '.user-item-block',
       masonry: {
-        columnWidth: 100,
-        gutter: 5,
+        columnWidth: 25,
+        gutter: 10,
         isFitWidth: true
       },
 
@@ -85,8 +100,8 @@ $(function() {
       // options
       itemSelector: '.over-due-item-block',
       masonry: {
-        columnWidth: 100,
-        gutter: 5,
+        columnWidth: 25,
+        gutter: 10,
         isFitWidth: true
       },
 
@@ -100,8 +115,8 @@ $(function() {
       // options
       itemSelector: '.checked-out-item',
       masonry: {
-        columnWidth: 100,
-        gutter: 5,
+        columnWidth: 25,
+        gutter: 10,
         isFitWidth: true
       },
 

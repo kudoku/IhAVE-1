@@ -43,9 +43,7 @@ RSpec.describe ItemsController, :type => :controller do
     end
       context 'Item update is invalid' do
         subject {patch :update, id: item.id, location_id: location.id, item: { name: nil, description: 'hi I am a test' }}
-        it 'renders the edit page' do
-          expect(subject).to render_template(:edit)
-        end
+        it { should render_template(:partial => '_edit.html.erb') }
 
     end
 

@@ -14,41 +14,44 @@
 
       </div>
     </div>
+
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-
-            <!-- Single button -->
-            <div class="btn-group">
-              <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                New <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-               <% current_user.locations.each do |location|%>
-                    <li><%= link_to ("Item at  #{location.name}"), new_location_item_path(location), remote: true %></li>
-                <%end%>
-                <li class="divider"></li>
-                <li> <%= link_to 'Location', new_location_path, class: 'btn btn-primary', remote: true %></li>
-              </ul>
-            </div>
-
-
-
-
-
-
+          <button>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-inverse" %></li> 
+          </button> 
 
           <li>
             <%= form_tag(global_search_path) do %>
-              <%= text_field_tag :q, nil, placeholder: 'Search item name' %>
-              <%= submit_tag("Search") %>
+              <%= text_field_tag :q, nil, placeholder: 'Search item name' %>
+              <%= submit_tag("Search") %>
             <% end %>
           </li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>  
-        <% else %>
-          <li><%= link_to 'Sign in', new_user_session_path, data: {toggle: "modal", target: "#signIn"}, remote: true %></li>
-          <li><%= link_to 'Join', new_user_registration_path, data: {toggle: "modal", target: "#signUp"}, remote: true %></li>
 
+            <!-- Single button -->
+          <li>
+            <div class=" new">
+              <button  class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                New <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <% current_user.locations.each do |location|%>
+                  <li><%= link_to ("Item at  #{location.name}"), new_location_item_path(location), remote: true %></li>
+                <%end%>
+                <li class="divider"></li>btn-group
+                <li> <%= link_to 'Location', new_location_path, class: 'btn btn-primary', remote: true %></li>
+              </ul>
+            </div>
+          </li>
+          <!-- end dropdown button -->
+          
+        
+         
+        <% else %>
+          <li><%= link_to 'Sign in', new_user_session_path, data: {toggle: "modal", target: "#signIn"}, id: "sign-in-button", remote: true %></li>
+
+          <li><%= link_to 'Join', new_user_registration_path, data: {toggle: "modal", target: "#signUp"}, remote: true %></li>
         <% end %>  
       </ul>
     </div><!--/.nav-collapse -->

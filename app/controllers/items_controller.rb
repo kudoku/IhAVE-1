@@ -65,11 +65,12 @@ class ItemsController < ApplicationController
       redirect_to location_items_path(@location)
     else
       flash[:danger] = "Item creation failed"
-      render :edit
+       redirect_to location_items_path(@location)
     end
   end
 
   def destroy
+    
     @item.destroy
     unless @item.is_borrowed
       flash[:notice] = "Item #{@item.name} deleted."

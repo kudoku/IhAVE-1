@@ -9,7 +9,7 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="locations">
-      <h1>Hi <%=link_to current_user.username,edit_user_registration_path %></h1>
+      <h1 class = "greeting">Hi <%=link_to current_user.username,edit_user_registration_path %></h1>
       <div class="container-fluid">
         <div class="row image-tiles">
           <% if current_user.locations %>
@@ -32,7 +32,7 @@
             </div>
               <% @locations.each do |location| %>
                 <%= render partial: 'location', locals: {location: location} %>
-            <% end %>
+              <% end %>
           </div>
             <div class="infinite-scrolling">
               <%= paginate @locations, params: { anchor: "locations" } %>

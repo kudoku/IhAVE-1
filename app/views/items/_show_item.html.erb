@@ -4,10 +4,10 @@
     </div>
     <div class = "item-info">
 
-      <h3>Description:<%=  @item.description %></h4>
-      <h3>Price:<%=@item.price %></h3>
+      <h3>Description: &nbsp; <%=  @item.description %></h4>
+      <h3>Price: &nbsp; <%=@item.price %></h3>
       <%= @item.tag_list %>
-      <h3>Quantity:&nbsp  <%=@item.quantity %></h3>
+      <h3>Quantity: &nbsp;  <%=@item.quantity %></h3>
       <p class="text-center">
         <% unless @item.is_borrowed %>
           <%= link_to " Delete", location_item_path(@location, @item), method: :delete, class: "fa fa-trash-o fa-lg btn btn-danger btn-s" %>
@@ -19,7 +19,7 @@
           <% if @item.is_out? %>
             <%= link_to "Received from borrower?", return_item_path(@item.id), method: "post", remote: true, class: "btn btn-primary btn-s", id: "return-button" %>
           <% else %>
-            <%= link_to "Lend out this item", '#', class: "btn btn-primary btn-s", id: "lend-button" %>
+            <%= link_to "Lend out this item", '#', class: "btn btn-primary btn-s lend-button" %>
           <% end %>
         <% end %>
 

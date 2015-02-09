@@ -28,39 +28,37 @@
 	box-sizing: border-box;
 }
 
-body {
-	text-align: center;
-	background-color: white;
-}
-
-
 html {
   position: relative;
   min-height: 100%;
 }
 body {
   /* Margin bottom by footer height */
+  text-align: center;
   margin-bottom: 60px;
+  background-color: #DFDFDF;
 }
 
 .item-block {
-	// margin-bottom: 10px;
-	width: 300px;
-	height: 480px;
-
-	
+	opacity: 0.6%;
+	width: 236px;
+	height: 381px;
+	border-radius: 6px;
+	background-color: white ;
 	margin-bottom: 10px;
-
+	font-size: 18px;
+ 
 }
 
-   
 .item-block:hover{
+	opacity: 1;
 	border-color: blue;
-	border: 10px outset;
+	border: 2px outset;
 	.location-info{
 		display: inherit;
 	}
 }
+
 
 .record-block {
 	height: 500px;
@@ -68,6 +66,37 @@ body {
 	margin-bottom: 10px;
 	text-align: left;
 }
+
+
+.location-block {
+
+	width: 300px;
+	height: 485px;
+	border-radius: 6px;
+	background-color: white ;
+	margin-bottom: 10px;
+	font-size: 18px;
+ 
+}
+
+.location-block:hover{
+	border-color: blue;
+	border: 2px outset;
+	.location-info{
+		display: inherit;
+	}
+}
+
+.jquerytabs{
+	background-color: rgb(34, 34, 34);
+}
+.greeting{
+	margin-bottom: 0px;
+}
+
+   
+
+
 
 #masonry_container, #overdue_items, #checked_out_items, #user_items {
 	width: 100%;
@@ -83,7 +112,7 @@ body {
 }
 
 .center {
-	// margin: 0 auto;
+	margin: 0 auto;
 }
 
 
@@ -139,6 +168,14 @@ body {
 .image-tile:hover  {
 	opacity: 0.8;
 }
+.item-avatar{
+		border-radius: 6px;
+		margin: 0,12;
+		max-width: 212px;
+		overflow: hidden;
+	}
+
+
 
 
 
@@ -154,11 +191,11 @@ body {
 }
 
 .image {
-	height: 300px;
-	width: 300px;
+	height: 250px;
+	width: 250px;
 	border: solid 1px;
 	margin: 0 auto;
-	// position: absolute;
+	/*// position: absolute;*/
 
 }
 
@@ -172,19 +209,19 @@ body {
 }
 
 
-// form styling
+/* form styling */
 .form-actions {
 	padding: 10px;
 	text-align: center;
 }
 
-// bootstrap overrides
+/*bootstrap overrides*/
 .modal-header {
 	background: #FFFFFF;
 }
 
 
-// overrides
+/*overrides*/
 
 .black-bg {
 	background: #224380;
@@ -284,18 +321,27 @@ body {
 
 .location-info{
 	display:none;
+	padding-top: 3px;
+}
+
+a {
+	color:#009FE3;
+}
+
+.active {
+	background-color: #DFDFDF !important;
+}
+.new {
+	padding-left: 6px;
+}
+.logout {
+	margin-bottom: 4px;
+}
+
+button {
+	background-color: rgb(34, 34, 34);
+	border:none;
+	color:rgb(112, 111, 111);
 }
 
 
-
-
-// .input-group-addon {
-// 	border-right: 0px none;
-// 	display: inline;
-// }
-
-// .input-group {
-//     position: relative;
-//     display: table;
-//     border-collapse: separate;
-// }

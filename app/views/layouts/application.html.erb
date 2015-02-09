@@ -11,10 +11,13 @@
 	<!-- Fixed navbar -->
    <%= render('layouts/header') %>
 
+
     <!-- Begin page content -->
     <div id="main-wrapper">
-      <%= flash_messages %>
+      <%= render('layouts/navbar') %>
+      <div class="flash_messages"><%= flash_messages %> </div>
       <%= yield %>
+
     </div>
 
     

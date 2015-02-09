@@ -1,6 +1,7 @@
 
 <div class = "container">
 <%= form_for(@location, method: :patch) do |f| %>
+<%= f.file_field :avatar %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 	<%= f.label :description %>

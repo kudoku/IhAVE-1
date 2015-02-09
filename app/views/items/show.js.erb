@@ -1,10 +1,22 @@
+<% if @edit || @lend %>
+	console.log('edit');
+	$('#show-modal-div').html('<%= j render "show_model" %>');
+	$('#showItem').modal('show');
+<% end %>
+
+
+
+
 $('#show-modal-div').html('<%= j render "show_model" %>');
 $('#showItem').modal('show');
 console.log('this worked');
 
+
+
+
+
 function bindLendButton(){
-	$('#lend-button').bind("click", function() {
-		// $('#lend-button').click(function() {
+	$('.lend-button').bind("click", function() {
 		alert('lending');
 		$(this).replaceWith("<%= j render partial: 'is_out_form' %>");
 		$('.date').datepicker({

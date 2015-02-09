@@ -15,6 +15,11 @@ class ItemsController < ApplicationController
 
   def show
     @record = @item.records.build
+
+    if params[:btn] == "1"
+      @edit = params[:btn]
+    end
+
     respond_to do |format|
       format.html 
       format.js

@@ -12,7 +12,9 @@
         <% unless @item.is_borrowed %>
           <%= link_to " Delete", location_item_path(@location, @item), method: :delete, class: "fa fa-trash-o fa-lg btn btn-danger btn-s" %>
         <% end %>
-        <%= link_to "Edit", edit_location_item_path(@location, @item), method: "get", remote: true, class: "btn btn-primary btn-s" %>
+        <% unless @edit %>
+          <%= link_to "Edit", edit_location_item_path(@location, @item), method: "get", remote: true, class: "btn btn-primary btn-s edit-show" %>
+        <% end %>
         <% if @item.is_borrowed %>
           <%= link_to "Item returned to lender?", location_item_path(@location, @item), method: :delete, class: "btn btn-danger btn-s" %>
         <% else %>
@@ -27,4 +29,9 @@
           <%= link_to "History", location_item_records_path(@location, @item), class: "btn btn-primary btn-s" %>
         <% end %>
       </p>
+      <div class="crud">
+        <% if @edit %>
+          <%= render partial: "edit", locals: {using_modal: true} %>
+        <% end %>
+      </div>
     </div>

@@ -11,6 +11,7 @@ class Item < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :name, :description, presence: true
+  validates :name, length: { maximum: 16 }
 
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests

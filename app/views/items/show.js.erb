@@ -1,8 +1,10 @@
-<% if @edit %>
+<% if @edit || @lend %>
 	console.log('edit');
 	$('#show-modal-div').html('<%= j render "show_model" %>');
 	$('#showItem').modal('show');
 <% end %>
+
+
 
 
 $('#show-modal-div').html('<%= j render "show_model" %>');

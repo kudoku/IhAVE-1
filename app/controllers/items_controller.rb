@@ -18,7 +18,12 @@ class ItemsController < ApplicationController
 
     if params[:btn] == "1"
       @edit = params[:btn]
+      @lend = nil
+    elsif params[:btn] == "lend"
+      @lend = params[:btn]
+      @edit = nil
     end
+
 
     respond_to do |format|
       format.html 

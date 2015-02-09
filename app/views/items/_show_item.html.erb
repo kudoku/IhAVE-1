@@ -32,6 +32,8 @@
       <div class="crud">
         <% if @edit %>
           <%= render partial: "edit", locals: {using_modal: true} %>
+        <% elsif @lend %>
+          <%= render partial: "is_out_form" %>
         <% end %>
       </div>
     </div>

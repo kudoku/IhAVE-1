@@ -159,7 +159,7 @@ body {
 	opacity: 0.8;
 }
 .item-avatar{
-		
+		border-radius: 6px;
 		margin: 0,12;
 		max-width: 212px;
 		overflow: hidden;
@@ -311,6 +311,7 @@ body {
 
 .location-info{
 	display:none;
+	padding-top: 3px;
 }
 
 a {
@@ -319,6 +320,18 @@ a {
 
 .active {
 	background-color: #DFDFDF !important;
+}
+.new {
+	padding-left: 6px;
+}
+.logout {
+	margin-bottom: 4px;
+}
+
+button {
+	background-color: rgb(34, 34, 34);
+	border:none;
+	color:rgb(112, 111, 111);
 }
 
 

@@ -94,7 +94,7 @@ $(function() {
       itemSelector: '.over-due-item-block',
       masonry: {
         columnWidth: 25,
-        gutter: 12,
+        gutter: 10,
         isFitWidth: true
       },
 
@@ -109,7 +109,7 @@ $(function() {
       itemSelector: '.checked-out-item',
       masonry: {
         columnWidth: 25,
-        gutter: 12,
+        gutter: 10,
         isFitWidth: true
       },
 

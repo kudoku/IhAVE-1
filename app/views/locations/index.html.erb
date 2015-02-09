@@ -24,11 +24,11 @@
             <% end %>
           </div>
 
-          <div id="masonry_container">
-            <div class="item-block">
-              <div class="add-more">
+          <div id="loc_masonry_container">
+            <div class="location-block">
+              
                 <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
-              </div>
+
             </div>
               <% @locations.each do |location| %>
                 <%= render partial: 'location', locals: {location: location} %>

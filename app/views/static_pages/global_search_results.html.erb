@@ -3,7 +3,9 @@
 
 
 <% if !@results.empty? %>
-	<%= render "items/search_results" %>
+	<div id="masonry_container">
+		<%= render "items/search_results" %>
+	</div>
 <% else %>
 	<h2>Nothing found.</h2>
 <% end %>

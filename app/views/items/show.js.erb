@@ -2,6 +2,23 @@
 	console.log('edit');
 	$('#show-modal-div').html('<%= j render "show_model" %>');
 	$('#showItem').modal('show');
+
+	// someone make this fker below work to run tagit, and js form validations
+	$('#item_tag_list').tagit();
+	$('#showItem').on('shown.bs.modal', function() {
+		console.log('modal ready to serve');
+		$('#item_tag_list').tagit();
+	});
+	$('#showItem').on('show.bs.modal', function() {
+		console.log('modal ready to serve');
+		$('#item_tag_list').tagit();
+	});
+	$('.edit_item').validate({
+		rules: {
+			"item[name]": { required: true },
+			"item[description]": { required: true }
+		}
+	});
 <% end %>
 
 

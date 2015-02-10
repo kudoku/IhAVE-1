@@ -1,13 +1,9 @@
-
-
-<div class="container-fluid ">
-  <div class ="row image-tiles" id="masonry_container">
-
-		<% @results.each do |item| %>
- 		<%= render partial: 'items/item', locals: {item: item} %>
- 		<%end%>
-	</div>
+<div id="masonry_container">
+	<% @results.each do |item| %>
+		<%= render partial: 'items/item', locals: {item: item} %>
+	<%end%>
 </div>
+
 
 
 

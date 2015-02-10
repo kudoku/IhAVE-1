@@ -176,6 +176,15 @@ body {
 	}
 
 
+.new-item-form {
+	text-align: left;
+	content:" *";
+}
+
+label.required:after {
+  content:" *";
+}
+
 
 
 

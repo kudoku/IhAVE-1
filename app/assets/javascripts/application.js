@@ -39,12 +39,12 @@ $(function() {
   hash && $('ul.nav a[href="' + hash + '"]').tab('show');
 
   $('#myTab a').click(function (e) {
-      e.preventDefault()
-      $(this).tab('show')
+    e.preventDefault()
+    $(this).tab('show')
 
-      var scrollmem = $('body').scrollTop();
-      window.location.hash = this.hash;
-      $('html,body').scrollTop(scrollmem);
+    var scrollmem = $('body').scrollTop();
+    window.location.hash = this.hash;
+    $('html,body').scrollTop(scrollmem);
   })
 
 
@@ -64,20 +64,36 @@ $(function() {
     });
   });
 
-  //   var $masonry_container = $('#masonry_container').imagesLoaded( function() {
-  //   // init
-  //   $masonry_container.isotope({
-  //     // options
-  //     itemSelector: '.item-block',
-  //     masonry: {
-  //       columnWidth: 25,
-  //       gutter: 10,
-  //       isFitWidth: true
-  //     },
+  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+    // init
+    $masonry_container.isotope({
+      // options
+      itemSelector: '.item-block',
+      masonry: {
+        columnWidth: 25,
+        gutter: 10,
+        isFitWidth: true
+      },
 
-  //     layoutMode: 'masonry'
-  //   });
-  // });
+      layoutMode: 'masonry'
+    });
+  });
+
+
+  var $search_container = $('.search_container').imagesLoaded( function() {
+    // init
+    $search_container.isotope({
+      // options
+      itemSelector: '.search-block',
+      masonry: {
+        columnWidth: 25,
+        gutter: 10,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
 
   var $user_items = $('#user_items').imagesLoaded( function() {
     // init
@@ -157,6 +173,8 @@ $(function() {
       $overdue_items.isotope('layout');
     }
   });
+
+
 
 
 

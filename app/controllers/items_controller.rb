@@ -106,7 +106,9 @@ class ItemsController < ApplicationController
     @item.update_attribute(:is_out, false)
     @item.records.last.update_attribute(:date_returned, Date.today)
     respond_to do |format|
-      format.js { @record = @item.records.build }
+      format.js { @record = @item.records.build 
+                  
+                }
     end
   end
 

@@ -5,6 +5,12 @@ $(".modal-body").empty().append("<%= j render partial: 'edit', locals: {using_mo
 $(function() {
 
 	$("#item_tag_list").tagit();
+	$('.edit_item').validate({
+		rules: {
+			"item[name]": { required: true },
+			"item[description]": { required: true }
+		}
+	});
 	
 });
 $(".btn-danger").click(confirm('Are you sure ?'));

@@ -35,16 +35,23 @@
 
 $(function() {
 
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
   $('#myTab a').click(function (e) {
       e.preventDefault()
       $(this).tab('show')
+
+      var scrollmem = $('body').scrollTop();
+      window.location.hash = this.hash;
+      $('html,body').scrollTop(scrollmem);
   })
 
 
 
-  var $masonry_container = $('#loc-masonry_container').imagesLoaded( function() {
+  var $loc_masonry_container = $('#loc_masonry_container').imagesLoaded( function() {
     // init
-    $masonry_container.isotope({
+    $loc_masonry_container.isotope({
       // options
       itemSelector: '.location-block',
       masonry: {
@@ -57,20 +64,20 @@ $(function() {
     });
   });
 
-    var $masonry_container = $('#masonry_container').imagesLoaded( function() {
-    // init
-    $masonry_container.isotope({
-      // options
-      itemSelector: '.item-block',
-      masonry: {
-        columnWidth: 25,
-        gutter: 10,
-        isFitWidth: true
-      },
+  //   var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+  //   // init
+  //   $masonry_container.isotope({
+  //     // options
+  //     itemSelector: '.item-block',
+  //     masonry: {
+  //       columnWidth: 25,
+  //       gutter: 10,
+  //       isFitWidth: true
+  //     },
 
-      layoutMode: 'masonry'
-    });
-  });
+  //     layoutMode: 'masonry'
+  //   });
+  // });
 
   var $user_items = $('#user_items').imagesLoaded( function() {
     // init
@@ -117,6 +124,21 @@ $(function() {
     });
   });
 
+  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+    // init
+    $masonry_container.isotope({
+      // options
+      itemSelector: '.record-block',
+      masonry: {
+        columnWidth: 100,
+        gutter: 5,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     // $masonry_container.isotope('reLayout');
     // $user_items.isotope('reLayout');
@@ -135,6 +157,13 @@ $(function() {
       $overdue_items.isotope('layout');
     }
   });
+
+
+
+
+
+
+
 
   // $('.jquerytabs').on("click", function() {
   //   $(window).resize().delay( 800 );

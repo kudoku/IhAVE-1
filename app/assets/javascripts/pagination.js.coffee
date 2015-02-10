@@ -1,3 +1,4 @@
+###
 jQuery ->
   if $('.infinite-scrolling').size() > 0
     $(window).on 'scroll', ->
@@ -53,3 +54,4 @@ jQuery ->
 
 
 
+###

@@ -1,10 +1,10 @@
 <%= bootstrap_form_for [@location, @item, @record] do |f| %>
 
-	<%= f.text_field :borrower_name, class: 'form-control', autofocus: true, placeholder: "Borrower's name" %>
+	<%= f.text_field :borrower_name, class: 'form-control', label: "Borrower's Name", autofocus: true, placeholder: "Borrower's name" %>
 
-	<%= f.text_field :borrower_email, class: 'form-control', label:'Put in an email, fool', placeholder: "Fill to send reminder email" %>
+	<%= f.text_field :borrower_email, class: 'form-control', label: "Borrower's Email(Optional)", placeholder: "Fill to send reminder email" %>
 
-	<%= f.date_field :date_due, class: "date", placeholder: "yyyy-mm-dd" %>
+	<%= f.date_field :date_due, class: "date", label: "When do you want the item back by?", placeholder: "yyyy-mm-dd" %>
 
 
   <%= f.submit %>

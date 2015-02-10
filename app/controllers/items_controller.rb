@@ -8,12 +8,23 @@ class ItemsController < ApplicationController
   def index
     if params[:tag]
       @items = current_user.items.tagged_with(params[:tag])
+      @items = @items.page(params[:page])
     end
     @user = current_user
   end
 
   def show
     @record = @item.records.build
+
+    if params[:btn] == "1"
+      @edit = params[:btn]
+      @lend = nil
+    elsif params[:btn] == "lend"
+      @lend = params[:btn]
+      @edit = nil
+    end
+
+
     respond_to do |format|
       format.html 
       format.js
@@ -95,7 +106,9 @@ class ItemsController < ApplicationController
     @item.update_attribute(:is_out, false)
     @item.records.last.update_attribute(:date_returned, Date.today)
     respond_to do |format|
-      format.js { @record = @item.records.build }
+      format.js { @record = @item.records.build 
+                  
+                }
     end
   end
 

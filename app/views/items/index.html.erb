@@ -11,9 +11,12 @@
 
 
 <div class="search-results">
-  <% if @results %>
-    <%= @results %>
-  <% end %>
+  <div class="search_container">
+    <% if @results %>
+      
+
+    <% end %>
+  </div>
 </div>
 
 
@@ -31,9 +34,9 @@
 
   <%end%>
 </div>
-<div class="items-index-infinite-scrolling">
-  <%= paginate @items %>
-</div>
+  <div class="items-index-infinite-scrolling">
+    <%= paginate @items %>
+  </div>
 
 
 

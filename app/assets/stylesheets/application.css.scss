@@ -59,6 +59,15 @@ body {
 	}
 }
 
+
+.record-block {
+	height: 500px;
+	width: 300px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+
 .location-block {
 
 	width: 300px;
@@ -88,7 +97,8 @@ body {
    
 
 
-#masonry_container, #overdue_items, #checked_out_items, #user_items {
+
+#masonry_container, #overdue_items, #checked_out_items, #user_items, #loc_masonry_container, .search_container {
 	width: 100%;
 	margin: 0 auto;
 	margin-top: 15px;
@@ -159,12 +169,21 @@ body {
 	opacity: 0.8;
 }
 .item-avatar{
-		
+		border-radius: 6px;
 		margin: 0,12;
 		max-width: 212px;
 		overflow: hidden;
 	}
 
+
+.new-item-form {
+	text-align: left;
+	content:" *";
+}
+
+label.required:after {
+  content:" *";
+}
 
 
 
@@ -311,6 +330,7 @@ body {
 
 .location-info{
 	display:none;
+	padding-top: 3px;
 }
 
 a {
@@ -319,6 +339,18 @@ a {
 
 .active {
 	background-color: #DFDFDF !important;
+}
+.new {
+	padding-left: 6px;
+}
+.logout {
+	margin-bottom: 4px;
+}
+
+button {
+	background-color: rgb(34, 34, 34);
+	border:none;
+	color:rgb(112, 111, 111);
 }
 
 

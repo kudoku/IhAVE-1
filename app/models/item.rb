@@ -11,6 +11,7 @@ class Item < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :name, :description, presence: true
+  validates :name, length: { maximum: 16 }
 
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests
@@ -19,7 +20,7 @@ class Item < ActiveRecord::Base
                   # :if => :search_valid?
                   # :if => lambda { |item| item.user_id = current_user.id  }
 
-  paginates_per 20
+  paginates_per 6
 
   # def item_search(search_input)
   #   Item.search(search_input)

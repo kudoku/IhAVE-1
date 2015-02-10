@@ -35,16 +35,23 @@
 
 $(function() {
 
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
   $('#myTab a').click(function (e) {
-      e.preventDefault()
-      $(this).tab('show')
+    e.preventDefault()
+    $(this).tab('show')
+
+    var scrollmem = $('body').scrollTop();
+    window.location.hash = this.hash;
+    $('html,body').scrollTop(scrollmem);
   })
 
 
 
-  var $masonry_container = $('#loc-masonry_container').imagesLoaded( function() {
+  var $loc_masonry_container = $('#loc_masonry_container').imagesLoaded( function() {
     // init
-    $masonry_container.isotope({
+    $loc_masonry_container.isotope({
       // options
       itemSelector: '.location-block',
       masonry: {
@@ -57,11 +64,27 @@ $(function() {
     });
   });
 
-    var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
     // init
     $masonry_container.isotope({
       // options
       itemSelector: '.item-block',
+      masonry: {
+        columnWidth: 25,
+        gutter: 10,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
+
+  var $search_container = $('.search_container').imagesLoaded( function() {
+    // init
+    $search_container.isotope({
+      // options
+      itemSelector: '.search-block',
       masonry: {
         columnWidth: 25,
         gutter: 10,
@@ -94,7 +117,7 @@ $(function() {
       itemSelector: '.over-due-item-block',
       masonry: {
         columnWidth: 25,
-        gutter: 12,
+        gutter: 10,
         isFitWidth: true
       },
 
@@ -109,7 +132,22 @@ $(function() {
       itemSelector: '.checked-out-item',
       masonry: {
         columnWidth: 25,
-        gutter: 12,
+        gutter: 10,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
+  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+    // init
+    $masonry_container.isotope({
+      // options
+      itemSelector: '.record-block',
+      masonry: {
+        columnWidth: 100,
+        gutter: 5,
         isFitWidth: true
       },
 
@@ -135,6 +173,15 @@ $(function() {
       $overdue_items.isotope('layout');
     }
   });
+
+
+
+
+
+
+
+
+
 
   // $('.jquerytabs').on("click", function() {
   //   $(window).resize().delay( 800 );

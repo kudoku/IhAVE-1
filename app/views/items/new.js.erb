@@ -2,16 +2,21 @@ $('#modal-div').html('<%= j render "modal" %>');
 $('#newItem').modal('show');
 $(".modal-body").empty().append("<%= j render partial: 'new_form', locals: {using_modal: true} %>");
 console.log('this worked');
+$('#new_item').validate({
+	rules: {
+		"item[name]": { required: true },
+		"item[description]": { required: true },
+		"item[borrowed_from]": { required: true },
+		"item[due_date]": { required: true, date: true }
+	}
+});
 
 $(function() {
 	$('#item_is_borrowed').change(function() {
-		// alert('hi');
 		if($('#item_is_borrowed').prop('checked')) {
-			// alert('checked');
 			$('.record-form').show();
 		}
 		else {
-			// alert('unchecked');
 			$('.record-form').hide();
 		}
 	});

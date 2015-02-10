@@ -1,11 +1,5 @@
 <div role="tabpanel">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs nav-justified jquerytabs" role="tablist">
-    <li role="presentation" class="active"><a href="#locations" aria-controls="home" role="tab" data-toggle="tab">Locations</a></li>
-    <li role="presentation"><a href="#items" aria-controls="profile" role="tab" data-toggle="tab">All Items</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Out Items</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Overdue Items</a></li>
-  </ul>
+
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="locations">
@@ -24,21 +18,21 @@
             <% end %>
           </div>
 
-          <div id="masonry_container">
-            <div class="item-block">
-              <div class="add-more">
+          <div id="loc_masonry_container">
+            <div class="location-block">
+              
                 <%= link_to '', new_location_path, class:"fa fa-plus fa-5x", remote: true %>
-              </div>
+
             </div>
-                <% @locations.each do |location| %>
-                  <%= render partial: 'location', locals: {location: location} %>
-            <% end %>
+              <% @locations.each do |location| %>
+                <%= render partial: 'location', locals: {location: location} %>
+              <% end %>
           </div>
+            <div class="infinite-scrolling">
+              <%= paginate @locations, params: { anchor: "locations" } %>
+            </div>
         </div>
         
-        <div class="infinite-scrolling">
-          <%= paginate @locations %>
-        </div>
 
       </div>
     </div>
@@ -54,7 +48,7 @@
         </div>
 
       <div class="user-items-infinite-scrolling">
-        <%= paginate @user_items %>
+        <%= paginate @user_items, param_name: "items_page", params: { anchor: "items"} %>
       </div>
     </div>
 
@@ -70,7 +64,7 @@
         </div>
       </div>
       <div class="checked-out-infinite-scrolling">
-        <%= paginate @cheked_out %>
+        <%= paginate @cheked_out, param_name: "checked_page", params: { anchor: "messages"} %>
       </div>
     </div>
 
@@ -83,7 +77,7 @@
           <% end %>
         </div>
         <div class="overdue-infinite-scrolling">
-          <%= paginate @overdue %>
+          <%= paginate @overdue, param_name: "overdue_page", params: { anchor: "settings"} %>
         </div>
       </div>
       <div id="infinite-scrolling">
@@ -94,6 +88,9 @@
 
   </div>
 </div>
+
+
+
 
 <div id='show-modal-div'>
 </div>

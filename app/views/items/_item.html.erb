@@ -1,31 +1,27 @@
 
 <div class ="item-block user-item-block over-due-item-block checked-out-item search-block">
 
-	<h3><%= item.name %></h3>
+	
 	<div class = "item-avatar img-center">
   	<%= link_to (image_tag item.avatar.url(:medium)), location_item_path(item.location_id, item.id), remote: true %>
   </div>
-  <p>Tags: <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location.id) }.join(', ') %></p>
-
   
   <div class = "divider"></div>
   <div class = "location-info"> 
   	<p class="text-center">
-        <%= link_to "Edit", location_item_path(item.location_id, item.id, btn: 1), method: "get", remote: true, class: "btn btn-primary btn-xs" %>
-        <% if item.is_borrowed %>
-          <%= link_to "Item returned to lender?", location_item_path(item.location_id, item), method: :delete, class: "btn btn-danger btn-xs" %>
-        <% else %>
-          <% if item.is_out? %>
-            <%= link_to "Return", return_item_path(item.id), method: "post", remote: true, class: "btn btn-primary btn-xs return-button-index" %>
-          <% else %>
-            <%= link_to "Lend out this item", location_item_path(item.location_id, item.id, btn: "lend"), class: "btn btn-primary btn-xs lend-button-index", remote: true %>
-          <% end %>
-        <% end %>
+      <h4><%= item.name %></h4>
+      <%= link_to "Edit", location_item_path(item.location_id, item.id, btn: 1), method: "get", remote: true, class: "btn btn-primary btn-xs" %>
 
-        <% if item.records.count > 0 %>
-          <%= link_to "History", location_item_records_path(item.location_id, item), class: "btn btn-primary btn-xs" %>
-        <% end %>
-      </p>
+      <% if item.records.count > 0 %>
+        <%= link_to "History", location_item_records_path(item.location_id, item), class: "btn btn-primary btn-xs" %>
+      <% end %>
+
+      <% if item.is_borrowed %>
+        <%= link_to "Item returned to lender?", location_item_path(item.location_id, item), method: :delete, class: "btn btn-danger btn-xs" %>
+      <% end %>
+    </p>
+
+      <p><span class="tags"> <%= raw item.tag_list.map { |t| link_to t, tag_path(t, item_id: item.id, location_id: item.location.id) }.join(', ') %></span></p>
     </div>
 </div>
 

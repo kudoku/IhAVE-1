@@ -1,8 +1,11 @@
-<section class="parent">
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 display item-block">
-		<div class = "show-image-tile">
-      <h3><%= link_to location.name, location_items_path(location) %></h3>
-      <%= link_to (image_tag location.avatar.url(:medium), class: "img img-responsive img-center"), location_items_path(location)%>
+<div class ="item-block">
+    <h3><%= link_to location.name, location_items_path(location) %></h3>
+    <div class = "item-avatar img-center">
+			<%= link_to (image_tag location.avatar.url(:medium), class: "img img-responsive img-center"), location_items_path(location)%>
 		</div>
-	</div>
-</section>
+    <div class = "location-info">
+    		<%= link_to "Edit location", edit_location_path(location) ,class: "btn btn-warning", remote: true %>
+    		<%= link_to "New item", new_location_item_path(location),class: "btn btn-info", remote: true %>
+    </div>
+
+</div>

@@ -1,12 +1,14 @@
-<h1><%= @location.name.upcase %> Items</h1>
+<h1><%= link_to @location.name.upcase, edit_location_path(@location) %> Items</h1>
 
 <div class="field">
   <%= form_tag(location_item_search_path(@location), method: "get", remote: true) do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag :q, nil, placeholder: 'Search item name/tags' %>
-    <%= submit_tag("Search") %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag :q, nil, placeholder: 'Search item name/tags' %>
+    <%= submit_tag("Search") %>
   <% end %>
+
 </div>
+
 
 <div class="search-results">
   <% if @results %>
@@ -14,16 +16,26 @@
   <% end %>
 </div>
 
-  <div class="container-fluid ">
-    <div class ="row image-tiles">
-      <% @items.each do |item| %>
-          <%= render partial: 'item', locals: {item: item} %>
-      <%end%>
-      <div class="col-xs-12 col-md-4 col-lg-3 display item-block">
-        <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-5x", remote: true %>
-      </div>
+
+
+<div id="masonry_container">
+  <div class ="item-block">
+    <div class = "add-more">
+      <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-5x", remote: true %>
     </div>
   </div>
+  
+  <% @items.each do |item| %>
+
+    <%= render partial: 'item', locals: {item: item} %>
+
+  <%end%>
+</div>
+<div class="items-index-infinite-scrolling">
+  <%= paginate @items %>
+</div>
+
+
 
 
 

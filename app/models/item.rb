@@ -8,6 +8,7 @@ class Item < ActiveRecord::Base
 
   
   has_attached_file :avatar, :styles => { :medium => "250x250!>", :thumb => "100x100>" }, :default_url => "Logo.png"
+
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :name, :description, presence: true
 
@@ -18,15 +19,15 @@ class Item < ActiveRecord::Base
                   # :if => :search_valid?
                   # :if => lambda { |item| item.user_id = current_user.id  }
 
-  paginates_per 12
+  paginates_per 20
 
-  def item_search(search_input)
-    Item.search(search_input)
-  end 
+  # def item_search(search_input)
+  #   Item.search(search_input)
+  # end 
 
-  def search_valid?
-    user_id == current_user.id
-  end
+  # def search_valid?
+  #   user_id == current_user.id
+  # end
 
 
 

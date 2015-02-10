@@ -10,6 +10,13 @@ function bindLendButton(){
 		$('.date').datepicker({
 			dateFormat: 'yy-mm-dd'
 		});
+		$('#new_record').validate({
+			
+			rules: {
+				"record[borrower_name]": { required: true },
+				"record[date_due]": { required: true, date: true }
+			}
+		});
 	});
 }
 

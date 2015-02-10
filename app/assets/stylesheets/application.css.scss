@@ -47,8 +47,9 @@ body {
 	background-color: white ;
 	margin-bottom: 10px;
 	font-size: 18px;
- 
-}
+ }
+
+
 
 .item-block:hover{
 	opacity: 1;
@@ -88,12 +89,17 @@ body {
    
 
 
-#masonry_container, #overdue_items, #checked_out_items, #user_items {
+#masonry_container, #checked_out_items, #user_items {
 	width: 100%;
 	margin: 0 auto;
 	margin-top: 15px;
 }
-
+#overdue_items{
+		width: 100%;
+	margin: 0 auto;
+	margin-top: 15px;
+	border: solid 5px;
+}
 
 .add-more {
   position: relative;

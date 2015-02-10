@@ -99,23 +99,13 @@ body {
 
 
 
-<<<<<<< HEAD
-
-#masonry_container, #overdue_items, #checked_out_items, #user_items, #loc_masonry_container {
-
-=======
 #masonry_container, #overdue_items, #checked_out_items, #user_items, #loc_masonry_container, .search_container {
->>>>>>> 217f21c7d8ad0f6f0044dd0e9c56b6b84354af87
+
 	width: 100%;
 	margin: 0 auto;
 	margin-top: 15px;
 }
-#overdue_items{
-		width: 100%;
-	margin: 0 auto;
-	margin-top: 15px;
-	border: solid 5px;
-}
+
 
 .add-more {
   position: relative;

@@ -7,5 +7,5 @@ class Location < ActiveRecord::Base
 
 	validates :name, presence: true, uniqueness: true, length: { maximum: 16 }
   
-  paginates_per 6
+  paginates_per 7
 end

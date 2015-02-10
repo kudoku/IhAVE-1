@@ -1,8 +1,7 @@
-<div id="masonry_container">
-	<% @results.each do |item| %>
-		<%= render partial: 'items/item', locals: {item: item} %>
-	<%end%>
-</div>
+<% @results.each do |item| %>
+	<%= render partial: 'items/item', locals: {item: item} %>
+<%end%>
+
 
 
 

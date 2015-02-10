@@ -1,4 +1,4 @@
-<div class ="item-block user-item-block over-due-item-block checked-out-item">
+<div class ="item-block user-item-block over-due-item-block checked-out-item search-block">
 	<h3><%= item.name %></h3>
 	<div class = "item-avatar img-center">
   	<%= link_to (image_tag item.avatar.url(:medium)), location_item_path(item.location_id, item.id), remote: true %>

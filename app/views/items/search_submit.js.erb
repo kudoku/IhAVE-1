@@ -2,8 +2,12 @@
 	alert('results found');
 	console.log("<p>Search results:</br>" +
 		"<%= @results.map { |result| result.name }.join('<br/>') %>");
-	$('.search-results').empty().append("<h1>Search results: <%= j params[:q] %></h1><hr>" + "<%= j render 'search_results' %><hr><h1>All Items</h1>");
-
+	// $('.search_container').empty().append("<h1>Search results: <%= j params[:q] %></h1><hr>" + "<%= j render 'search_results' %><hr><h1>All Items</h1>");
+	$('.search_container').empty().prepend("<h3><%= 'Search results: ' %></h3>");
+	var $search = $("<%= j render 'search_results' %>");
+	$('.search_container').isotope( 'insert', $search );
+	// $('#masonry_container').isotope('layout');
+	// $('.search_container').isotope('layout');
 	// $('.search-results').empty().append("<p>Search results: </br>"); 
 	// <% @results.each do |result| %>
 	// 	$('.search-results').append(<%= link_to "#{result}", location_item_path(result.location_id, result.id) %>);
@@ -13,5 +17,5 @@
 <% else %>
 
 	alert('nothing to display');
-	$('.search-results').empty().append("<h1>No results found. Try searching again.</h1><hr>" );		
+	$('.search_container').empty().append("<h1>No results found. Try searching again.</h1><hr>" );		
 <% end %>

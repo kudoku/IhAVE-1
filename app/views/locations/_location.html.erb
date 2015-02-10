@@ -4,7 +4,7 @@
 		</div>
     <h4><%= link_to location.name, location_items_path(location) %></h4>
     <div class = "location-info">
-    		<%= link_to "Edit location", edit_location_path(location),class: "btn btn-warning" %>
+    		<%= link_to "Edit location", edit_location_path(location) ,class: "btn btn-warning", remote: true %>
     		<%= link_to "New item", new_location_item_path(location),class: "btn btn-info", remote: true %>
     </div>
 

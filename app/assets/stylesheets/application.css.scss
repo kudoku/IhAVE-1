@@ -52,8 +52,9 @@ h4 {
 	background-color: white ;
 	margin-bottom: 10px;
 	font-size: 18px;
- 
-}
+ }
+
+
 
 .item-block:hover{
 	opacity: 1;
@@ -104,6 +105,7 @@ h4 {
 
 
 #masonry_container, #overdue_items, #checked_out_items, #user_items, #loc_masonry_container, .search_container {
+
 	width: 100%;
 	margin: 0 auto;
 	margin-top: 15px;

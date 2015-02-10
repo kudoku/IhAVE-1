@@ -13,7 +13,7 @@
           <%= link_to "Item returned to lender?", location_item_path(item.location_id, item), method: :delete, class: "btn btn-danger btn-xs" %>
         <% else %>
           <% if item.is_out? %>
-            <%= link_to "Return", return_item_path(item.id), method: "post", remote: true, class: "btn btn-primary btn-xs", id: "return-button" %>
+            <%= link_to "Return", return_item_path(item.id), method: "post", remote: true, class: "btn btn-primary btn-xs return-button-index" %>
           <% else %>
             <%= link_to "Lend out this item", location_item_path(item.location_id, item.id, btn: "lend"), class: "btn btn-primary btn-xs lend-button-index", remote: true %>
           <% end %>

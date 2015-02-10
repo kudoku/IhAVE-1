@@ -55,7 +55,7 @@ $(function() {
       // options
       itemSelector: '.location-block',
       masonry: {
-        columnWidth: 100,
+        columnWidth: 25,
         gutter: 10,
         isFitWidth: true
       },

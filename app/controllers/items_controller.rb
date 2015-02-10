@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
       @items = current_user.items.tagged_with(params[:tag])
       @items = @items.page(params[:page])
     end
+      @items = @items.page(params[:page])
     @user = current_user
   end
 

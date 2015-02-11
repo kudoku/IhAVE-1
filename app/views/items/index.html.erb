@@ -2,7 +2,7 @@
 
 <div class="field">
   <%= form_tag(location_item_search_path(@location), method: "get", remote: true) do %>
-    <%= label_tag(:q, "Search for:") %>
+    
     <%= text_field_tag :q, nil, placeholder: 'Search item name/tags' %>
     <%= submit_tag("Search") %>
   <% end %>

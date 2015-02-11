@@ -26,7 +26,7 @@
 //= require jquery-ui/autocomplete
 
 
-//= require jquery.infinite-pages
+
 //= require jquery.validate.min
 //= require tag-it
 //= require isotope.min.js

@@ -43,7 +43,9 @@ RSpec.describe ItemsController, :type => :controller do
     end
       context 'Item update is invalid' do
         subject {patch :update, id: item.id, location_id: location.id, item: { name: nil, description: 'hi I am a test' }}
-        it { should render_template(:partial => '_edit.html.erb') }
+        it "sould render the new template" do 
+          expect(subject).to have_http_status(:redirect)
+        end
 
     end
 
@@ -88,4 +90,12 @@ RSpec.describe ItemsController, :type => :controller do
       expect(Item.count).to eql(count-1)
     end
   end
+   describe "item can have taggs" do
+      it "will sort items by tags" do 
+        
+        get :tag, location_id: item.location_id, item_id: item.id, tag: "test" 
+        expect(@item.first.tag_list).to eql("test")
+      end
+   end
+
 end

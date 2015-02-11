@@ -4,10 +4,23 @@
     </div>
     <div class = "item-info">
 
-      <h3>Description: &nbsp; <%=  @item.description %></h4>
-      <h3>Price: &nbsp; <%=@item.price %></h3>
-      <%= @item.tag_list %>
-      <h3>Quantity: &nbsp;  <%=@item.quantity %></h3>
+      <div class = "center-box">
+        
+        <h4>
+          Description: &nbsp;
+          <span class = "item-value"> <%=@item.description %> </span>
+        </h4>
+        
+        <h4>
+          Price: &nbsp;
+          <span class = "item-value"> <%=@item.price %> </span> 
+        </h4>
+        
+        <h4>Quantity: &nbsp; 
+          <span class = "item-value"> <%=@item.quantity %> </span> 
+        </h4>        
+        <p><%= @item.tag_list %></p>
+      </div>
 
       <% if @edit.nil? && @lend.nil? %>
         <p class="text-center">

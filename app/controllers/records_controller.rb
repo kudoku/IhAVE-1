@@ -21,6 +21,7 @@ class RecordsController < ApplicationController
           if !@record.borrower_email.empty? && @item.is_out
 
             ReminderMailer.delay(run_at: @item.records.last.date_due - 2.days).reminder_email_borrower(@record)
+
           end
           flash[:success] = "Item #{@item.name} has been lent out."
           redirect_to location_items_path(@location)

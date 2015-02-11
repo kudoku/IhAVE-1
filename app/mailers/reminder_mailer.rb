@@ -1,12 +1,12 @@
 class ReminderMailer < ActionMailer::Base
-  default from: "thebest@youknowwho.com"
+  default from: "park.joonw@gmail.com"
 
 
   def reminder_email_borrower(record)
 
     @record = record
     
-    mail(to: @record.borrower_email, subject: "Friendly Reminder to Return #{@record.item.name} to #{@record.item.user.username}")
+    mail(from: @record.item.user.email, to: @record.borrower_email, subject: "Friendly Reminder to Return #{@record.item.name} to #{@record.item.user.username}")
     
   end
 
@@ -15,6 +15,6 @@ class ReminderMailer < ActionMailer::Base
 
     @item = item
 
-    mail(to: @item.user.email, subject: "Friendly Reminder to Return #{@item.name} to #{@item.borrowed_from}")
+    mail(from: @item.user.email, to: @item.user.email, subject: "Friendly Reminder to Return #{@item.name} to #{@item.borrowed_from}")
   end
 end

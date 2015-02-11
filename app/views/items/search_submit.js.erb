@@ -1,5 +1,5 @@
 <% if !@results.empty? %>
-	alert('results found');
+
 	console.log("<p>Search results:</br>" +
 		"<%= @results.map { |result| result.name }.join('<br/>') %>");
 	// $('.search_container').empty().append("<h1>Search results: <%= j params[:q] %></h1><hr>" + "<%= j render 'search_results' %><hr><h1>All Items</h1>");
@@ -17,6 +17,6 @@
 
 <% else %>
 
-	alert('nothing to display');
+
 	$('.search_container').empty().append("<h1>No results found. Try searching again.</h1><hr>" );		
 <% end %>

@@ -20,23 +20,25 @@
 </div>
 
 
-
-<div id="masonry_container">
-  <div class ="item-block">
-    <div class = "add-more">
-      <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-5x", remote: true %>
-    </div>
-  </div>
+<div class="container-fluid">
   
-  <% @items.each do |item| %>
+  <div id="masonry_container">
+    <div class ="item-block">
+      <div class = "add-more">
+        <%= link_to '', new_location_item_path(@location,@item), class:"fa fa-plus fa-5x", remote: true %>
+      </div>
+    </div>
+    
+    <% @items.each do |item| %>
 
-    <%= render partial: 'item', locals: {item: item} %>
+      <%= render partial: 'item', locals: {item: item} %>
 
-  <%end%>
-</div>
-  <div class="items-index-infinite-scrolling">
-    <%= paginate @items %>
+    <%end%>
   </div>
+    <div class="items-index-infinite-scrolling">
+      <%= paginate @items %>
+    </div>
+</div>
 
 
 

@@ -7,14 +7,14 @@
 // 	// var $search = $("<%= j render 'search_results' %>");
 // 	// $('.search_container').isotope( 'insert', $search );
 
-$('#masonry_container').append("<%= j render @items %>");
+// $('#masonry_container').append("<%= j render @items %>");
 
-<% if @items.last_page? %>
-  $(window).off('scroll');
-  $('.pagination').remove();
-<% else %>
-  $('.pagination').replaceWith('<%= j paginate @items %>');
-<% end %>
-<% sleep 0.8 %>
+// <% if @items.last_page? %>
+//   $(window).off('scroll');
+//   $('.pagination').remove();
+// <% else %>
+//   $('.pagination').replaceWith('<%= j paginate @items %>');
+// <% end %>
+// <% sleep 0.8 %>
 
 

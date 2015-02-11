@@ -1,8 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
-
+n = 0
 FactoryGirl.define do
+	sequence :name do |n|
+    "name#{n}"
+  end
+
   factory :location, class: Location do
-  	name "name"
+  	name 
   	description "MyString"
     user
   end

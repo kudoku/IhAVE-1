@@ -6,6 +6,7 @@ FactoryGirl.define do
   	name 'name'
   	description 'MyString'
   	is_out 'false'
+  	tag_list "test"
 		user
 		location
   end

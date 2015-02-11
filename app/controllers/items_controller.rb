@@ -127,7 +127,7 @@ class ItemsController < ApplicationController
     end
 
     def set_location
-      @location = current_user.locations.find(params[:location_id])
+      @location = Location.find(params[:location_id])
     end
 
     def set_items
@@ -135,7 +135,7 @@ class ItemsController < ApplicationController
     end
 
     def set_item
-      @item =  current_user.items.find_by(id: params[:id])
+      @item =  Item.find_by(id: params[:id])
     end
 
     def item_params

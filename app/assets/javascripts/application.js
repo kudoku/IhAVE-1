@@ -140,20 +140,20 @@ $(function() {
     });
   });
 
-  var $masonry_container = $('#masonry_container').imagesLoaded( function() {
-    // init
-    $masonry_container.isotope({
-      // options
-      itemSelector: '.record-block',
-      masonry: {
-        columnWidth: 100,
-        gutter: 5,
-        isFitWidth: true
-      },
+  // var $masonry_container = $('#masonry_container').imagesLoaded( function() {
+  //   // init
+  //   $masonry_container.isotope({
+  //     // options
+  //     itemSelector: '.record-block',
+  //     masonry: {
+  //       columnWidth: 100,
+  //       gutter: 5,
+  //       isFitWidth: true
+  //     },
 
-      layoutMode: 'masonry'
-    });
-  });
+  //     layoutMode: 'masonry'
+  //   });
+  // });
 
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     // $masonry_container.isotope('reLayout');

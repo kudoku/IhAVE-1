@@ -3,7 +3,6 @@
       <%= image_tag @item.avatar.url(:medium) %>
     </div>
     <div class = "item-info">
-
       <div class = "center-box">
         
         <h4>
@@ -25,7 +24,7 @@
       <% if @edit.nil? && @lend.nil? %>
         <p class="text-center">
           <% unless @item.is_borrowed %>
-            <%= link_to " Delete", location_item_path(@location, @item), method: :delete, class: "fa fa-trash-o fa-lg btn btn-danger btn-s" %>
+            <%= link_to " Delete", location_item_path(@location, @item), method: :delete, class: "fa fa-trash-o fa-lg btn btn-danger btn-s delete", data: {confirm: "Are you sure?"} %>
           <% end %>
 
             <%= link_to "Edit", edit_location_item_path(@location, @item), method: "get", remote: true, class: "btn btn-primary btn-s edit-show" %>

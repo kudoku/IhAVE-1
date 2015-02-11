@@ -1,5 +1,5 @@
 class ReminderMailer < ActionMailer::Base
-  default from: "thebest@youknowwho.com"
+  default from: "ihavetest@gmail.com"
 
 
   def reminder_email_borrower(record)

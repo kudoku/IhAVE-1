@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
          
-            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-inverse" %></li> 
+            
           
 
           <li>
@@ -48,6 +48,7 @@
           </li>
           <!-- end dropdown button -->
           
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-inverse navbar-right" %></li> 
         
          
         <% else %>

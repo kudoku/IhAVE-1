@@ -1,7 +1,7 @@
 <div class="">
   <%= bootstrap_form_for [@location, @item], layout: :horizontal do |f| %>
     <%= f.file_field :avatar, label: "Upload image", label_class: "new-item-form" %>
-    <%= f.text_field :name, label: "Name", label_class: "new-item-form", placeholder: "2-16 characters long" %>
+    <%= f.text_field :name, label: "Name", label_class: "new-item-form", placeholder: "1-24 characters long" %>
     <%= f.text_area :description, label: "Description", label_class: "new-item-form" %>
     <%= f.text_field :price, label: "Price", label_class: "new-item-form" %>
     <%= f.number_field :quantity, label: "Quantity", label_class: "new-item-form" %>

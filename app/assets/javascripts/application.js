@@ -155,6 +155,21 @@ $(function() {
   //   });
   // });
 
+  var $record_container = $('record_container').imagesLoaded( function() {
+    // init
+    $record_container.isotope({
+      // options
+      itemSelector: '.record-block',
+      masonry: {
+        columnWidth: 25,
+        gutter: 10,
+        isFitWidth: true
+      },
+
+      layoutMode: 'masonry'
+    });
+  });
+
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     // $masonry_container.isotope('reLayout');
     // $user_items.isotope('reLayout');

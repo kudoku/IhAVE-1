@@ -4,10 +4,10 @@
    <h2><% if @display_borrower_name %>
    		Currently loaned out to: <%= @display_borrower_name %>
 		<% end %></h2>
-  <div id ="masonry_container">
+  <div id ="record_container">
   
 		<% @records.each_with_index do |record, index| %>
-			<div class="col-xs-12 col-md-4 col-lg-3 display record-block item">
+			<div class="col-xs-12 col-md-4 col-lg-3 display record-block">
 				<p>Record #: <%= index+1 %></p>
 				<p>Borrower Name: <%= record.borrower_name %></p>
 				<p>Date due: <%= record.date_due %></p>
